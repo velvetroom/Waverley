@@ -7,7 +7,5 @@ import Cocoa
     
     func applicationDidFinishLaunching(_:Notification) {
         Application.window = NSApp.windows.first
-        Application.window.isOpaque = false
-        Application.window.backgroundColor = NSColor.windowBackgroundColor.withAlphaComponent(0.9)
     }
 }
