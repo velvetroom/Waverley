@@ -664,7 +664,7 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Waverley" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA">
+                    <window key="window" title="Waverley" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" titleVisibility="hidden" id="IQv-IB-iLA" customClass="Window" customModule="Waverley">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="400" height="200"/>
@@ -672,10 +672,25 @@
                         <value key="minSize" type="size" width="200" height="100"/>
                         <toolbar key="toolbar" implicitIdentifier="7433F2CF-9047-4B68-BD44-E8C3DF72634C" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="small" id="bKW-be-F5z">
                             <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="076FC2E7-335F-4620-A595-03C48C00CEFF" label="List" paletteLabel="List" image="list" sizingBehavior="auto" id="xQb-sD-pfb">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="YLe-ca-YzT">
+                                        <rect key="frame" x="0.0" y="14" width="40" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="list" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="iAP-Cv-EdD">
+                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="toggleWithList:" target="IQv-IB-iLA" id="YR5-HE-knI"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="i9F-wP-hvd"/>
                                 <toolbarItem implicitItemIdentifier="55349EDB-0C22-43B4-9137-AB689DE12BB1" label="Display" paletteLabel="Display" tag="-1" id="zlO-WL-t9m">
                                     <nil key="toolTip"/>
-                                    <size key="minSize" width="50" height="20"/>
-                                    <size key="maxSize" width="250" height="20"/>
+                                    <size key="minSize" width="20" height="20"/>
+                                    <size key="maxSize" width="200" height="20"/>
                                     <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" id="xgC-Xj-MWn">
                                         <rect key="frame" x="0.0" y="14" width="100" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -690,6 +705,8 @@
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="zlO-WL-t9m"/>
+                                <toolbarItem reference="i9F-wP-hvd"/>
+                                <toolbarItem reference="xQb-sD-pfb"/>
                             </defaultToolbarItems>
                         </toolbar>
                         <connections>
@@ -701,6 +718,7 @@
                     </connections>
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+                <userDefaultsController representsSharedInstance="YES" id="fog-pH-N3E"/>
             </objects>
             <point key="canvasLocation" x="42" y="41"/>
         </scene>
@@ -718,4 +736,7 @@
             <point key="canvasLocation" x="135" y="499"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="list" width="22" height="15"/>
+    </resources>
 </document>

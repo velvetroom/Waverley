@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		DA1E532821A6B0A200A5A680 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532721A6B0A200A5A680 /* View.swift */; };
 		DA1E532A21A6DBBC00A5A680 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532921A6DBBC00A5A680 /* DisplayView.swift */; };
+		DA1E532C21A6FDE800A5A680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1E532B21A6FDE800A5A680 /* Assets.xcassets */; };
+		DA1E532E21A704BD00A5A680 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532D21A704BD00A5A680 /* Window.swift */; };
 		DA76266121A6A195009EBF8F /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76266021A6A195009EBF8F /* Application.swift */; };
 		DA76266721A6A1B4009EBF8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76266421A6A1A8009EBF8F /* Main.storyboard */; };
 		DA76266821A6A1B9009EBF8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76266621A6A1A8009EBF8F /* LaunchScreen.storyboard */; };
@@ -62,6 +64,8 @@
 /* Begin PBXFileReference section */
 		DA1E532721A6B0A200A5A680 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DA1E532921A6DBBC00A5A680 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
+		DA1E532B21A6FDE800A5A680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DA1E532D21A704BD00A5A680 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		DA76265A21A69D94009EBF8F /* libMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA76265B21A69D94009EBF8F /* libDesktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDesktop.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA76265C21A69D94009EBF8F /* Waverley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waverley.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,6 +146,7 @@
 			children = (
 				DA76267521A6A228009EBF8F /* Localizable.strings */,
 				DA76266421A6A1A8009EBF8F /* Main.storyboard */,
+				DA1E532B21A6FDE800A5A680 /* Assets.xcassets */,
 			);
 			path = Desktop;
 			sourceTree = "<group>";
@@ -159,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				DA76266A21A6A1D0009EBF8F /* Application.swift */,
+				DA1E532D21A704BD00A5A680 /* Window.swift */,
 				DA1E532721A6B0A200A5A680 /* View.swift */,
 				DA1E532921A6DBBC00A5A680 /* DisplayView.swift */,
 			);
@@ -384,6 +390,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA76266721A6A1B4009EBF8F /* Main.storyboard in Resources */,
+				DA1E532C21A6FDE800A5A680 /* Assets.xcassets in Resources */,
 				DA76267721A6A228009EBF8F /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -430,6 +437,7 @@
 				DA1E532821A6B0A200A5A680 /* View.swift in Sources */,
 				DA1E532A21A6DBBC00A5A680 /* DisplayView.swift in Sources */,
 				DA76266B21A6A1D0009EBF8F /* Application.swift in Sources */,
+				DA1E532E21A704BD00A5A680 /* Window.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

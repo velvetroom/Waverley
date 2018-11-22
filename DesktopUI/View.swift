@@ -3,6 +3,14 @@ import Cocoa
 class View:NSView, NSTextViewDelegate {
     private weak var text:NSTextView!
     
+    func showList() {
+        print("show list")
+    }
+    
+    func hideList() {
+        print("hide list")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         makeOutlets()
