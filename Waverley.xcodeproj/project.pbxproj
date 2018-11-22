@@ -60,8 +60,8 @@
 /* Begin PBXFileReference section */
 		DA76265A21A69D94009EBF8F /* libMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA76265B21A69D94009EBF8F /* libDesktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDesktop.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA76265C21A69D94009EBF8F /* MobileUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MobileUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA76265D21A69D94009EBF8F /* DesktopUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DesktopUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA76265C21A69D94009EBF8F /* Waverley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waverley.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA76265D21A69D94009EBF8F /* Waverley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waverley.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA76266021A6A195009EBF8F /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		DA76266421A6A1A8009EBF8F /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		DA76266621A6A1A8009EBF8F /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -203,8 +203,8 @@
 				DAAF3CEB21A697D400974F6A /* Tests.xctest */,
 				DA76265A21A69D94009EBF8F /* libMobile.a */,
 				DA76265B21A69D94009EBF8F /* libDesktop.a */,
-				DA76265C21A69D94009EBF8F /* MobileUI.app */,
-				DA76265D21A69D94009EBF8F /* DesktopUI.app */,
+				DA76265C21A69D94009EBF8F /* Waverley.app */,
+				DA76265D21A69D94009EBF8F /* Waverley.app */,
 			);
 			sourceTree = "<group>";
 		};
@@ -288,7 +288,7 @@
 			);
 			name = MobileUI;
 			productName = MobileUI;
-			productReference = DA76265C21A69D94009EBF8F /* MobileUI.app */;
+			productReference = DA76265C21A69D94009EBF8F /* Waverley.app */;
 			productType = "com.apple.product-type.application";
 		};
 		DABA311721A696D00026BAB2 /* DesktopUI */ = {
@@ -306,7 +306,7 @@
 			);
 			name = DesktopUI;
 			productName = DesktopUI;
-			productReference = DA76265D21A69D94009EBF8F /* DesktopUI.app */;
+			productReference = DA76265D21A69D94009EBF8F /* Waverley.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -928,7 +928,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.Waverley;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Waverley;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -989,7 +989,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.Waverley;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Waverley;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
@@ -1061,7 +1061,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.Waverley;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Waverley;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1124,7 +1124,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = iturbide.Waverley;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Waverley;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
