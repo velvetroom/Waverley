@@ -1,13 +1,13 @@
 import Cocoa
 
-@NSApplicationMain
-class AppDelegate:NSObject, NSApplicationDelegate {
+@NSApplicationMain class Application:NSObject, NSApplicationDelegate {
+    private(set) static weak var window:NSWindow!
 
-    func applicationDidFinishLaunching(_ aNotification:Notification) {
-        
-    }
-
-    func applicationWillTerminate(_ aNotification:Notification) {
-        
+    func applicationShouldTerminateAfterLastWindowClosed(_:NSApplication) -> Bool { return true }
+    
+    func applicationDidFinishLaunching(_:Notification) {
+        Application.window = NSApp.windows.first
+        Application.window.isOpaque = false
+        Application.window.backgroundColor = NSColor.windowBackgroundColor.withAlphaComponent(0.9)
     }
 }
