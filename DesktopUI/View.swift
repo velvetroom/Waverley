@@ -4,6 +4,7 @@ class View:NSView, NSTextViewDelegate {
     private weak var text:NSTextView!
     private weak var list:NSScrollView!
     private weak var listWidth:NSLayoutConstraint!
+    private let presenter = Presenter()
     
     func showList() {
         listWidth.constant = 120
@@ -18,6 +19,8 @@ class View:NSView, NSTextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         makeOutlets()
+        presenter.update = { _ in }
+        presenter.load()
     }
     
     private func makeOutlets() {

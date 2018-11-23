@@ -1,5 +1,5 @@
 import Foundation
 
 public class Note:Codable {
-    var id = String()
+    public internal(set) var id = String()
 }
