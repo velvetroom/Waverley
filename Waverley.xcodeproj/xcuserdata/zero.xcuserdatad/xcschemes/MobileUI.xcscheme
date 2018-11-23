@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "DABA310121A696B40026BAB2"
-               BuildableName = "MobileUI.app"
+               BuildableName = "Waverley.app"
                BlueprintName = "MobileUI"
                ReferencedContainer = "container:Waverley.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DABA310121A696B40026BAB2"
-            BuildableName = "MobileUI.app"
+            BuildableName = "Waverley.app"
             BlueprintName = "MobileUI"
             ReferencedContainer = "container:Waverley.xcodeproj">
          </BuildableReference>
@@ -56,7 +56,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DABA310121A696B40026BAB2"
-            BuildableName = "MobileUI.app"
+            BuildableName = "Waverley.app"
             BlueprintName = "MobileUI"
             ReferencedContainer = "container:Waverley.xcodeproj">
          </BuildableReference>
@@ -75,7 +75,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "DABA310121A696B40026BAB2"
-            BuildableName = "MobileUI.app"
+            BuildableName = "Waverley.app"
             BlueprintName = "MobileUI"
             ReferencedContainer = "container:Waverley.xcodeproj">
          </BuildableReference>

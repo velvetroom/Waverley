@@ -2,13 +2,17 @@ import Cocoa
 
 class View:NSView, NSTextViewDelegate {
     private weak var text:NSTextView!
+    private weak var list:NSScrollView!
+    private weak var listWidth:NSLayoutConstraint!
     
     func showList() {
-        print("show list")
+        listWidth.constant = 120
+        animateConstraints()
     }
     
     func hideList() {
-        print("hide list")
+        listWidth.constant = 0
+        animateConstraints()
     }
     
     override func awakeFromNib() {
@@ -37,9 +41,41 @@ class View:NSView, NSTextViewDelegate {
         scrollText.documentView = text
         self.text = text
         
+        let blur = NSVisualEffectView(frame:.zero)
+        blur.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(blur)
+        
+        let list = NSScrollView(frame:.zero)
+        list.drawsBackground = false
+        list.translatesAutoresizingMaskIntoConstraints = false
+        list.hasVerticalScroller = true
+        list.documentView = DocumentView()
+        (list.documentView! as! DocumentView).autoLayout()
+        addSubview(list)
+        self.list = list
+        
         scrollText.topAnchor.constraint(equalTo:topAnchor, constant:38).isActive = true
-        scrollText.leftAnchor.constraint(equalTo:leftAnchor).isActive = true
+        scrollText.leftAnchor.constraint(equalTo:list.rightAnchor).isActive = true
         scrollText.rightAnchor.constraint(equalTo:rightAnchor).isActive = true
         scrollText.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
+        
+        blur.topAnchor.constraint(equalTo:list.topAnchor).isActive = true
+        blur.bottomAnchor.constraint(equalTo:list.bottomAnchor).isActive = true
+        blur.leftAnchor.constraint(equalTo:list.leftAnchor).isActive = true
+        blur.rightAnchor.constraint(equalTo:list.rightAnchor).isActive = true
+        
+        list.topAnchor.constraint(equalTo:scrollText.topAnchor).isActive = true
+        list.leftAnchor.constraint(equalTo:leftAnchor).isActive = true
+        list.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
+        listWidth = list.widthAnchor.constraint(equalToConstant:0)
+        listWidth.isActive = true
+    }
+    
+    private func animateConstraints() {
+        NSAnimationContext.runAnimationGroup { [weak self] context in
+            context.duration = 0.33
+            context.allowsImplicitAnimation = true
+            self?.layoutSubtreeIfNeeded()
+        }
     }
 }
