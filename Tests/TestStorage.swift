@@ -1,5 +1,5 @@
 import XCTest
-@testable import Mobile
+@testable import Desktop
 
 class TestStorage:XCTestCase {
     private var repository:Repository!

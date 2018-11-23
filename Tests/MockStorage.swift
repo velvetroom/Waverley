@@ -1,5 +1,5 @@
 import Foundation
-@testable import Mobile
+@testable import Desktop
 
 class MockStorage:Storage {
     var onAccount:(() -> Void)?

@@ -1,5 +1,5 @@
 import XCTest
-@testable import Mobile
+@testable import Desktop
 
 class TestFactory:XCTestCase {
     func testRepositoryMonostate() {

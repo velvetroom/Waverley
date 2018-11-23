@@ -1,5 +1,5 @@
 import XCTest
-@testable import Mobile
+@testable import Desktop
 
 class TestNote:XCTestCase {
     private let json = "{\"id\":\"lorem ipsum\"}"
