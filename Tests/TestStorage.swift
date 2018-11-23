@@ -11,6 +11,10 @@ class TestStorage:XCTestCase {
         Factory.storage = storage
     }
     
+    override func tearDown() {
+        Factory.storage = nil
+    }
+    
     func testLoadGetsAccount() {
         let expect = expectation(description:String())
         storage.onAccount = { expect.fulfill() }
@@ -34,6 +38,20 @@ class TestStorage:XCTestCase {
             expect.fulfill()
         }
         repository.load()
+        waitForExpectations(timeout:1)
+    }
+    
+    func testNewNoteSavesAccount() {
+        let expect = expectation(description:String())
+        storage.onSaveAccount = { expect.fulfill() }
+        repository.newNote()
+        waitForExpectations(timeout:1)
+    }
+    
+    func testNewNoteSavesNote() {
+        let expect = expectation(description:String())
+        storage.onSaveNote = { expect.fulfill() }
+        repository.newNote()
         waitForExpectations(timeout:1)
     }
 }
