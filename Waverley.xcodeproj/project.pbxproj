@@ -33,6 +33,12 @@
 		DACE75B121A83EEE00B704C3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B021A83EEE00B704C3 /* Storage.swift */; };
 		DACE75B221A83EEE00B704C3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B021A83EEE00B704C3 /* Storage.swift */; };
 		DACE75B421A83F0F00B704C3 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B321A83F0F00B704C3 /* MockStorage.swift */; };
+		DACE75B621A852C100B704C3 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B521A852C100B704C3 /* Account.swift */; };
+		DACE75B721A852C100B704C3 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B521A852C100B704C3 /* Account.swift */; };
+		DACE75B921A856AB00B704C3 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B821A856AB00B704C3 /* Exception.swift */; };
+		DACE75BA21A856AB00B704C3 /* Exception.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B821A856AB00B704C3 /* Exception.swift */; };
+		DACE75BC21A85B6D00B704C3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75BB21A85B6D00B704C3 /* Note.swift */; };
+		DACE75BD21A85B6D00B704C3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75BB21A85B6D00B704C3 /* Note.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +103,9 @@
 		DACE75AE21A83E2500B704C3 /* TestStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestStorage.swift; sourceTree = "<group>"; };
 		DACE75B021A83EEE00B704C3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DACE75B321A83F0F00B704C3 /* MockStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
+		DACE75B521A852C100B704C3 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		DACE75B821A856AB00B704C3 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
+		DACE75BB21A85B6D00B704C3 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +241,9 @@
 				DACE75A621A83CD700B704C3 /* Repository.swift */,
 				DACE75AB21A83D3700B704C3 /* Factory.swift */,
 				DACE75B021A83EEE00B704C3 /* Storage.swift */,
+				DACE75B521A852C100B704C3 /* Account.swift */,
+				DACE75BB21A85B6D00B704C3 /* Note.swift */,
+				DACE75B821A856AB00B704C3 /* Exception.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -419,8 +431,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACE75AC21A83D3700B704C3 /* Factory.swift in Sources */,
+				DACE75B921A856AB00B704C3 /* Exception.swift in Sources */,
+				DACE75B621A852C100B704C3 /* Account.swift in Sources */,
 				DACE75A721A83CD700B704C3 /* Repository.swift in Sources */,
 				DACE75B121A83EEE00B704C3 /* Storage.swift in Sources */,
+				DACE75BC21A85B6D00B704C3 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,8 +444,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DACE75AD21A83D3700B704C3 /* Factory.swift in Sources */,
+				DACE75BA21A856AB00B704C3 /* Exception.swift in Sources */,
+				DACE75B721A852C100B704C3 /* Account.swift in Sources */,
 				DACE75A821A83CD700B704C3 /* Repository.swift in Sources */,
 				DACE75B221A83EEE00B704C3 /* Storage.swift in Sources */,
+				DACE75BD21A85B6D00B704C3 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
