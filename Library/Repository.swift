@@ -16,6 +16,7 @@ public class Repository {
     public func newNote() {
         let note = Note()
         note.id = UUID().uuidString
+        note.created = Date().timeIntervalSince1970
         account.notes.append(note.id)
         notes[note.id] = note
         Factory.storage.save(account)

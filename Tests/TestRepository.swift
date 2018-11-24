@@ -14,9 +14,11 @@ class TestRepository:XCTestCase {
     }
     
     func testNewNote() {
+        let created = Date().timeIntervalSince1970
         repository.newNote()
         XCTAssertEqual(1, repository.notes.count)
         XCTAssertFalse(repository.notes.values.first!.id.isEmpty)
+        XCTAssertGreaterThanOrEqual(repository.notes.values.first!.created, created)
         XCTAssertEqual(repository.notes.values.first!.id, repository.notes.keys.first!)
         XCTAssertEqual(repository.notes.values.first!.id, repository.account.notes.first!)
     }

@@ -2,9 +2,13 @@ import XCTest
 @testable import Desktop
 
 class TestNote:XCTestCase {
-    private let json = "{\"id\":\"lorem ipsum\"}"
     private var data:Data!
-
+    private let json = """
+{
+"id":"lorem ipsum",
+"created": 123.0
+}
+"""
     override func setUp() {
         data = json.data(using:.utf8)
     }
