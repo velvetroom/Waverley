@@ -11,6 +11,7 @@
 		DA1E532A21A6DBBC00A5A680 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532921A6DBBC00A5A680 /* DisplayView.swift */; };
 		DA1E532C21A6FDE800A5A680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1E532B21A6FDE800A5A680 /* Assets.xcassets */; };
 		DA1E532E21A704BD00A5A680 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532D21A704BD00A5A680 /* Window.swift */; };
+		DA738C5321A9B06D00E51D93 /* TestEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA738C5221A9B06D00E51D93 /* TestEditing.swift */; };
 		DA76266121A6A195009EBF8F /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76266021A6A195009EBF8F /* Application.swift */; };
 		DA76266721A6A1B4009EBF8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76266421A6A1A8009EBF8F /* Main.storyboard */; };
 		DA76266821A6A1B9009EBF8F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76266621A6A1A8009EBF8F /* LaunchScreen.storyboard */; };
@@ -84,6 +85,7 @@
 		DA1E532921A6DBBC00A5A680 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		DA1E532B21A6FDE800A5A680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA1E532D21A704BD00A5A680 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		DA738C5221A9B06D00E51D93 /* TestEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEditing.swift; sourceTree = "<group>"; };
 		DA76265A21A69D94009EBF8F /* libMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA76265B21A69D94009EBF8F /* libDesktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDesktop.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA76265C21A69D94009EBF8F /* Waverley.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Waverley.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -261,6 +263,7 @@
 				DACE75D221A866AE00B704C3 /* TestStorage.swift */,
 				DACE75D321A866AE00B704C3 /* TestNote.swift */,
 				DACE75D421A866AE00B704C3 /* TestRepository.swift */,
+				DA738C5221A9B06D00E51D93 /* TestEditing.swift */,
 				DACE75D121A866AE00B704C3 /* MockStorage.swift */,
 			);
 			path = Tests;
@@ -497,6 +500,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA738C5321A9B06D00E51D93 /* TestEditing.swift in Sources */,
 				DACE75D621A866AE00B704C3 /* MockStorage.swift in Sources */,
 				DACE75D721A866AE00B704C3 /* TestStorage.swift in Sources */,
 				DACE75D521A866AE00B704C3 /* TestFactory.swift in Sources */,

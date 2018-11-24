@@ -6,7 +6,7 @@ class TestStorage:XCTestCase {
     private var storage:MockStorage!
 
     override func setUp() {
-        repository = Factory.makeRepository()
+        repository = Repository()
         storage = MockStorage()
         Factory.storage = storage
     }

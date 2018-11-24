@@ -22,4 +22,18 @@ class TestRepository:XCTestCase {
         XCTAssertEqual(repository.notes.values.first!.id, repository.notes.keys.first!)
         XCTAssertEqual(repository.notes.values.first!.id, repository.account.notes.first!)
     }
+    
+    func testNewNoteCreatesIfNewestHasNoContent() {
+        repository.newNote()
+        repository.newNote()
+        XCTAssertEqual(1, repository.notes.count)
+    }
+    
+    func testNewNoteCreatesIfNewestHasContent() {
+        repository.newNote()
+        let note = repository.notes.values.first!
+        note.content = "hello world"
+        repository.newNote()
+        XCTAssertEqual(2, repository.notes.count)
+    }
 }

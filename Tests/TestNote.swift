@@ -6,7 +6,8 @@ class TestNote:XCTestCase {
     private let json = """
 {
 "id":"lorem ipsum",
-"created": 123.0
+"created": 123.0,
+"content": "hello world"
 }
 """
     override func setUp() {
@@ -16,5 +17,7 @@ class TestNote:XCTestCase {
     func testParsing() {
         let note = try! JSONDecoder().decode(Note.self, from:data)
         XCTAssertEqual("lorem ipsum", note.id)
+        XCTAssertEqual(123.0, note.created)
+        XCTAssertEqual("hello world", note.content)
     }
 }
