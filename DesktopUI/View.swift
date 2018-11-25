@@ -2,10 +2,10 @@ import Cocoa
 import Desktop
 
 class View:NSView, NSTextViewDelegate {
+    let presenter = Presenter()
     private weak var text:NSTextView!
     private weak var list:NSScrollView!
     private weak var listWidth:NSLayoutConstraint!
-    private let presenter = Presenter()
     
     func showList() {
         listWidth.constant = 120

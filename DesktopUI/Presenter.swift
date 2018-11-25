@@ -39,6 +39,13 @@ class Presenter {
         update(selected.note, content:content)
     }
     
+    func new() {
+        timer?.fire()
+        let note = repository.editing()
+        updateNotes()
+        select(note)
+    }
+    
     private func updateNotes() {
         notes(repository.notes.values.sorted(by: { $0.created > $1.created }))
     }

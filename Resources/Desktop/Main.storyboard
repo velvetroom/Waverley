@@ -686,19 +686,33 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="40FBC641-DD02-46B1-BE51-16E857082EEC" label="New" paletteLabel="New" image="new" sizingBehavior="auto" id="CKJ-ZA-ibH" userLabel="New">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="jbQ-s3-2i7">
+                                        <rect key="frame" x="0.0" y="14" width="40" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="new" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="2rw-ti-f71">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="newWithNote:" target="IQv-IB-iLA" id="E7B-OH-dt2"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="i9F-wP-hvd"/>
                                 <toolbarItem implicitItemIdentifier="55349EDB-0C22-43B4-9137-AB689DE12BB1" label="Display" paletteLabel="Display" tag="-1" id="zlO-WL-t9m">
                                     <nil key="toolTip"/>
                                     <size key="minSize" width="20" height="20"/>
-                                    <size key="maxSize" width="200" height="20"/>
-                                    <box key="view" boxType="custom" borderType="none" cornerRadius="4" title="Box" titlePosition="noTitle" id="xgC-Xj-MWn">
+                                    <size key="maxSize" width="200" height="26"/>
+                                    <box key="view" focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" cornerRadius="4" title="Box" titlePosition="noTitle" id="xgC-Xj-MWn">
                                         <rect key="frame" x="0.0" y="14" width="100" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" id="7yV-K4-4IZ">
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         </view>
-                                        <color key="borderColor" name="underPageBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="borderColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <color key="fillColor" name="alternatingContentBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </box>
                                 </toolbarItem>
@@ -706,6 +720,7 @@
                             <defaultToolbarItems>
                                 <toolbarItem reference="zlO-WL-t9m"/>
                                 <toolbarItem reference="i9F-wP-hvd"/>
+                                <toolbarItem reference="CKJ-ZA-ibH"/>
                                 <toolbarItem reference="xQb-sD-pfb"/>
                             </defaultToolbarItems>
                         </toolbar>
@@ -738,5 +753,6 @@
     </scenes>
     <resources>
         <image name="list" width="22" height="15"/>
+        <image name="new" width="22" height="15"/>
     </resources>
 </document>

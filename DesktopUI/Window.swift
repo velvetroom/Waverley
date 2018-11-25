@@ -10,4 +10,8 @@ class Window:NSWindow {
             view.hideList()
         }
     }
+    
+    @IBAction private func new(note:NSButton) {
+        view.presenter.new()
+    }
 }
