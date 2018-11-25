@@ -11,6 +11,7 @@
 		DA1E532A21A6DBBC00A5A680 /* DisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532921A6DBBC00A5A680 /* DisplayView.swift */; };
 		DA1E532C21A6FDE800A5A680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1E532B21A6FDE800A5A680 /* Assets.xcassets */; };
 		DA1E532E21A704BD00A5A680 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532D21A704BD00A5A680 /* Window.swift */; };
+		DA43810E21AAAE4600BE7895 /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA43810D21AAAE4600BE7895 /* NSColor.swift */; };
 		DA738C5321A9B06D00E51D93 /* TestEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA738C5221A9B06D00E51D93 /* TestEditing.swift */; };
 		DA76266121A6A195009EBF8F /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76266021A6A195009EBF8F /* Application.swift */; };
 		DA76266721A6A1B4009EBF8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76266421A6A1A8009EBF8F /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		DA1E532921A6DBBC00A5A680 /* DisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayView.swift; sourceTree = "<group>"; };
 		DA1E532B21A6FDE800A5A680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA1E532D21A704BD00A5A680 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
+		DA43810D21AAAE4600BE7895 /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
 		DA738C5221A9B06D00E51D93 /* TestEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEditing.swift; sourceTree = "<group>"; };
 		DA76265A21A69D94009EBF8F /* libMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA76265B21A69D94009EBF8F /* libDesktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDesktop.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +207,7 @@
 				DACE759F21A7EA9D00B704C3 /* DocumentView.swift */,
 				DACE75A121A82EE800B704C3 /* ItemView.swift */,
 				DABB090C21A8780E00A7DD41 /* Storage.swift */,
+				DA43810D21AAAE4600BE7895 /* NSColor.swift */,
 			);
 			path = DesktopUI;
 			sourceTree = "<group>";
@@ -489,6 +492,7 @@
 				DACE75A421A8351C00B704C3 /* Presenter.swift in Sources */,
 				DA1E532A21A6DBBC00A5A680 /* DisplayView.swift in Sources */,
 				DA76266B21A6A1D0009EBF8F /* Application.swift in Sources */,
+				DA43810E21AAAE4600BE7895 /* NSColor.swift in Sources */,
 				DACE75A221A82EE800B704C3 /* ItemView.swift in Sources */,
 				DABB090D21A8780E00A7DD41 /* Storage.swift in Sources */,
 				DA1E532E21A704BD00A5A680 /* Window.swift in Sources */,

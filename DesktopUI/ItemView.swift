@@ -4,10 +4,10 @@ import Desktop
 class ItemView:NSControl {
     private(set) weak var note:Note!
     private weak var field:NSTextField!
-    override var intrinsicContentSize:NSSize { return NSSize(width:120, height:60) }
+    override var intrinsicContentSize:NSSize { return NSSize(width:120, height:70) }
     var selected = false { didSet {
         if selected {
-            layer!.backgroundColor = NSColor.selectedMenuItemColor.cgColor
+            layer!.backgroundColor = NSColor.scotBlue.cgColor
         } else {
             layer!.backgroundColor = NSColor.clear.cgColor
         }
@@ -27,18 +27,19 @@ class ItemView:NSControl {
         
         let field = NSTextField()
         field.translatesAutoresizingMaskIntoConstraints = false
-        field.font = .systemFont(ofSize:14, weight:.medium)
+        field.font = .systemFont(ofSize:11, weight:.light)
         field.backgroundColor = .clear
-        field.lineBreakMode = .byTruncatingTail
+        field.lineBreakMode = .byWordWrapping
         field.isBezeled = false
         field.isEditable = false
-        field.stringValue = "Hello world, lorem ipsum, dolet samont"
+        field.stringValue = note.content
         addSubview(field)
         self.field = field
         
-        field.leftAnchor.constraint(equalTo:leftAnchor, constant:10).isActive = true
-        field.rightAnchor.constraint(equalTo:rightAnchor, constant:-10).isActive = true
         field.topAnchor.constraint(equalTo:topAnchor, constant:10).isActive = true
+        field.leftAnchor.constraint(equalTo:leftAnchor, constant:10).isActive = true
+        field.widthAnchor.constraint(equalToConstant:100).isActive = true
+        field.heightAnchor.constraint(equalToConstant:50).isActive = true
     }
     
     required init?(coder:NSCoder) { return nil }

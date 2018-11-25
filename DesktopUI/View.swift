@@ -20,7 +20,8 @@ class View:NSView, NSTextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         makeOutlets()
-        presenter.update = { self.update($0) }
+        presenter.notes = { self.update($0) }
+        presenter.select = { self.select($0) }
         presenter.load()
     }
     
@@ -91,6 +92,10 @@ class View:NSView, NSTextViewDelegate {
         list.documentView!.bottomAnchor.constraint(equalTo:top).isActive = true
     }
     
+    private func select(_ note:Note) {
+        select(item:list.documentView!.subviews.first { ($0 as! ItemView).note === note } as! ItemView)
+    }
+    
     private func animateConstraints() {
         NSAnimationContext.runAnimationGroup { [weak self] context in
             context.duration = 0.33
@@ -100,6 +105,6 @@ class View:NSView, NSTextViewDelegate {
     }
     
     @objc private func select(item:ItemView) {
-        
+        presenter.selected = item
     }
 }

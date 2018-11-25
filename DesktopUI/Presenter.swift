@@ -2,7 +2,18 @@ import Foundation
 import Desktop
 
 class Presenter {
-    var update:(([Note]) -> Void)!
+    weak var selected:ItemView! {
+        willSet {
+            if let previous = selected {
+                previous.selected = false
+            }
+        }
+        didSet {
+            selected.selected = true
+        }
+    }
+    var notes:(([Note]) -> Void)!
+    var select:((Note) -> Void)!
     private let repository = Factory.makeRepository()
     
     init() {
@@ -12,11 +23,15 @@ class Presenter {
     func load() {
         DispatchQueue.global(qos:.background).async {
             self.repository.load()
-            DispatchQueue.main.async { self.updateNotes() }
+            let note = self.repository.editing()
+            DispatchQueue.main.async {
+                self.updateNotes()
+                self.select(note)
+            }
         }
     }
     
     private func updateNotes() {
-        update(repository.notes.values.sorted(by: { $0.created > $1.created }))
+        notes(repository.notes.values.sorted(by: { $0.created > $1.created }))
     }
 }
