@@ -1,4 +1,5 @@
 import Cocoa
+import Desktop
 
 class View:NSView, NSTextViewDelegate {
     private weak var text:NSTextView!
@@ -19,7 +20,7 @@ class View:NSView, NSTextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         makeOutlets()
-        presenter.update = { _ in }
+        presenter.update = { self.update($0) }
         presenter.load()
     }
     
@@ -74,11 +75,31 @@ class View:NSView, NSTextViewDelegate {
         listWidth.isActive = true
     }
     
+    private func update(_ notes:[Note]) {
+        list.documentView!.subviews.forEach { $0.removeFromSuperview() }
+        var top = list.documentView!.topAnchor
+        notes.forEach { note in
+            let item = ItemView(note)
+            item.target = self
+            item.action = #selector(select(item:))
+            list.documentView!.addSubview(item)
+            
+            item.topAnchor.constraint(equalTo:top).isActive = true
+            item.leftAnchor.constraint(equalTo:list.leftAnchor).isActive = true
+            top = item.bottomAnchor
+        }
+        list.documentView!.bottomAnchor.constraint(equalTo:top).isActive = true
+    }
+    
     private func animateConstraints() {
         NSAnimationContext.runAnimationGroup { [weak self] context in
             context.duration = 0.33
             context.allowsImplicitAnimation = true
             self?.layoutSubtreeIfNeeded()
         }
+    }
+    
+    @objc private func select(item:ItemView) {
+        
     }
 }

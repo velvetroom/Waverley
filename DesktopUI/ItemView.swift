@@ -1,6 +1,8 @@
 import Cocoa
+import Desktop
 
 class ItemView:NSControl {
+    private(set) weak var note:Note!
     private weak var field:NSTextField!
     override var intrinsicContentSize:NSSize { return NSSize(width:120, height:60) }
     var selected = false { didSet {
@@ -17,7 +19,8 @@ class ItemView:NSControl {
         }
     }
     
-    init() {
+    init(_ note:Note) {
+        self.note = note
         super.init(frame:.zero)
         translatesAutoresizingMaskIntoConstraints = false
         wantsLayer = true
