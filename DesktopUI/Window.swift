@@ -1,7 +1,7 @@
 import Cocoa
 
 class Window:NSWindow {
-    private weak var view:View! { return contentView as? View }
+    weak var view:View! { return contentView as? View }
     
     @IBAction private func toggle(list:NSButton) {
         if list.state == .on {

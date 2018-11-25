@@ -46,12 +46,16 @@ class Presenter {
         select(note)
     }
     
+    func saveIfNeeded() {
+        timer?.fire()
+    }
+    
     private func updateNotes() {
         notes(repository.notes.values.sorted(by: { $0.created > $1.created }))
     }
     
     private func update(_ note:Note, content:String) {
-        timer = Timer.scheduledTimer(withTimeInterval:1, repeats:false) { timer in
+        timer = Timer.scheduledTimer(withTimeInterval:5, repeats:false) { timer in
             if timer.isValid {
                 self.repository.update(note, content:content)
             }

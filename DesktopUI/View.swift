@@ -2,11 +2,11 @@ import Cocoa
 import Desktop
 
 class View:NSView, NSTextViewDelegate {
+    let presenter = Presenter()
     private weak var text:NSTextView!
     private weak var list:NSScrollView!
     private weak var listWidth:NSLayoutConstraint!
     private weak var indicatorTop:NSLayoutConstraint!
-    private let presenter = Presenter()
     
     func new() {
         indicatorTop.constant = text.bounds.height + 11

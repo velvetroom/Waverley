@@ -9,4 +9,8 @@ import Cocoa
         Application.window = NSApp.windows.first as? Window
         Application.window.backgroundColor = NSColor.textBackgroundColor
     }
+    
+    func applicationWillTerminate(_:Notification) {
+        Application.window.view.presenter.saveIfNeeded()
+    }
 }
