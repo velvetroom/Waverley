@@ -2,7 +2,6 @@
 <document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14460.31"/>
-        <capability name="System colors introduced in macOS 10.14" minToolsVersion="10.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -669,7 +668,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="400" height="200"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="200" height="100"/>
+                        <value key="minSize" type="size" width="280" height="100"/>
                         <toolbar key="toolbar" implicitIdentifier="7433F2CF-9047-4B68-BD44-E8C3DF72634C" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="small" id="bKW-be-F5z">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="076FC2E7-335F-4620-A595-03C48C00CEFF" label="List" paletteLabel="List" image="list" sizingBehavior="auto" id="xQb-sD-pfb">
@@ -701,24 +700,8 @@
                                     </button>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="i9F-wP-hvd"/>
-                                <toolbarItem implicitItemIdentifier="55349EDB-0C22-43B4-9137-AB689DE12BB1" label="Display" paletteLabel="Display" tag="-1" id="zlO-WL-t9m">
-                                    <nil key="toolTip"/>
-                                    <size key="minSize" width="20" height="20"/>
-                                    <size key="maxSize" width="200" height="26"/>
-                                    <box key="view" focusRingType="none" boxType="custom" borderType="none" borderWidth="0.0" cornerRadius="4" title="Box" titlePosition="noTitle" id="xgC-Xj-MWn">
-                                        <rect key="frame" x="0.0" y="14" width="100" height="20"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" id="7yV-K4-4IZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="20"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                        </view>
-                                        <color key="borderColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                        <color key="fillColor" name="alternatingContentBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                    </box>
-                                </toolbarItem>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
-                                <toolbarItem reference="zlO-WL-t9m"/>
                                 <toolbarItem reference="i9F-wP-hvd"/>
                                 <toolbarItem reference="CKJ-ZA-ibH"/>
                                 <toolbarItem reference="xQb-sD-pfb"/>

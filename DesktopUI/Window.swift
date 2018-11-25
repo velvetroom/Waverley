@@ -12,6 +12,10 @@ class Window:NSWindow {
     }
     
     @IBAction private func new(note:NSButton) {
-        view.presenter.new()
+        note.isEnabled = false
+        view.new()
+        DispatchQueue.main.asyncAfter(deadline:.now() + 0.6) {
+            note.isEnabled = true
+        }
     }
 }
