@@ -7,17 +7,13 @@ class ItemView:NSControl {
     override var intrinsicContentSize:NSSize { return NSSize(width:120, height:70) }
     var selected = false { didSet {
         if selected {
+            field.textColor = NSColor.black
             layer!.backgroundColor = NSColor.scotBlue.cgColor
         } else {
+            field.textColor = NSColor.textColor
             layer!.backgroundColor = NSColor.clear.cgColor
         }
     } }
-    
-    override func mouseDown(with:NSEvent) {
-        if !selected {
-            sendAction(action, to:target)
-        }
-    }
     
     init(_ note:Note) {
         self.note = note
@@ -32,7 +28,6 @@ class ItemView:NSControl {
         field.lineBreakMode = .byWordWrapping
         field.isBezeled = false
         field.isEditable = false
-        field.stringValue = note.content
         addSubview(field)
         self.field = field
         
@@ -40,7 +35,18 @@ class ItemView:NSControl {
         field.leftAnchor.constraint(equalTo:leftAnchor, constant:10).isActive = true
         field.widthAnchor.constraint(equalToConstant:100).isActive = true
         field.heightAnchor.constraint(equalToConstant:50).isActive = true
+        update(note.content)
     }
     
     required init?(coder:NSCoder) { return nil }
+    
+    func update(_ content:String) {
+        field.stringValue = String(content.prefix(120))
+    }
+    
+    override func mouseDown(with:NSEvent) {
+        if !selected {
+            sendAction(action, to:target)
+        }
+    }
 }

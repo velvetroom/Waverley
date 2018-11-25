@@ -17,6 +17,10 @@ class View:NSView, NSTextViewDelegate {
         animateConstraints()
     }
     
+    func textDidChange(_:Notification) {
+        presenter.update(text.string)
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         makeOutlets()
@@ -106,5 +110,6 @@ class View:NSView, NSTextViewDelegate {
     
     @objc private func select(item:ItemView) {
         presenter.selected = item
+        text.string = item.note.content
     }
 }
