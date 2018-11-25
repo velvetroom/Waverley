@@ -36,4 +36,10 @@ class TestRepository:XCTestCase {
         repository.newNote()
         XCTAssertEqual(2, repository.notes.count)
     }
+    
+    func testUpdateContent() {
+        let note = Note()
+        repository.update(note, content:"hello world")
+        XCTAssertEqual("hello world", note.content)
+    }
 }

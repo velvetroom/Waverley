@@ -35,6 +35,11 @@ public class Repository {
         }
     }
     
+    public func update(_ note:Note, content:String) {
+        note.content = content
+        Factory.storage.save(note)
+    }
+    
     private func loadNotes() {
         account.notes.forEach { id in
             notes[id] = Factory.storage.note(id)

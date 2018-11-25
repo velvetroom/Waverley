@@ -54,4 +54,11 @@ class TestStorage:XCTestCase {
         repository.newNote()
         waitForExpectations(timeout:1)
     }
+    
+    func testUpdateContentSavesNote() {
+        let expect = expectation(description:String())
+        storage.onSaveNote = { expect.fulfill() }
+        repository.update(Note(), content:"hello world")
+        waitForExpectations(timeout:1)
+    }
 }
