@@ -5,15 +5,7 @@ class ItemView:NSControl {
     private(set) weak var note:Note!
     private weak var field:NSTextField!
     override var intrinsicContentSize:NSSize { return NSSize(width:120, height:50) }
-    var selected = false { didSet {
-        if selected {
-            field.textColor = NSColor.black
-            layer!.backgroundColor = NSColor.scotBlue.cgColor
-        } else {
-            field.textColor = NSColor.textColor
-            layer!.backgroundColor = NSColor.clear.cgColor
-        }
-    } }
+    var selected = false { didSet { update() } }
     
     init(_ note:Note) {
         self.note = note
@@ -23,9 +15,8 @@ class ItemView:NSControl {
         
         let field = NSTextField()
         field.translatesAutoresizingMaskIntoConstraints = false
-        field.font = NSFont(name:"SourceCodeVariable-Roman", size:10)
         field.backgroundColor = .clear
-        field.lineBreakMode = .byWordWrapping
+        field.lineBreakMode = .byCharWrapping
         field.isBezeled = false
         field.isEditable = false
         addSubview(field)
@@ -36,6 +27,7 @@ class ItemView:NSControl {
         field.widthAnchor.constraint(equalToConstant:110).isActive = true
         field.heightAnchor.constraint(equalToConstant:30).isActive = true
         update(note.content)
+        update()
     }
     
     required init?(coder:NSCoder) { return nil }
@@ -47,6 +39,19 @@ class ItemView:NSControl {
     override func mouseDown(with:NSEvent) {
         if !selected {
             sendAction(action, to:target)
+        }
+    }
+    
+    private func update() {
+        if selected {
+            field.textColor = .black
+            field.font = NSFont(name:"SourceCodeRoman-Medium", size:11)!
+            layer!.backgroundColor = NSColor.scotBlue.cgColor
+            
+        } else {
+            field.textColor = .textColor
+            field.font = NSFont(name:"SourceCodeRoman-ExtraLight", size:11)!
+            layer!.backgroundColor = NSColor.clear.cgColor
         }
     }
 }

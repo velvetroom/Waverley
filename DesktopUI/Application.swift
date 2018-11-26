@@ -7,7 +7,7 @@ import Cocoa
     
     func applicationDidFinishLaunching(_:Notification) {
         Application.window = NSApp.windows.first as? Window
-        Application.window.backgroundColor = NSColor.textBackgroundColor
+        Application.window.backgroundColor = .textBackgroundColor
     }
     
     func applicationWillTerminate(_:Notification) {

@@ -18,4 +18,8 @@ class Window:NSWindow {
             note.isEnabled = true
         }
     }
+    
+    @IBAction private func delete(note:NSButton) {
+        view.delete()
+    }
 }

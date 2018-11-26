@@ -26,6 +26,10 @@ class View:NSView, NSTextViewDelegate {
         }
     }
     
+    func delete() {
+        presenter.delete()
+    }
+    
     func showList() {
         listWidth.constant = 120
         animateConstraints()

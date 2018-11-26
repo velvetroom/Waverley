@@ -700,10 +700,25 @@
                                         </connections>
                                     </button>
                                 </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="2EA0B354-124E-489B-8AC0-E4B053B03923" label="Delete" paletteLabel="Delete" image="delete" sizingBehavior="auto" id="L20-vi-VyR">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="OUL-SC-Xgf">
+                                        <rect key="frame" x="1" y="14" width="40" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="delete" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="3nz-YR-8dU">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="deleteWithNote:" target="IQv-IB-iLA" id="6rE-E3-2Pv"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="i9F-wP-hvd"/>
                             </allowedToolbarItems>
                             <defaultToolbarItems>
                                 <toolbarItem reference="i9F-wP-hvd"/>
+                                <toolbarItem reference="L20-vi-VyR"/>
                                 <toolbarItem reference="CKJ-ZA-ibH"/>
                                 <toolbarItem reference="xQb-sD-pfb"/>
                             </defaultToolbarItems>
@@ -736,6 +751,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="delete" width="22" height="15"/>
         <image name="list" width="22" height="15"/>
         <image name="new" width="22" height="15"/>
     </resources>

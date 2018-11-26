@@ -10,7 +10,7 @@ class Presenter {
         }
         didSet {
             selected.selected = true
-            timer?.fire()
+            saveIfNeeded()
         }
     }
     var notes:(([Note]) -> Void)!
@@ -25,10 +25,8 @@ class Presenter {
     func load() {
         DispatchQueue.global(qos:.background).async {
             self.repository.load()
-            let note = self.repository.editing()
             DispatchQueue.main.async {
-                self.updateNotes()
-                self.select(note)
+                self.updateAndSelect()
             }
         }
     }
@@ -40,14 +38,28 @@ class Presenter {
     }
     
     func new() {
-        timer?.fire()
-        let note = repository.editing()
-        updateNotes()
-        select(note)
+        saveIfNeeded()
+        updateAndSelect()
+    }
+    
+    func delete() {
+        saveIfNeeded()
+        Application.window.beginSheet(DeleteView()) { response in
+            if response == .continue {
+                self.repository.delete(self.selected.note)
+                self.updateAndSelect()
+            }
+        }
     }
     
     func saveIfNeeded() {
         timer?.fire()
+    }
+    
+    private func updateAndSelect() {
+        let note = repository.editing()
+        updateNotes()
+        select(note)
     }
     
     private func updateNotes() {

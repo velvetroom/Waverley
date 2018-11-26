@@ -22,6 +22,9 @@
 		DA76267A21A6A234009EBF8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA76267821A6A234009EBF8F /* Localizable.strings */; };
 		DA76267D21A6A3CD009EBF8F /* libMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA76265A21A69D94009EBF8F /* libMobile.a */; };
 		DA76268021A6A416009EBF8F /* libDesktop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA76265B21A69D94009EBF8F /* libDesktop.a */; };
+		DA9727C621ABE0CD00911162 /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C521ABE0CD00911162 /* DeleteView.swift */; };
+		DA9727C921ABE1AD00911162 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C821ABE1AD00911162 /* String.swift */; };
+		DA9727CA21ABE1AD00911162 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C821ABE1AD00911162 /* String.swift */; };
 		DABB090D21A8780E00A7DD41 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB090C21A8780E00A7DD41 /* Storage.swift */; };
 		DACE75A021A7EA9D00B704C3 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE759F21A7EA9D00B704C3 /* DocumentView.swift */; };
 		DACE75A221A82EE800B704C3 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75A121A82EE800B704C3 /* ItemView.swift */; };
@@ -99,6 +102,8 @@
 		DA76266A21A6A1D0009EBF8F /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		DA76267621A6A228009EBF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA76267921A6A234009EBF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA9727C521ABE0CD00911162 /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
+		DA9727C821ABE1AD00911162 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		DABB090C21A8780E00A7DD41 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DACE759F21A7EA9D00B704C3 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 		DACE75A121A82EE800B704C3 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
@@ -205,6 +210,7 @@
 				DA1E532D21A704BD00A5A680 /* Window.swift */,
 				DACE75A321A8351C00B704C3 /* Presenter.swift */,
 				DA1E532721A6B0A200A5A680 /* View.swift */,
+				DA9727C521ABE0CD00911162 /* DeleteView.swift */,
 				DACE759F21A7EA9D00B704C3 /* DocumentView.swift */,
 				DACE75A121A82EE800B704C3 /* ItemView.swift */,
 				DABB090C21A8780E00A7DD41 /* Storage.swift */,
@@ -220,6 +226,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DA9727C721ABE19F00911162 /* SharedUI */ = {
+			isa = PBXGroup;
+			children = (
+				DA9727C821ABE1AD00911162 /* String.swift */,
+			);
+			path = SharedUI;
+			sourceTree = "<group>";
+		};
 		DABA30CF21A695FC0026BAB2 = {
 			isa = PBXGroup;
 			children = (
@@ -227,6 +241,7 @@
 				DACE75CF21A866AE00B704C3 /* Tests */,
 				DA76266921A6A1D0009EBF8F /* DesktopUI */,
 				DA76265F21A6A195009EBF8F /* MobileUI */,
+				DA9727C721ABE19F00911162 /* SharedUI */,
 				DA76266221A6A1A8009EBF8F /* Resources */,
 				DACE75C521A8666200B704C3 /* Tests */,
 				DA76267B21A6A37D009EBF8F /* Frameworks */,
@@ -483,6 +498,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9727C921ABE1AD00911162 /* String.swift in Sources */,
 				DA76266121A6A195009EBF8F /* Application.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -491,7 +507,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA9727C621ABE0CD00911162 /* DeleteView.swift in Sources */,
 				DA1E532821A6B0A200A5A680 /* View.swift in Sources */,
+				DA9727CA21ABE1AD00911162 /* String.swift in Sources */,
 				DACE75A421A8351C00B704C3 /* Presenter.swift in Sources */,
 				DA76266B21A6A1D0009EBF8F /* Application.swift in Sources */,
 				DA43810E21AAAE4600BE7895 /* NSColor.swift in Sources */,
