@@ -6,6 +6,7 @@ class MockStorage:Storage {
     var onNote:((String) -> Void)?
     var onSaveAccount:(() -> Void)?
     var onSaveNote:(() -> Void)?
+    var onDeleteNote:(() -> Void)?
     var returnAccount = Account()
     var returnNote = Note()
     var error:Error?
@@ -32,5 +33,9 @@ class MockStorage:Storage {
     
     func save(_ note:Note) {
         onSaveNote?()
+    }
+    
+    func delete(_ note:Note) {
+        onDeleteNote?()
     }
 }

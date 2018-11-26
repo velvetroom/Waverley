@@ -42,4 +42,20 @@ class TestRepository:XCTestCase {
         repository.update(note, content:"hello world")
         XCTAssertEqual("hello world", note.content)
     }
+    
+    func testDeleteNote() {
+        let note = repository.editing()
+        repository.delete(note)
+        XCTAssertTrue(repository.notes.isEmpty)
+        XCTAssertTrue(repository.account.notes.isEmpty)
+    }
+    
+    func testKeepOtherNotesOnDelete() {
+        let first = repository.editing()
+        first.content = "hello world"
+        let second = repository.editing()
+        repository.delete(second)
+        XCTAssertFalse(repository.notes.isEmpty)
+        XCTAssertFalse(repository.account.notes.isEmpty)
+    }
 }

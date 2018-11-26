@@ -61,4 +61,18 @@ class TestStorage:XCTestCase {
         repository.update(Note(), content:"hello world")
         waitForExpectations(timeout:1)
     }
+
+    func testDeleteNoteSavesAccount() {
+        let expect = expectation(description:String())
+        storage.onSaveAccount = { expect.fulfill() }
+        repository.delete(Note())
+        waitForExpectations(timeout:1)
+    }
+    
+    func testDeleteNoteRemovesNote() {
+        let expect = expectation(description:String())
+        storage.onDeleteNote = { expect.fulfill() }
+        repository.delete(Note())
+        waitForExpectations(timeout:1)
+    }
 }

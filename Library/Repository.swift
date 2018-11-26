@@ -40,6 +40,13 @@ public class Repository {
         Factory.storage.save(note)
     }
     
+    public func delete(_ note:Note) {
+        notes.removeValue(forKey:note.id)
+        account.notes.removeAll { $0 == note.id }
+        Factory.storage.save(account)
+        Factory.storage.delete(note)
+    }
+    
     private func loadNotes() {
         account.notes.forEach { id in
             notes[id] = Factory.storage.note(id)

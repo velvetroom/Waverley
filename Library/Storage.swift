@@ -6,6 +6,7 @@ public protocol Storage {
     func note(_ id:String) -> Note
     func save(_ account:Account)
     func save(_ note:Note)
+    func delete(_ note:Note)
 }
 
 public extension Storage {
@@ -31,6 +32,15 @@ public extension Storage {
     func save(_ note:Note) {
         DispatchQueue.global(qos:.background).async {
             try! (try! JSONEncoder().encode(note)).write(to:self.url.appendingPathComponent(note.id + ".waverley"))
+        }
+    }
+    
+    func delete(_ note:Note) {
+        let url = self.url.appendingPathComponent(note.id + ".waverley")
+        DispatchQueue.global(qos:.background).async {
+            if FileManager.default.fileExists(atPath:url.path) {
+                try! FileManager.default.removeItem(at:url)
+            }
         }
     }
     
