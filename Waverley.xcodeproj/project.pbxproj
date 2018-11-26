@@ -104,6 +104,10 @@
 		DA76267921A6A234009EBF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA9727C521ABE0CD00911162 /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
 		DA9727C821ABE1AD00911162 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		DA9727CE21AC227500911162 /* Mobile.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Mobile.plist; sourceTree = "<group>"; };
+		DA9727CF21AC227500911162 /* Desktop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Desktop.plist; sourceTree = "<group>"; };
+		DA9727D021AC227500911162 /* Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
+		DA9727D121AC227500911162 /* Desktop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Desktop.entitlements; sourceTree = "<group>"; };
 		DABB090C21A8780E00A7DD41 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DACE759F21A7EA9D00B704C3 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 		DACE75A121A82EE800B704C3 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
@@ -234,6 +238,17 @@
 			path = SharedUI;
 			sourceTree = "<group>";
 		};
+		DA9727CD21AC227500911162 /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DA9727CE21AC227500911162 /* Mobile.plist */,
+				DA9727CF21AC227500911162 /* Desktop.plist */,
+				DA9727D021AC227500911162 /* Tests.plist */,
+				DA9727D121AC227500911162 /* Desktop.entitlements */,
+			);
+			path = Configuration;
+			sourceTree = "<group>";
+		};
 		DABA30CF21A695FC0026BAB2 = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +260,7 @@
 				DA76266221A6A1A8009EBF8F /* Resources */,
 				DACE75C521A8666200B704C3 /* Tests */,
 				DA76267B21A6A37D009EBF8F /* Frameworks */,
+				DA9727CD21AC227500911162 /* Configuration */,
 				DA76265A21A69D94009EBF8F /* libMobile.a */,
 				DA76265B21A69D94009EBF8F /* libDesktop.a */,
 				DA76265C21A69D94009EBF8F /* Waverley.app */,
@@ -409,6 +425,11 @@
 					};
 					DABA311721A696D00026BAB2 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Sandbox = {
+								enabled = 1;
+							};
+						};
 					};
 					DACE75C321A8666200B704C3 = {
 						CreatedOnToolsVersion = 10.1;

@@ -20,6 +20,10 @@ class Window:NSWindow {
     }
     
     @IBAction private func delete(note:NSButton) {
-        view.delete()
+        view.presenter.delete()
+    }
+    
+    @IBAction private func share(note:NSButton) {
+        view.presenter.share()
     }
 }

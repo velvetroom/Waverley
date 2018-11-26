@@ -26,10 +26,6 @@ class View:NSView, NSTextViewDelegate {
         }
     }
     
-    func delete() {
-        presenter.delete()
-    }
-    
     func showList() {
         listWidth.constant = 120
         animateConstraints()
@@ -62,7 +58,6 @@ class View:NSView, NSTextViewDelegate {
         scrollText.translatesAutoresizingMaskIntoConstraints = false
         scrollText.hasVerticalScroller = true
         scrollText.verticalScroller!.controlSize = .mini
-    
         scrollText.drawsBackground = false
         addSubview(scrollText)
         

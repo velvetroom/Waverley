@@ -1,4 +1,4 @@
-import Foundation
+import Cocoa
 import Desktop
 
 class Presenter {
@@ -13,6 +13,7 @@ class Presenter {
             saveIfNeeded()
         }
     }
+    
     var notes:(([Note]) -> Void)!
     var select:((Note) -> Void)!
     private weak var timer:Timer?
@@ -52,6 +53,17 @@ class Presenter {
         }
     }
     
+    func share() {
+        let save = NSSavePanel()
+        save.nameFieldStringValue = "Waverley"
+        save.allowedFileTypes = ["pdf"]
+        save.beginSheetModal(for:Application.window) { response in
+            if response == .OK {
+                self.exportPdf(save.url!)
+            }
+        }
+    }
+    
     func saveIfNeeded() {
         timer?.fire()
     }
@@ -72,5 +84,27 @@ class Presenter {
                 self.repository.update(note, content:content)
             }
         }
+    }
+    
+    private func exportPdf(_ url:URL) {
+        let text = NSTextView(frame:NSRect(x:0, y:0, width:470, height:0))
+        text.isVerticallyResizable = true
+        text.isHorizontallyResizable = false
+        text.font = .systemFont(ofSize:12, weight:.light)
+        text.string = selected.note.content
+        
+        let printInfo = NSPrintInfo(dictionary:[.jobSavingURL:url])
+        let printOp = NSPrintOperation(view:text, printInfo:printInfo)
+        printOp.printInfo.paperSize = NSMakeSize(612, 792)
+        printOp.printInfo.jobDisposition = .save
+        printOp.printInfo.topMargin = 71
+        printOp.printInfo.leftMargin = 71
+        printOp.printInfo.rightMargin = 71
+        printOp.printInfo.bottomMargin = 71
+        printOp.printInfo.isVerticallyCentered = false
+        printOp.printInfo.isHorizontallyCentered = false
+        printOp.showsPrintPanel = false
+        printOp.showsProgressPanel = false
+        printOp.run()
     }
 }

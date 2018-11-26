@@ -691,12 +691,26 @@
                                     <button key="view" verticalHuggingPriority="750" id="jbQ-s3-2i7">
                                         <rect key="frame" x="0.0" y="14" width="40" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="new" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="2rw-ti-f71">
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="new" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="2rw-ti-f71">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
                                             <action selector="newWithNote:" target="IQv-IB-iLA" id="E7B-OH-dt2"/>
+                                        </connections>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="1E696EAE-F654-4412-AB83-93715BD3F2FA" label="Share" paletteLabel="Share" image="share" sizingBehavior="auto" id="yVP-PO-dNY">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="ce0-VG-s1n">
+                                        <rect key="frame" x="0.0" y="14" width="40" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="share" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="idy-tG-376">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="shareWithNote:" target="IQv-IB-iLA" id="xhd-8Z-ZqJ"/>
                                         </connections>
                                     </button>
                                 </toolbarItem>
@@ -719,6 +733,7 @@
                             <defaultToolbarItems>
                                 <toolbarItem reference="i9F-wP-hvd"/>
                                 <toolbarItem reference="L20-vi-VyR"/>
+                                <toolbarItem reference="yVP-PO-dNY"/>
                                 <toolbarItem reference="CKJ-ZA-ibH"/>
                                 <toolbarItem reference="xQb-sD-pfb"/>
                             </defaultToolbarItems>
@@ -754,5 +769,6 @@
         <image name="delete" width="22" height="15"/>
         <image name="list" width="22" height="15"/>
         <image name="new" width="22" height="15"/>
+        <image name="share" width="22" height="15"/>
     </resources>
 </document>

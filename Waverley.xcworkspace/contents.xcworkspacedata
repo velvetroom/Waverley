@@ -5,9 +5,6 @@
       location = "group:Waverley.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:Configuration">
-   </FileRef>
-   <FileRef
       location = "group:Design">
    </FileRef>
    <FileRef
