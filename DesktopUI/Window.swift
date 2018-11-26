@@ -1,4 +1,4 @@
-import Cocoa
+import AppKit
 
 class Window:NSWindow {
     weak var view:View! { return contentView as? View }

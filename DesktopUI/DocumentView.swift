@@ -1,4 +1,4 @@
-import Cocoa
+import AppKit
 
 class DocumentView:NSView {
     override var isFlipped:Bool { return true }

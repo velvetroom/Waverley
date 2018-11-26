@@ -1,4 +1,4 @@
-import Cocoa
+import AppKit
 import Desktop
 
 class ItemView:NSControl {

@@ -1,4 +1,4 @@
-import Cocoa
+import AppKit
 
 struct HeaderItem {
     let match:String

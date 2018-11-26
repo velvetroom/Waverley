@@ -1,4 +1,4 @@
-import Cocoa
+import AppKit
 
 @NSApplicationMain class Application:NSObject, NSApplicationDelegate {
     private(set) static weak var window:Window!
