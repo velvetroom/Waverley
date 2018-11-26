@@ -54,6 +54,7 @@ class Presenter {
     }
     
     func share() {
+        saveIfNeeded()
         let save = NSSavePanel()
         save.nameFieldStringValue = "Waverley"
         save.allowedFileTypes = ["pdf"]
@@ -90,8 +91,8 @@ class Presenter {
         let text = NSTextView(frame:NSRect(x:0, y:0, width:470, height:0))
         text.isVerticallyResizable = true
         text.isHorizontallyResizable = false
-        text.font = .systemFont(ofSize:12, weight:.light)
-        text.string = selected.note.content
+        text.textStorage!.append(NSAttributedString(string:selected.note.content, attributes:
+            [.foregroundColor:NSColor.black, .font:NSFont.systemFont(ofSize:12, weight:.light)]))
         
         let printInfo = NSPrintInfo(dictionary:[.jobSavingURL:url])
         let printOp = NSPrintOperation(view:text, printInfo:printInfo)
