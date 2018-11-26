@@ -91,8 +91,7 @@ class Presenter {
         let text = NSTextView(frame:NSRect(x:0, y:0, width:470, height:0))
         text.isVerticallyResizable = true
         text.isHorizontallyResizable = false
-        text.textStorage!.append(NSAttributedString(string:selected.note.content, attributes:
-            [.foregroundColor:NSColor.black, .font:NSFont.systemFont(ofSize:12, weight:.light)]))
+        text.textStorage!.append(Markdown().parse(string:selected.note.content))
         
         let printInfo = NSPrintInfo(dictionary:[.jobSavingURL:url])
         let printOp = NSPrintOperation(view:text, printInfo:printInfo)
