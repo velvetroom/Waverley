@@ -10,18 +10,18 @@ class View:NSView, NSTextViewDelegate {
     
     func new() {
         indicatorTop.constant = text.bounds.height + 11
-        NSAnimationContext.runAnimationGroup( { [weak self] context in
+        NSAnimationContext.runAnimationGroup( { context in
             context.duration = 0.4
             context.allowsImplicitAnimation = true
-            self?.text.alphaValue = 0
-            self?.text.layoutSubtreeIfNeeded()
-        }) { [weak self] in
-            self?.indicatorTop.constant = -1
-            self?.presenter.new()
-            NSAnimationContext.runAnimationGroup { [weak self] context in
+            self.text.alphaValue = 0
+            self.text.layoutSubtreeIfNeeded()
+        }) {
+            self.indicatorTop.constant = -1
+            self.presenter.new()
+            NSAnimationContext.runAnimationGroup { context in
                 context.duration = 1
                 context.allowsImplicitAnimation = true
-                self?.text.alphaValue = 1
+                self.text.alphaValue = 1
             }
         }
     }
@@ -147,10 +147,10 @@ class View:NSView, NSTextViewDelegate {
     private func select(_ note:Note) {
         let item = list.documentView!.subviews.first { ($0 as! ItemView).note === note } as! ItemView
         select(item:item)
-        NSAnimationContext.runAnimationGroup { [weak self] context in
+        NSAnimationContext.runAnimationGroup { context in
             context.duration = 0.3
             context.allowsImplicitAnimation = true
-            self?.list.contentView.scrollToVisible(item.frame)
+            self.list.contentView.scrollToVisible(item.frame)
         }
     }
     
