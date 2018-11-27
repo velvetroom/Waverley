@@ -669,7 +669,7 @@
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="400" height="200"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="280" height="100"/>
+                        <value key="minSize" type="size" width="400" height="200"/>
                         <toolbar key="toolbar" implicitIdentifier="7433F2CF-9047-4B68-BD44-E8C3DF72634C" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="small" id="bKW-be-F5z">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="076FC2E7-335F-4620-A595-03C48C00CEFF" label="List" paletteLabel="List" image="list" sizingBehavior="auto" id="xQb-sD-pfb">
@@ -756,13 +756,13 @@
             <objects>
                 <viewController id="XfG-lQ-9wD" sceneMemberID="viewController">
                     <view key="view" wantsLayer="YES" id="m2S-Jp-Qdl" customClass="View" customModule="Waverley">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="400"/>
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </view>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="135" y="499"/>
+            <point key="canvasLocation" x="335" y="668"/>
         </scene>
     </scenes>
     <resources>

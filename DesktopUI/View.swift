@@ -3,6 +3,7 @@ import Desktop
 
 class View:NSView, NSTextViewDelegate {
     let presenter = Presenter()
+    private weak var scroll:NSScrollView!
     private weak var text:NSTextView!
     private weak var list:NSScrollView!
     private weak var listWidth:NSLayoutConstraint!
@@ -53,30 +54,36 @@ class View:NSView, NSTextViewDelegate {
         updateContainer()
     }
     
+    override func layoutSubtreeIfNeeded() {
+        super.layoutSubtreeIfNeeded()
+        DispatchQueue.main.async {
+            self.updateContainer()
+        }
+    }
+    
     private func makeOutlets() {
-        let scrollText = NSScrollView(frame:.zero)
-        scrollText.translatesAutoresizingMaskIntoConstraints = false
-        scrollText.hasVerticalScroller = true
-        scrollText.verticalScroller!.controlSize = .mini
-        scrollText.drawsBackground = false
-        addSubview(scrollText)
-        
         let separator = NSView(frame:.zero)
         separator.translatesAutoresizingMaskIntoConstraints = false
         separator.wantsLayer = true
         separator.layer!.backgroundColor = NSColor.scotBlue.cgColor
         addSubview(separator)
         
+        let scroll = NSScrollView(frame:.zero)
+        scroll.translatesAutoresizingMaskIntoConstraints = false
+        scroll.hasVerticalScroller = true
+        scroll.verticalScroller!.controlSize = .mini
+        scroll.drawsBackground = false
+        addSubview(scroll)
+        self.scroll = scroll
+        
         let text = NSTextView(frame:.zero)
-        text.textContainerInset = NSSize(width:10, height:10)
         text.isVerticallyResizable = true
-        text.isHorizontallyResizable = true
         text.isContinuousSpellCheckingEnabled = true
-        text.font = NSFont(name:"SourceCodeRoman-Light", size:15)
+        text.font = NSFont(name:"SourceCodeRoman-Light", size:18)
         text.delegate = self
         text.allowsUndo = true
         text.drawsBackground = false
-        scrollText.documentView = text
+        scroll.documentView = text
         self.text = text
         
         let list = NSScrollView(frame:.zero)
@@ -100,12 +107,12 @@ class View:NSView, NSTextViewDelegate {
         indicator.layer!.backgroundColor = NSColor.scotBlue.withAlphaComponent(0.5).cgColor
         text.addSubview(indicator)
         
-        scrollText.topAnchor.constraint(equalTo:topAnchor, constant:38).isActive = true
-        scrollText.leftAnchor.constraint(equalTo:list.rightAnchor).isActive = true
-        scrollText.rightAnchor.constraint(equalTo:rightAnchor).isActive = true
-        scrollText.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
+        scroll.topAnchor.constraint(equalTo:topAnchor, constant:38).isActive = true
+        scroll.leftAnchor.constraint(equalTo:list.rightAnchor).isActive = true
+        scroll.rightAnchor.constraint(equalTo:rightAnchor).isActive = true
+        scroll.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
         
-        list.topAnchor.constraint(equalTo:scrollText.topAnchor).isActive = true
+        list.topAnchor.constraint(equalTo:scroll.topAnchor).isActive = true
         list.leftAnchor.constraint(equalTo:leftAnchor).isActive = true
         list.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
         listWidth = list.widthAnchor.constraint(equalToConstant:0)
@@ -155,18 +162,18 @@ class View:NSView, NSTextViewDelegate {
     }
     
     private func animateConstraints() {
-        NSAnimationContext.runAnimationGroup( { context in
+        NSAnimationContext.runAnimationGroup { context in
             context.duration = 0.33
             context.allowsImplicitAnimation = true
-            self.updateContainer()
             self.layoutSubtreeIfNeeded()
-        }) {
-            self.updateContainer()
         }
     }
     
     private func updateContainer() {
-        text.textContainer!.size = NSSize(width:bounds.width - listWidth.constant - 20, height:.greatestFiniteMagnitude)
+        let inset:CGFloat = max((scroll.frame.width - 700) / 2, 20)
+        text.textContainerInset = NSSize(width:inset, height:50)
+        text.setFrameSize(NSSize(width:scroll.frame.width, height:text.frame.height))
+        text.textContainer!.size = NSSize(width:scroll.frame.width - (inset + inset), height:.greatestFiniteMagnitude)
     }
     
     @objc private func select(item:ItemView) {
