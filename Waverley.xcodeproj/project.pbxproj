@@ -11,14 +11,8 @@
 		DA1E532C21A6FDE800A5A680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1E532B21A6FDE800A5A680 /* Assets.xcassets */; };
 		DA1E532E21A704BD00A5A680 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532D21A704BD00A5A680 /* Window.swift */; };
 		DA43810E21AAAE4600BE7895 /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA43810D21AAAE4600BE7895 /* NSColor.swift */; };
-		DA5A583D21AD35C300093B38 /* Moon2.0-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A583C21AD35BB00093B38 /* Moon2.0-Bold.otf */; };
-		DA5A583E21AD35C300093B38 /* Moon2.0-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A583A21AD35BB00093B38 /* Moon2.0-Light.otf */; };
-		DA5A583F21AD35C300093B38 /* Moon2.0-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A583B21AD35BB00093B38 /* Moon2.0-Regular.otf */; };
-		DA5A584021AD35C400093B38 /* Moon2.0-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A583C21AD35BB00093B38 /* Moon2.0-Bold.otf */; };
-		DA5A584121AD35C400093B38 /* Moon2.0-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A583A21AD35BB00093B38 /* Moon2.0-Light.otf */; };
-		DA5A584221AD35C400093B38 /* Moon2.0-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A583B21AD35BB00093B38 /* Moon2.0-Regular.otf */; };
-		DA71E31B21AACEAF0061271C /* SourceCodeVariable-Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA71E31A21AACEAF0061271C /* SourceCodeVariable-Roman.ttf */; };
-		DA71E31C21AACEAF0061271C /* SourceCodeVariable-Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA71E31A21AACEAF0061271C /* SourceCodeVariable-Roman.ttf */; };
+		DA5A584C21AD385700093B38 /* SourceCodeVariable-Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A584621AD385700093B38 /* SourceCodeVariable-Roman.ttf */; };
+		DA5A584D21AD385700093B38 /* SourceCodeVariable-Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A584621AD385700093B38 /* SourceCodeVariable-Roman.ttf */; };
 		DA738C5321A9B06D00E51D93 /* TestEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA738C5221A9B06D00E51D93 /* TestEditing.swift */; };
 		DA76266121A6A195009EBF8F /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76266021A6A195009EBF8F /* Application.swift */; };
 		DA76266721A6A1B4009EBF8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76266421A6A1A8009EBF8F /* Main.storyboard */; };
@@ -109,10 +103,7 @@
 		DA1E532B21A6FDE800A5A680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA1E532D21A704BD00A5A680 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		DA43810D21AAAE4600BE7895 /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
-		DA5A583A21AD35BB00093B38 /* Moon2.0-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moon2.0-Light.otf"; sourceTree = "<group>"; };
-		DA5A583B21AD35BB00093B38 /* Moon2.0-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moon2.0-Regular.otf"; sourceTree = "<group>"; };
-		DA5A583C21AD35BB00093B38 /* Moon2.0-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Moon2.0-Bold.otf"; sourceTree = "<group>"; };
-		DA71E31A21AACEAF0061271C /* SourceCodeVariable-Roman.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodeVariable-Roman.ttf"; sourceTree = "<group>"; };
+		DA5A584621AD385700093B38 /* SourceCodeVariable-Roman.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodeVariable-Roman.ttf"; sourceTree = "<group>"; };
 		DA738C5221A9B06D00E51D93 /* TestEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEditing.swift; sourceTree = "<group>"; };
 		DA76265A21A69D94009EBF8F /* libMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA76265B21A69D94009EBF8F /* libDesktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDesktop.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +196,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DA5A584321AD385700093B38 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DA5A584621AD385700093B38 /* SourceCodeVariable-Roman.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		DA76265F21A6A195009EBF8F /* MobileUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -216,10 +215,7 @@
 		DA76266221A6A1A8009EBF8F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				DA5A583C21AD35BB00093B38 /* Moon2.0-Bold.otf */,
-				DA5A583A21AD35BB00093B38 /* Moon2.0-Light.otf */,
-				DA5A583B21AD35BB00093B38 /* Moon2.0-Regular.otf */,
-				DA71E31A21AACEAF0061271C /* SourceCodeVariable-Roman.ttf */,
+				DA5A584321AD385700093B38 /* Fonts */,
 				DA76266321A6A1A8009EBF8F /* Desktop */,
 				DA76266521A6A1A8009EBF8F /* Mobile */,
 			);
@@ -521,12 +517,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA5A584C21AD385700093B38 /* SourceCodeVariable-Roman.ttf in Resources */,
 				DA76266821A6A1B9009EBF8F /* LaunchScreen.storyboard in Resources */,
 				DA76267A21A6A234009EBF8F /* Localizable.strings in Resources */,
-				DA5A583F21AD35C300093B38 /* Moon2.0-Regular.otf in Resources */,
-				DA5A583D21AD35C300093B38 /* Moon2.0-Bold.otf in Resources */,
-				DA5A583E21AD35C300093B38 /* Moon2.0-Light.otf in Resources */,
-				DA71E31B21AACEAF0061271C /* SourceCodeVariable-Roman.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -534,11 +527,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA5A584021AD35C400093B38 /* Moon2.0-Bold.otf in Resources */,
-				DA71E31C21AACEAF0061271C /* SourceCodeVariable-Roman.ttf in Resources */,
-				DA5A584121AD35C400093B38 /* Moon2.0-Light.otf in Resources */,
 				DA76266721A6A1B4009EBF8F /* Main.storyboard in Resources */,
-				DA5A584221AD35C400093B38 /* Moon2.0-Regular.otf in Resources */,
+				DA5A584D21AD385700093B38 /* SourceCodeVariable-Roman.ttf in Resources */,
 				DA1E532C21A6FDE800A5A680 /* Assets.xcassets in Resources */,
 				DA76267721A6A228009EBF8F /* Localizable.strings in Resources */,
 			);
