@@ -155,11 +155,13 @@ class View:NSView, NSTextViewDelegate {
     }
     
     private func animateConstraints() {
-        NSAnimationContext.runAnimationGroup { [weak self] context in
+        NSAnimationContext.runAnimationGroup( { context in
             context.duration = 0.33
             context.allowsImplicitAnimation = true
-            self?.updateContainer()
-            self?.layoutSubtreeIfNeeded()
+            self.updateContainer()
+            self.layoutSubtreeIfNeeded()
+        }) {
+            self.updateContainer()
         }
     }
     
