@@ -672,13 +672,13 @@
                         <value key="minSize" type="size" width="500" height="200"/>
                         <toolbar key="toolbar" implicitIdentifier="7433F2CF-9047-4B68-BD44-E8C3DF72634C" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="small" id="bKW-be-F5z">
                             <allowedToolbarItems>
-                                <toolbarItem implicitItemIdentifier="076FC2E7-335F-4620-A595-03C48C00CEFF" label="List" paletteLabel="List" image="list" sizingBehavior="auto" id="xQb-sD-pfb">
+                                <toolbarItem implicitItemIdentifier="076FC2E7-335F-4620-A595-03C48C00CEFF" label="List" paletteLabel="List" image="listOff" sizingBehavior="auto" id="xQb-sD-pfb">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="YLe-ca-YzT">
-                                        <rect key="frame" x="0.0" y="14" width="40" height="25"/>
+                                        <rect key="frame" x="0.0" y="14" width="34" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="list" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" borderStyle="border" inset="2" id="iAP-Cv-EdD">
-                                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="listOff" imagePosition="only" alignment="center" alternateImage="listOn" lineBreakMode="truncatingTail" inset="2" id="iAP-Cv-EdD">
+                                            <behavior key="behavior" pushIn="YES" changeContents="YES" lightByContents="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                         <connections>
@@ -689,9 +689,9 @@
                                 <toolbarItem implicitItemIdentifier="40FBC641-DD02-46B1-BE51-16E857082EEC" label="New" paletteLabel="New" image="new" sizingBehavior="auto" id="CKJ-ZA-ibH" userLabel="New">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="jbQ-s3-2i7">
-                                        <rect key="frame" x="0.0" y="14" width="40" height="25"/>
+                                        <rect key="frame" x="0.0" y="14" width="34" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="new" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="2rw-ti-f71">
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="new" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" inset="2" id="2rw-ti-f71">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -703,9 +703,9 @@
                                 <toolbarItem implicitItemIdentifier="1E696EAE-F654-4412-AB83-93715BD3F2FA" label="Share" paletteLabel="Share" image="share" sizingBehavior="auto" id="yVP-PO-dNY">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="ce0-VG-s1n">
-                                        <rect key="frame" x="0.0" y="14" width="40" height="25"/>
+                                        <rect key="frame" x="2" y="14" width="34" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="share" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="idy-tG-376">
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="share" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" inset="2" id="idy-tG-376">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -717,9 +717,9 @@
                                 <toolbarItem implicitItemIdentifier="2EA0B354-124E-489B-8AC0-E4B053B03923" label="Delete" paletteLabel="Delete" image="delete" sizingBehavior="auto" id="L20-vi-VyR">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="OUL-SC-Xgf">
-                                        <rect key="frame" x="1" y="14" width="40" height="25"/>
+                                        <rect key="frame" x="4" y="14" width="34" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="delete" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" inset="2" id="3nz-YR-8dU">
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="delete" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" inset="2" id="3nz-YR-8dU">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
@@ -766,9 +766,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="delete" width="22" height="15"/>
-        <image name="list" width="22" height="15"/>
-        <image name="new" width="22" height="15"/>
-        <image name="share" width="22" height="15"/>
+        <image name="delete" width="34" height="19"/>
+        <image name="listOff" width="34" height="19"/>
+        <image name="listOn" width="34" height="19"/>
+        <image name="new" width="34" height="19"/>
+        <image name="share" width="34" height="19"/>
     </resources>
 </document>
