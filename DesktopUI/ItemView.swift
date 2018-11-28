@@ -26,7 +26,7 @@ class ItemView:NSControl {
         let selector = NSView()
         selector.translatesAutoresizingMaskIntoConstraints = false
         selector.wantsLayer = true
-        selector.layer!.backgroundColor = NSColor.scotBlue.cgColor
+        selector.layer!.backgroundColor = NSColor.textColor.cgColor
         addSubview(selector)
         self.selector = selector
         
@@ -37,8 +37,8 @@ class ItemView:NSControl {
         
         selector.topAnchor.constraint(equalTo:topAnchor).isActive = true
         selector.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
-        selector.rightAnchor.constraint(equalTo:rightAnchor).isActive = true
-        selector.widthAnchor.constraint(equalToConstant:2).isActive = true
+        selector.leftAnchor.constraint(equalTo:leftAnchor, constant:1).isActive = true
+        selector.widthAnchor.constraint(equalToConstant:5).isActive = true
         
         update(note.content)
         update()
@@ -59,10 +59,10 @@ class ItemView:NSControl {
     private func update() {
         if selected {
             field.alphaValue = 1
-            selector.isHidden = false
+            selector.alphaValue = 0.3
         } else {
-            field.alphaValue = 0.6
-            selector.isHidden = true
+            field.alphaValue = 0.5
+            selector.alphaValue = 0
         }
     }
 }
