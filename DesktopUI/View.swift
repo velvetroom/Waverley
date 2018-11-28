@@ -174,5 +174,6 @@ class View:NSView, NSTextViewDelegate {
     @objc private func select(item:ItemView) {
         presenter.selected = item
         text.string = item.note.content
+        text.scrollRangeToVisible(NSMakeRange(item.note.content.count - 1, 1))
     }
 }
