@@ -28,7 +28,7 @@ class View:NSView, NSTextViewDelegate {
     }
     
     func showList() {
-        listWidth.constant = 120
+        listWidth.constant = 200
         animateConstraints()
     }
     

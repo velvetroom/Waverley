@@ -4,7 +4,7 @@ import Desktop
 class ItemView:NSControl {
     private(set) weak var note:Note!
     private weak var field:NSTextField!
-    override var intrinsicContentSize:NSSize { return NSSize(width:120, height:50) }
+    override var intrinsicContentSize:NSSize { return NSSize(width:200, height:50) }
     var selected = false { didSet { update() } }
     
     init(_ note:Note) {
@@ -24,7 +24,7 @@ class ItemView:NSControl {
         
         field.topAnchor.constraint(equalTo:topAnchor, constant:10).isActive = true
         field.leftAnchor.constraint(equalTo:leftAnchor, constant:5).isActive = true
-        field.widthAnchor.constraint(equalToConstant:110).isActive = true
+        field.widthAnchor.constraint(equalToConstant:190).isActive = true
         field.heightAnchor.constraint(equalToConstant:30).isActive = true
         update(note.content)
         update()
