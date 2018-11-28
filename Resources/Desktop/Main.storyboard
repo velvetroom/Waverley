@@ -667,9 +667,9 @@
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES" fullSizeContentView="YES"/>
                         <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="400" height="200"/>
+                        <rect key="contentRect" x="196" y="240" width="500" height="200"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
-                        <value key="minSize" type="size" width="400" height="200"/>
+                        <value key="minSize" type="size" width="500" height="200"/>
                         <toolbar key="toolbar" implicitIdentifier="7433F2CF-9047-4B68-BD44-E8C3DF72634C" autosavesConfiguration="NO" showsBaselineSeparator="NO" displayMode="iconOnly" sizeMode="small" id="bKW-be-F5z">
                             <allowedToolbarItems>
                                 <toolbarItem implicitItemIdentifier="076FC2E7-335F-4620-A595-03C48C00CEFF" label="List" paletteLabel="List" image="list" sizingBehavior="auto" id="xQb-sD-pfb">
@@ -749,7 +749,7 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
                 <userDefaultsController representsSharedInstance="YES" id="fog-pH-N3E"/>
             </objects>
-            <point key="canvasLocation" x="42" y="41"/>
+            <point key="canvasLocation" x="85" y="41"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">

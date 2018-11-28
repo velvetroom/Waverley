@@ -4,7 +4,7 @@ import Desktop
 class ItemView:NSControl {
     private(set) weak var note:Note!
     private weak var field:NSTextField!
-    override var intrinsicContentSize:NSSize { return NSSize(width:200, height:50) }
+    override var intrinsicContentSize:NSSize { return NSSize(width:250, height:70) }
     var selected = false { didSet { update() } }
     
     init(_ note:Note) {
@@ -24,8 +24,8 @@ class ItemView:NSControl {
         
         field.topAnchor.constraint(equalTo:topAnchor, constant:10).isActive = true
         field.leftAnchor.constraint(equalTo:leftAnchor, constant:5).isActive = true
-        field.widthAnchor.constraint(equalToConstant:190).isActive = true
-        field.heightAnchor.constraint(equalToConstant:30).isActive = true
+        field.widthAnchor.constraint(equalToConstant:240).isActive = true
+        field.heightAnchor.constraint(equalToConstant:50).isActive = true
         update(note.content)
         update()
     }
@@ -45,12 +45,12 @@ class ItemView:NSControl {
     private func update() {
         if selected {
             field.textColor = .black
-            field.font = NSFont(name:"SourceCodeRoman-Medium", size:11)!
+            field.font = NSFont(name:"SourceCodeRoman-Medium", size:12)!
             layer!.backgroundColor = NSColor.scotBlue.cgColor
             
         } else {
             field.textColor = .textColor
-            field.font = NSFont(name:"SourceCodeRoman-ExtraLight", size:11)!
+            field.font = NSFont(name:"SourceCodeRoman-Light", size:12)!
             layer!.backgroundColor = NSColor.clear.cgColor
         }
     }

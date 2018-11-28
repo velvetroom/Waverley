@@ -28,7 +28,7 @@ class View:NSView, NSTextViewDelegate {
     }
     
     func showList() {
-        listWidth.constant = 200
+        listWidth.constant = 250
         animateConstraints()
     }
     
@@ -62,12 +62,6 @@ class View:NSView, NSTextViewDelegate {
     }
     
     private func makeOutlets() {
-        let separator = NSView()
-        separator.translatesAutoresizingMaskIntoConstraints = false
-        separator.wantsLayer = true
-        separator.layer!.backgroundColor = NSColor.scotBlue.cgColor
-        addSubview(separator)
-        
         let scroll = NSScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.hasVerticalScroller = true
@@ -112,11 +106,6 @@ class View:NSView, NSTextViewDelegate {
         list.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
         listWidth = list.widthAnchor.constraint(equalToConstant:0)
         listWidth.isActive = true
-        
-        separator.topAnchor.constraint(equalTo:list.topAnchor).isActive = true
-        separator.bottomAnchor.constraint(equalTo:list.bottomAnchor).isActive = true
-        separator.rightAnchor.constraint(equalTo:text.leftAnchor).isActive = true
-        separator.widthAnchor.constraint(equalToConstant:1).isActive = true
         
         indicatorBorder.heightAnchor.constraint(equalToConstant:1).isActive = true
         indicatorBorder.leftAnchor.constraint(equalTo:text.leftAnchor).isActive = true
