@@ -4,7 +4,7 @@ class DeleteView:NSWindow {
     init() {
         super.init(contentRect:NSRect(x:0, y:0, width:180, height:140), styleMask:
             [.titled, .unifiedTitleAndToolbar, .fullSizeContentView], backing:.buffered, defer:false)
-        let background = NSView(frame:.zero)
+        let background = NSView()
         background.wantsLayer = true
         background.layer!.backgroundColor = NSColor.textBackgroundColor.cgColor
         background.translatesAutoresizingMaskIntoConstraints = false

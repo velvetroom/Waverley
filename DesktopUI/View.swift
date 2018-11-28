@@ -62,13 +62,13 @@ class View:NSView, NSTextViewDelegate {
     }
     
     private func makeOutlets() {
-        let separator = NSView(frame:.zero)
+        let separator = NSView()
         separator.translatesAutoresizingMaskIntoConstraints = false
         separator.wantsLayer = true
         separator.layer!.backgroundColor = NSColor.scotBlue.cgColor
         addSubview(separator)
         
-        let scroll = NSScrollView(frame:.zero)
+        let scroll = NSScrollView()
         scroll.translatesAutoresizingMaskIntoConstraints = false
         scroll.hasVerticalScroller = true
         scroll.verticalScroller!.controlSize = .mini
@@ -81,7 +81,7 @@ class View:NSView, NSTextViewDelegate {
         scroll.documentView = text
         self.text = text
         
-        let list = NSScrollView(frame:.zero)
+        let list = NSScrollView()
         list.drawsBackground = false
         list.translatesAutoresizingMaskIntoConstraints = false
         list.hasVerticalScroller = true
@@ -90,13 +90,13 @@ class View:NSView, NSTextViewDelegate {
         addSubview(list)
         self.list = list
         
-        let indicatorBorder = NSView(frame:.zero)
+        let indicatorBorder = NSView()
         indicatorBorder.translatesAutoresizingMaskIntoConstraints = false
         indicatorBorder.wantsLayer = true
         indicatorBorder.layer!.backgroundColor = NSColor.scotBlue.cgColor
         text.addSubview(indicatorBorder)
         
-        let indicator = NSView(frame:.zero)
+        let indicator = NSView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.wantsLayer = true
         indicator.layer!.backgroundColor = NSColor.scotBlue.withAlphaComponent(0.5).cgColor
