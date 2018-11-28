@@ -3,8 +3,8 @@ import Desktop
 
 class View:NSView, NSTextViewDelegate {
     let presenter = Presenter()
+    private weak var text:TextView!
     private weak var scroll:NSScrollView!
-    private weak var text:NSTextView!
     private weak var list:NSScrollView!
     private weak var listWidth:NSLayoutConstraint!
     private weak var indicatorTop:NSLayoutConstraint!
@@ -76,13 +76,8 @@ class View:NSView, NSTextViewDelegate {
         addSubview(scroll)
         self.scroll = scroll
         
-        let text = NSTextView(frame:.zero)
-        text.isVerticallyResizable = true
-        text.isContinuousSpellCheckingEnabled = true
-        text.font = NSFont(name:"SourceCodeRoman-Light", size:18)
+        let text = TextView()
         text.delegate = self
-        text.allowsUndo = true
-        text.drawsBackground = false
         scroll.documentView = text
         self.text = text
         
