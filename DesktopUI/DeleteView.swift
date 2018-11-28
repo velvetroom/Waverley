@@ -2,33 +2,26 @@ import AppKit
 
 class DeleteView:NSWindow {
     init() {
-        super.init(contentRect:NSRect(x:0, y:0, width:180, height:140), styleMask:
-            [.titled, .unifiedTitleAndToolbar, .fullSizeContentView], backing:.buffered, defer:false)
+        super.init(contentRect:NSRect(x:0, y:0, width:240, height:100), styleMask:
+            [.fullSizeContentView], backing:.buffered, defer:false)
         let background = NSView()
         background.wantsLayer = true
         background.layer!.backgroundColor = NSColor.textBackgroundColor.cgColor
         background.translatesAutoresizingMaskIntoConstraints = false
         contentView!.addSubview(background)
         
-        let title = NSTextField()
-        title.translatesAutoresizingMaskIntoConstraints = false
-        title.backgroundColor = .clear
-        title.isBezeled = false
-        title.isEditable = false
-        title.alignment = .center
-        title.font = NSFont(name:"SourceCodeRoman-Medium", size:17)!
-        title.stringValue = .local("DeleteView.title")
-        contentView!.addSubview(title)
-        
         let cancel = NSButton(title:.local("DeleteView.cancel"), target:self, action:#selector(self.cancel))
         cancel.translatesAutoresizingMaskIntoConstraints = false
         cancel.isBordered = false
-        cancel.font = NSFont(name:"SourceCodeRoman-Light", size:14)!
+        cancel.font = .systemFont(ofSize:14, weight:.medium)
         contentView!.addSubview(cancel)
         
-        let delete = NSButton(title:.local("DeleteView.delete"), target:self, action:#selector(self.delete))
+        let delete = NSButton(image:NSImage(named:"button")!, target:self, action:#selector(self.delete))
+        delete.isBordered = false
         delete.translatesAutoresizingMaskIntoConstraints = false
-        delete.font = NSFont(name:"SourceCodeRoman-Light", size:14)!
+        delete.imageScaling = .scaleNone
+        delete.attributedTitle = NSAttributedString(string:.local("DeleteView.delete"), attributes:
+            [.font:NSFont.systemFont(ofSize:14, weight:.medium), .foregroundColor:NSColor.black])
         contentView!.addSubview(delete)
         
         background.topAnchor.constraint(equalTo:contentView!.topAnchor).isActive = true
@@ -36,14 +29,11 @@ class DeleteView:NSWindow {
         background.leftAnchor.constraint(equalTo:contentView!.leftAnchor).isActive = true
         background.rightAnchor.constraint(equalTo:contentView!.rightAnchor).isActive = true
         
-        title.topAnchor.constraint(equalTo:contentView!.topAnchor, constant:15).isActive = true
-        title.centerXAnchor.constraint(equalTo:contentView!.centerXAnchor).isActive = true
+        cancel.leftAnchor.constraint(equalTo:contentView!.leftAnchor, constant:40).isActive = true
+        cancel.centerYAnchor.constraint(equalTo:contentView!.centerYAnchor).isActive = true
         
-        cancel.bottomAnchor.constraint(equalTo:delete.topAnchor, constant:-15).isActive = true
-        cancel.centerXAnchor.constraint(equalTo:contentView!.centerXAnchor).isActive = true
-        
-        delete.bottomAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-20).isActive = true
-        delete.centerXAnchor.constraint(equalTo:contentView!.centerXAnchor).isActive = true
+        delete.rightAnchor.constraint(equalTo:contentView!.rightAnchor, constant:-40).isActive = true
+        delete.centerYAnchor.constraint(equalTo:contentView!.centerYAnchor).isActive = true
     }
     
     @objc private func cancel() {

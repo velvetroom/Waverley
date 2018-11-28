@@ -719,7 +719,7 @@
                                     <button key="view" verticalHuggingPriority="750" id="OUL-SC-Xgf">
                                         <rect key="frame" x="4" y="14" width="34" height="24"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="delete" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" inset="2" id="3nz-YR-8dU">
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="delete" imagePosition="only" alignment="center" lineBreakMode="truncatingTail" state="on" inset="2" id="3nz-YR-8dU">
                                             <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>

@@ -88,7 +88,6 @@ class Presenter {
     }
     
     private func exportPdf(_ url:URL) {
-        
         let text = NSTextView(frame:NSRect(x:0, y:0, width:470, height:0))
         text.isVerticallyResizable = true
         text.isHorizontallyResizable = false
