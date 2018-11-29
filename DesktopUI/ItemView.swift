@@ -38,7 +38,7 @@ class ItemView:NSControl {
         selector.topAnchor.constraint(equalTo:topAnchor).isActive = true
         selector.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
         selector.leftAnchor.constraint(equalTo:leftAnchor, constant:1).isActive = true
-        selector.widthAnchor.constraint(equalToConstant:5).isActive = true
+        selector.widthAnchor.constraint(equalToConstant:6).isActive = true
         
         update(note.content)
         update()
@@ -59,7 +59,7 @@ class ItemView:NSControl {
     private func update() {
         if selected {
             field.alphaValue = 1
-            selector.alphaValue = 0.3
+            selector.alphaValue = 0.6
         } else {
             field.alphaValue = 0.5
             selector.alphaValue = 0

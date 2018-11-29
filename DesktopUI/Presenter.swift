@@ -17,6 +17,7 @@ class Presenter {
     var notes:(([Note]) -> Void)!
     var select:((Note) -> Void)!
     private weak var timer:Timer?
+    private var notesSorted:[Note] { return repository.notes.values.sorted(by: { $0.created > $1.created }) }
     private let repository = Factory.makeRepository()
     
     init() {
@@ -64,18 +65,34 @@ class Presenter {
         }
     }
     
+    func next() {
+        let notes = notesSorted
+        let index = notes.firstIndex { $0 === selected.note }!
+        if index < notes.count - 1 {
+            select(notes[index + 1])
+        } else {
+            select(notes[0])
+        }
+    }
+    
+    func previous() {
+        let notes = notesSorted
+        let index = notes.firstIndex { $0 === selected.note }!
+        if index > 0 {
+            select(notes[index - 1])
+        } else {
+            select(notes.last!)
+        }
+    }
+    
     func saveIfNeeded() {
         timer?.fire()
     }
     
     private func updateAndSelect() {
         let note = repository.editing()
-        updateNotes()
+        notes(notesSorted)
         select(note)
-    }
-    
-    private func updateNotes() {
-        notes(repository.notes.values.sorted(by: { $0.created > $1.created }))
     }
     
     private func update(_ note:Note, content:String) {

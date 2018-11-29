@@ -40,4 +40,12 @@ class Window:NSWindow {
     @IBAction private func play(_ sender:Any?) {
         view.presenter.share()
     }
+    
+    @IBAction private func goToPreviousPage(_ sender:Any) {
+        view.presenter.previous()
+    }
+    
+    @IBAction private func goToNextPage(_ sender:Any) {
+        view.presenter.next()
+    }
 }
