@@ -12,13 +12,13 @@ class TextView:NSTextView {
         storage.addLayoutManager(layout)
         layout.addTextContainer(container)
         super.init(frame:.zero, textContainer:container)
-        isVerticallyResizable = true
         isContinuousSpellCheckingEnabled = true
         font = NSFont(name:"SourceCodeRoman-Light", size:18)
         allowsUndo = true
         drawsBackground = false
         usesFindBar = true
         isIncrementalSearchingEnabled = true
+        textContainerInset.height = 50
         
         let caret = NSView()
         caret.translatesAutoresizingMaskIntoConstraints = false

@@ -39,6 +39,7 @@ class View:NSView, NSTextViewDelegate {
     
     func textDidChange(_:Notification) {
         presenter.update(text.string)
+        updateTextHeight()
     }
     
     override func awakeFromNib() {
@@ -156,15 +157,21 @@ class View:NSView, NSTextViewDelegate {
     }
     
     private func updateContainer() {
-        let inset:CGFloat = max((scroll.frame.width - 700) / 2, 20)
-        text.textContainerInset = NSSize(width:inset, height:50)
-        text.setFrameSize(NSSize(width:scroll.frame.width, height:text.frame.height))
-        text.textContainer!.size = NSSize(width:scroll.frame.width - (inset + inset), height:.greatestFiniteMagnitude)
+        text.textContainerInset.width = max((scroll.frame.width - 700) / 2, 20)
+        text.textContainer!.size.width = scroll.frame.width - (text.textContainerInset.width * 2)
+        text.frame.size.width = scroll.frame.width
+        updateTextHeight()
+    }
+    
+    private func updateTextHeight() {
+        text.layoutManager!.ensureLayout(for:text.textContainer!)
+        text.frame.size.height = text.layoutManager!.usedRect(for:text.textContainer!).height + 100
     }
     
     @objc private func select(item:ItemView) {
         presenter.selected = item
         text.string = item.note.content
+        updateTextHeight()
         text.scrollRangeToVisible(NSMakeRange(item.note.content.count - 1, 1))
     }
 }
