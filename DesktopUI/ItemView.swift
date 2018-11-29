@@ -26,19 +26,20 @@ class ItemView:NSControl {
         let selector = NSView()
         selector.translatesAutoresizingMaskIntoConstraints = false
         selector.wantsLayer = true
-        selector.layer!.backgroundColor = NSColor.textColor.cgColor
+        selector.layer!.backgroundColor = NSColor.scotBlue.cgColor
+        selector.layer!.cornerRadius = 2
         addSubview(selector)
         self.selector = selector
         
         field.topAnchor.constraint(equalTo:topAnchor, constant:12).isActive = true
-        field.leftAnchor.constraint(equalTo:leftAnchor, constant:20).isActive = true
-        field.widthAnchor.constraint(equalToConstant:220).isActive = true
+        field.leftAnchor.constraint(equalTo:leftAnchor, constant:26).isActive = true
+        field.widthAnchor.constraint(equalToConstant:210).isActive = true
         field.heightAnchor.constraint(equalToConstant:36).isActive = true
         
-        selector.topAnchor.constraint(equalTo:topAnchor).isActive = true
-        selector.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
-        selector.leftAnchor.constraint(equalTo:leftAnchor, constant:1).isActive = true
-        selector.widthAnchor.constraint(equalToConstant:6).isActive = true
+        selector.topAnchor.constraint(equalTo:topAnchor, constant:10).isActive = true
+        selector.bottomAnchor.constraint(equalTo:bottomAnchor, constant:-10).isActive = true
+        selector.leftAnchor.constraint(equalTo:leftAnchor, constant:14).isActive = true
+        selector.widthAnchor.constraint(equalToConstant:4).isActive = true
         
         update(note.content)
         update()
@@ -58,10 +59,10 @@ class ItemView:NSControl {
     
     private func update() {
         if selected {
-            field.alphaValue = 1
-            selector.alphaValue = 0.6
+            field.alphaValue = 0.7
+            selector.alphaValue = 1
         } else {
-            field.alphaValue = 0.5
+            field.alphaValue = 0.3
             selector.alphaValue = 0
         }
     }

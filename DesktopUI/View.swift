@@ -80,6 +80,7 @@ class View:NSView, NSTextViewDelegate {
         list.drawsBackground = false
         list.translatesAutoresizingMaskIntoConstraints = false
         list.hasVerticalScroller = true
+        list.verticalScroller!.controlSize = .mini
         list.documentView = DocumentView()
         (list.documentView! as! DocumentView).autoLayout()
         addSubview(list)
