@@ -16,12 +16,14 @@ class DeleteView:NSWindow {
         cancel.translatesAutoresizingMaskIntoConstraints = false
         cancel.isBordered = false
         cancel.font = .systemFont(ofSize:14, weight:.medium)
+        cancel.keyEquivalent = "\u{1b}"
         contentView!.addSubview(cancel)
         
         let delete = NSButton(image:NSImage(named:"button")!, target:self, action:#selector(self.delete))
         delete.isBordered = false
         delete.translatesAutoresizingMaskIntoConstraints = false
         delete.imageScaling = .scaleNone
+        delete.keyEquivalent = "\r"
         delete.attributedTitle = NSAttributedString(string:.local("DeleteView.delete"), attributes:
             [.font:NSFont.systemFont(ofSize:14, weight:.medium), .foregroundColor:NSColor.black])
         contentView!.addSubview(delete)
