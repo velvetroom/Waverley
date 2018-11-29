@@ -12,6 +12,8 @@ class TextView:NSTextView, NSLayoutManagerDelegate {
         allowsUndo = true
         drawsBackground = false
         layoutManager!.delegate = self
+        usesFindBar = true
+        isIncrementalSearchingEnabled = true
         
         let caret = NSView()
         caret.translatesAutoresizingMaskIntoConstraints = false

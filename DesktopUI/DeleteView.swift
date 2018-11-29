@@ -1,6 +1,8 @@
 import AppKit
 
 class DeleteView:NSWindow {
+    override var canBecomeKey:Bool { return true }
+    
     init() {
         super.init(contentRect:NSRect(x:0, y:0, width:240, height:100), styleMask:
             [.fullSizeContentView], backing:.buffered, defer:false)

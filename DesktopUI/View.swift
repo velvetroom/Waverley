@@ -67,6 +67,7 @@ class View:NSView, NSTextViewDelegate {
         scroll.hasVerticalScroller = true
         scroll.verticalScroller!.controlSize = .mini
         scroll.drawsBackground = false
+        scroll.findBarPosition = .belowContent
         addSubview(scroll)
         self.scroll = scroll
         

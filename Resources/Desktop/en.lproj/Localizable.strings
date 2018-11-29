@@ -1,2 +1,4 @@
+Window.showList="Show List";
+Window.hideList="Hide List";
 DeleteView.cancel="Cancel";
 DeleteView.delete="Delete";

@@ -44,7 +44,6 @@ class Presenter {
     }
     
     func delete() {
-        saveIfNeeded()
         Application.window.beginSheet(DeleteView()) { response in
             if response == .continue {
                 self.repository.delete(self.selected.note)
