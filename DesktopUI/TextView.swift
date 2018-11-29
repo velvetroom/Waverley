@@ -19,6 +19,7 @@ class TextView:NSTextView {
         usesFindBar = true
         isIncrementalSearchingEnabled = true
         textContainerInset.height = 50
+        isRichText = false
         
         let caret = NSView()
         caret.translatesAutoresizingMaskIntoConstraints = false
