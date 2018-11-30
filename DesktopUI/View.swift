@@ -172,6 +172,7 @@ class View:NSView, NSTextViewDelegate {
         presenter.selected = item
         text.string = item.note.content
         updateTextHeight()
-        text.scrollRangeToVisible(NSMakeRange(item.note.content.count - 1, 1))
+        text.scrollRangeToVisible(NSRange())
+        text.setSelectedRange(NSRange())
     }
 }
