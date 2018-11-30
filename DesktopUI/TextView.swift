@@ -8,7 +8,7 @@ class TextView:NSTextView {
     init() {
         let container = NSTextContainer()
         let storage = NSTextStorage()
-        let layout = Layout()
+        let layout = TextLayout()
         storage.addLayoutManager(layout)
         layout.addTextContainer(container)
         super.init(frame:.zero, textContainer:container)
