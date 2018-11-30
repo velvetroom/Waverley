@@ -19,7 +19,7 @@ class ItemView:NSControl {
         field.lineBreakMode = .byWordWrapping
         field.isBezeled = false
         field.isEditable = false
-        field.font = .systemFont(ofSize:12, weight:.light)
+        field.font = .systemFont(ofSize:12, weight:.ultraLight)
         addSubview(field)
         self.field = field
         
@@ -62,7 +62,7 @@ class ItemView:NSControl {
             field.alphaValue = 0.7
             selector.alphaValue = 1
         } else {
-            field.alphaValue = 0.3
+            field.alphaValue = 0.5
             selector.alphaValue = 0
         }
     }
