@@ -44,6 +44,11 @@ class TextView:NSTextView, NSTextStorageDelegate {
     }
     
     func textStorage(_ storage:NSTextStorage, didProcessEditing editedMask:NSTextStorageEditActions, range editedRange:NSRange, changeInLength delta:Int) {
+        var string = storage.string
+        while let index = string.firstIndex(of:"#") {
+            let plain = String(string[..<index])
+            string = String(string[index...])
+        }
 //        storage.removeAttribute(.font, range:NSMakeRange(0, storage.length))
         
         let greeting = "Hi there! It's nice to meet you! 👋"
