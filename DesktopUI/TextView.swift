@@ -43,34 +43,32 @@ class TextView:NSTextView, NSTextStorageDelegate {
         caretY.constant = rect.midY
     }
     
-    func textStorage(_ storage:NSTextStorage, didProcessEditing editedMask:NSTextStorageEditActions, range editedRange:NSRange, changeInLength delta:Int) {
+    func textStorage(_ storage:NSTextStorage, didProcessEditing editedMask:NSTextStorageEditActions, range:NSRange,
+                     changeInLength:Int) {
+        storage.removeAttribute(.font, range:NSMakeRange(0, storage.length))
         var string = storage.string
+        var location = 0
         while let index = string.firstIndex(of:"#") {
             let plain = String(string[..<index])
+            storage.addAttribute(.font, value:NSFont(name:"SourceCodeRoman-Light", size:18)!,
+                                 range:NSMakeRange(location, plain.count))
+            location += plain.count
             string = String(string[index...])
-        }
-//        storage.removeAttribute(.font, range:NSMakeRange(0, storage.length))
-        
-        let greeting = "Hi there! It's nice to meet you! 👋"
-        let endOfSentence = greeting.index(of: "!")!
-        let firstSentence = greeting[...endOfSentence]
-        // firstSentence == "Hi there!"
-        var string = storage.string
-//        while let range = string.range(of:"#") {
-//            NSRange(Range(string.index(before:range.upperBound), in:string), in:string)
-//            range.sub
-//            storage.addAttribute(.font, value:NSFont(name:"SourceCodeRoman-Light", size:18), range: <#T##NSRange#>)
-//            string = String(string.suffix(from:string.index(after:index)))
-//        }
-        
-        /*
-        let components = storage.string.components(separatedBy:"#")
-        var length = 0
-        for (index, string) in components.enumerated() {
-            if index > 0 {
-                NSFont(name:"SourceCodeRoman-Light", size:18)
+            let heading:String
+            if let endHeading = string.firstIndex(of:"\n") {
+                heading = String(string[..<endHeading])
+                location += heading.count
+                string = String(string[endHeading...])
+            } else {
+                heading = string
+                string = String()
             }
-            length += string.count
-        }*/
+            storage.addAttribute(.font, value:NSFont(name:"SourceCodeRoman-Bold", size:18)!,
+                                 range:NSMakeRange(location, heading.count))
+        }
+        if location == 0 {
+            storage.addAttribute(.font, value:NSFont(name:"SourceCodeRoman-Light", size:18)!,
+                                 range:NSMakeRange(location, storage.string.count))
+        }
     }
 }
