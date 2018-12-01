@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DA06AFB521B347E100F4F6E9 /* NSFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06AFB421B347E100F4F6E9 /* NSFont.swift */; };
 		DA1E532821A6B0A200A5A680 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532721A6B0A200A5A680 /* View.swift */; };
 		DA1E532C21A6FDE800A5A680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1E532B21A6FDE800A5A680 /* Assets.xcassets */; };
 		DA1E532E21A704BD00A5A680 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532D21A704BD00A5A680 /* Window.swift */; };
@@ -101,6 +102,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DA06AFB421B347E100F4F6E9 /* NSFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSFont.swift; sourceTree = "<group>"; };
 		DA1E532721A6B0A200A5A680 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DA1E532B21A6FDE800A5A680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA1E532D21A704BD00A5A680 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
@@ -259,6 +261,7 @@
 				DACE75A121A82EE800B704C3 /* ItemView.swift */,
 				DABB090C21A8780E00A7DD41 /* Storage.swift */,
 				DA43810D21AAAE4600BE7895 /* NSColor.swift */,
+				DA06AFB421B347E100F4F6E9 /* NSFont.swift */,
 			);
 			path = DesktopUI;
 			sourceTree = "<group>";
@@ -614,6 +617,7 @@
 				DA9727E221AC333900911162 /* Markdown.swift in Sources */,
 				DACE75A021A7EA9D00B704C3 /* DocumentView.swift in Sources */,
 				DA9727E421AC333900911162 /* PlainInterpreter.swift in Sources */,
+				DA06AFB521B347E100F4F6E9 /* NSFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
