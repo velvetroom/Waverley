@@ -19,7 +19,6 @@ class TextView:NSTextView, NSTextStorageDelegate {
         isIncrementalSearchingEnabled = true
         textContainerInset.height = 50
         isRichText = false
-        font = NSFont(name:"SourceCodeRoman-Light", size:18)
         storage.delegate = self
         
         let caret = NSView()
@@ -43,32 +42,24 @@ class TextView:NSTextView, NSTextStorageDelegate {
         caretY.constant = rect.midY
     }
     
-    func textStorage(_ storage:NSTextStorage, didProcessEditing editedMask:NSTextStorageEditActions, range:NSRange,
+    func textStorage(_ storage:NSTextStorage, didProcessEditing:NSTextStorageEditActions, range:NSRange,
                      changeInLength:Int) {
         storage.removeAttribute(.font, range:NSMakeRange(0, storage.length))
-        var string = storage.string
-        var location = 0
-        while let index = string.firstIndex(of:"#") {
-            let plain = String(string[..<index])
-            storage.addAttribute(.font, value:NSFont(name:"SourceCodeRoman-Light", size:18)!,
-                                 range:NSMakeRange(location, plain.count))
-            location += plain.count
-            string = String(string[index...])
-            let heading:String
-            if let endHeading = string.firstIndex(of:"\n") {
-                heading = String(string[..<endHeading])
-                location += heading.count
-                string = String(string[endHeading...])
+        var lights = [NSRange]()
+        var bolds = [NSRange]()
+        var start = storage.string.startIndex
+        while let index = storage.string[start...].firstIndex(of:"#") {
+            lights.append(NSRange(start..<index, in:storage.string))
+            if let endHeading = storage.string[index...].firstIndex(of:"\n") {
+                bolds.append(NSRange(index...endHeading, in:storage.string))
+                start = endHeading
             } else {
-                heading = string
-                string = String()
+                bolds.append(NSRange(index..., in:storage.string))
+                start = storage.string.endIndex
             }
-            storage.addAttribute(.font, value:NSFont(name:"SourceCodeRoman-Bold", size:18)!,
-                                 range:NSMakeRange(location, heading.count))
         }
-        if location == 0 {
-            storage.addAttribute(.font, value:NSFont(name:"SourceCodeRoman-Light", size:18)!,
-                                 range:NSMakeRange(location, storage.string.count))
-        }
+        lights.append(NSRange(start..., in:storage.string))
+        lights.forEach { storage.addAttribute(.font, value:NSFont.light(18), range:$0) }
+        bolds.forEach { storage.addAttribute(.font, value:NSFont.bold(18), range:$0) }
     }
 }
