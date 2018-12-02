@@ -1,12 +1,12 @@
 import Foundation
 
 public struct Trait {
-    enum Mode {
+    public enum Mode {
         case regular
         case bold
         case italic
         case boldItalic
     }
-    let model:Mode
-    let range:NSRange
+    public let model:Mode
+    public let range:NSRange
 }
