@@ -8,10 +8,18 @@ class TestMarkdown:XCTestCase {
         mark = Markdown()
     }
     
-    func testPlainString() {
+    func testPlain() {
         let traits = mark.parse("hello world")
         XCTAssertEqual(1, traits.count)
         XCTAssertEqual(Trait.Mode.regular, traits[0].mode)
+        XCTAssertEqual("hello world", traits[0].string)
+        XCTAssertEqual(0, traits[0].addSize)
+    }
+    
+    func testBold() {
+        let traits = mark.parse("*hello world*")
+        XCTAssertEqual(1, traits.count)
+        XCTAssertEqual(Trait.Mode.bold, traits[0].mode)
         XCTAssertEqual("hello world", traits[0].string)
         XCTAssertEqual(0, traits[0].addSize)
     }
