@@ -9,9 +9,19 @@ public struct Trait {
         
         static func +(left:Mode, right:Mode) -> Mode {
             switch left {
-            case .regular: return right
-            default: return right
+            case .regular:
+                return right
+            case .italic:
+                if right == .bold {
+                    return .boldItalic
+                }
+            case .bold:
+                if right == .italic {
+                    return .boldItalic
+                }
+            default: break
             }
+            return left
         }
     }
     public let mode:Mode

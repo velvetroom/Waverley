@@ -31,4 +31,20 @@ class TestMarkdown:XCTestCase {
         XCTAssertEqual("hello world", traits[0].string)
         XCTAssertEqual(0, traits[0].addSize)
     }
+    
+    func testBoldAndItalic() {
+        let traits = mark.parse("*_hello world_*")
+        XCTAssertEqual(1, traits.count)
+        XCTAssertEqual(Trait.Mode.boldItalic, traits[0].mode)
+        XCTAssertEqual("hello world", traits[0].string)
+        XCTAssertEqual(0, traits[0].addSize)
+    }
+    
+    func testItalicAndBold() {
+        let traits = mark.parse("_*hello world*_")
+        XCTAssertEqual(1, traits.count)
+        XCTAssertEqual(Trait.Mode.boldItalic, traits[0].mode)
+        XCTAssertEqual("hello world", traits[0].string)
+        XCTAssertEqual(0, traits[0].addSize)
+    }
 }

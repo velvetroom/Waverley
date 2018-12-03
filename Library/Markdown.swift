@@ -6,15 +6,22 @@ public class Markdown {
     }
     
     private func parsing(_ string:String, current:Trait.Mode) -> [Trait] {
-        if let bold = compare(string, using:"*", current:current, result:current + .bold) {
+        let bold = compare(string, using:"*", current:current, result:current + .bold)
+        let italic = compare(string, using:"_", current:current, result:current + .italic)
+        if !bold.isEmpty && !italic.isEmpty {
+            if bold.count > italic.count {
+                return italic
+            }
             return bold
-        } else if let italic = compare(string, using:"_", current:current, result:current + .italic) {
+        } else if !bold.isEmpty {
+            return bold
+        } else if !italic.isEmpty {
             return italic
         }
         return build(string, current:current)
     }
     
-    private func compare(_ string:String, using:Character, current:Trait.Mode, result:Trait.Mode) -> [Trait]? {
+    private func compare(_ string:String, using:Character, current:Trait.Mode, result:Trait.Mode) -> [Trait] {
         if let begin = string.firstIndex(of:using) {
             if let end = string[string.index(after:begin)...].firstIndex(of:using) {
                 return parsing(String(string[..<begin]), current:current) +
@@ -22,16 +29,11 @@ public class Markdown {
                     parsing(String(string[string.index(after:end)...]), current:current)
             }
         }
-        return nil
+        return []
     }
     
     private func build(_ string:String, current:Trait.Mode) -> [Trait] {
         if string.isEmpty { return [] }
-        switch current {
-        case .regular: return [Trait(mode:.regular, string:string, addSize:0)]
-        case .bold: return [Trait(mode:.bold, string:string, addSize:0)]
-        case .italic: return [Trait(mode:.italic, string:string, addSize:0)]
-        default: return []
-        }
+        return [Trait(mode:current, string:string, addSize:0)]
     }
 }
