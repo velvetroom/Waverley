@@ -8,6 +8,6 @@ public struct Trait {
         case boldItalic
     }
     public let mode:Mode
-    public let range:NSRange
+    public let string:String
     public let addSize:Double
 }
