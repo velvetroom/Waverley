@@ -12,6 +12,7 @@ class TestMarkdown:XCTestCase {
         let traits = mark.parse("hello world")
         XCTAssertEqual(1, traits.count)
         XCTAssertEqual(Trait.Mode.regular, traits[0].mode)
-        XCTAssertEqual(NSRange(0, 10), traits[0].range)
+        XCTAssertEqual(NSMakeRange(0, 10), traits[0].range)
+        XCTAssertEqual(0, traits[0].addSize)
     }
 }

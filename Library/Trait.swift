@@ -7,6 +7,7 @@ public struct Trait {
         case italic
         case boldItalic
     }
-    public let model:Mode
+    public let mode:Mode
     public let range:NSRange
+    public let addSize:Double
 }
