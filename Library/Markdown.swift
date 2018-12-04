@@ -9,7 +9,8 @@ public class Markdown {
     }
     
     private func parsing(_ string:String, current:Trait.Mode) -> [Trait] {
-        if let detected = options.compactMap( { character, function -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))? in
+        if let detected = options.compactMap(
+            { character, function -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))? in
             guard let index = string.firstIndex(of:character) else { return nil }
             return (index, function)
         } ).sorted(by: { $0.0 < $1.0 } ).first?.1 {
@@ -20,14 +21,22 @@ public class Markdown {
     
     private func header(_ string:String, current:Trait.Mode) -> [Trait] {
         let begin = string.firstIndex(of:"#")!
+        var addSize = 5.0
+        var after = string.index(after:begin)
+        if string[after] == "#" {
+            addSize = 2
+            after = string.index(after:after)
+        }
+        if string[after] == " " {
+            after = string.index(after:after)
+        }
         var result = parsing(String(string[..<begin]), current:current)
-        if let end = string[string.index(after:begin)...].firstIndex(of:"\n") {
-            result += [Trait(
-                mode:.bold, string:String(string[string.index(after:string.index(after:begin))..<end]), addSize:5)] +
+        if let end = string[after...].firstIndex(of:"\n") {
+            result += [Trait(mode:.bold, string:String(string[after..<end]), addSize:addSize)] +
                 parsing(String(string[string.index(after:end)...]), current:current)
         } else {
             result += [Trait(
-                mode:.bold, string:String(string[string.index(after:string.index(after:begin))...]), addSize:5)]
+                mode:.bold, string:String(string[after...]), addSize:addSize)]
         }
         return result
     }
