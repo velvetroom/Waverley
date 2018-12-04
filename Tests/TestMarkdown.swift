@@ -48,5 +48,11 @@ class TestMarkdown:XCTestCase {
         XCTAssertEqual(0, traits[0].addSize)
     }
     
-    
+    func testHeader() {
+        let traits = mark.parse("# hello world")
+        XCTAssertEqual(1, traits.count)
+        XCTAssertEqual(Trait.Mode.bold, traits[0].mode)
+        XCTAssertEqual("hello world", traits[0].string)
+        XCTAssertEqual(5, traits[0].addSize)
+    }
 }
