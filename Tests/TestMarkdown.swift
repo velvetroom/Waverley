@@ -47,4 +47,6 @@ class TestMarkdown:XCTestCase {
         XCTAssertEqual("hello world", traits[0].string)
         XCTAssertEqual(0, traits[0].addSize)
     }
+    
+    
 }

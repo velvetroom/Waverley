@@ -1,24 +1,28 @@
 import Foundation
 
 public class Markdown {
+    private let options:[(Character, ((Markdown) -> (String, Trait.Mode) -> [Trait]))] = [("*", bold), ("_", italic)]
+    
     public func parse(_ string:String) -> [Trait] {
         return parsing(string, current:.regular)
     }
     
     private func parsing(_ string:String, current:Trait.Mode) -> [Trait] {
-        let bold = compare(string, using:"*", current:current, result:current + .bold)
-        let italic = compare(string, using:"_", current:current, result:current + .italic)
-        if !bold.isEmpty && !italic.isEmpty {
-            if bold.count > italic.count {
-                return italic
-            }
-            return bold
-        } else if !bold.isEmpty {
-            return bold
-        } else if !italic.isEmpty {
-            return italic
+        if let detected = options.compactMap( { character, function -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))? in
+            guard let index = string.firstIndex(of:character) else { return nil }
+            return (index, function)
+        } ).sorted(by: { $0.0 < $1.0 } ).first?.1 {
+            return detected(self)(string, current)
         }
         return build(string, current:current)
+    }
+
+    private func bold(_ string:String, current:Trait.Mode) -> [Trait] {
+        return compare(string, using:"*", current:current, result:current + .bold)
+    }
+    
+    private func italic(_ string:String, current:Trait.Mode) -> [Trait] {
+        return compare(string, using:"_", current:current, result:current + .italic)
     }
     
     private func compare(_ string:String, using:Character, current:Trait.Mode, result:Trait.Mode) -> [Trait] {
