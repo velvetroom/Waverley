@@ -63,4 +63,31 @@ class TestMarkdown:XCTestCase {
         XCTAssertEqual("hello world", traits[0].string)
         XCTAssertEqual(2, traits[0].addSize)
     }
+    
+    func testSubheaderMultiple() {
+        let traits = mark.parse("### hello world")
+        XCTAssertEqual(1, traits.count)
+        XCTAssertEqual(Trait.Mode.bold, traits[0].mode)
+        XCTAssertEqual("# hello world", traits[0].string)
+        XCTAssertEqual(2, traits[0].addSize)
+    }
+    
+    func testHeaderNoSpace() {
+        let traits = mark.parse("#hello world")
+        XCTAssertEqual(1, traits.count)
+        XCTAssertEqual(Trait.Mode.bold, traits[0].mode)
+        XCTAssertEqual("hello world", traits[0].string)
+        XCTAssertEqual(5, traits[0].addSize)
+    }
+    
+    func testHeaderAndContent() {
+        let traits = mark.parse("# hello world\nlorem ipsum")
+        XCTAssertEqual(2, traits.count)
+        XCTAssertEqual(Trait.Mode.bold, traits[0].mode)
+        XCTAssertEqual("hello world", traits[0].string)
+        XCTAssertEqual(5, traits[0].addSize)
+        XCTAssertEqual(Trait.Mode.regular, traits[1].mode)
+        XCTAssertEqual("lorem ipsum", traits[1].string)
+        XCTAssertEqual(0, traits[1].addSize)
+    }
 }
