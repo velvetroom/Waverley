@@ -54,15 +54,16 @@ class Presenter {
     }
     
     func share() {
-        saveIfNeeded()
-        let save = NSSavePanel()
-        save.nameFieldStringValue = "Waverley"
-        save.allowedFileTypes = ["pdf"]
-        save.beginSheetModal(for:Application.window) { response in
-            if response == .OK {
-                self.exportPdf(save.url!)
-            }
-        }
+        Application.window.beginSheet(PreviewView(selected.note))
+//        saveIfNeeded()
+//        let save = NSSavePanel()
+//        save.nameFieldStringValue = "Waverley"
+//        save.allowedFileTypes = ["pdf"]
+//        save.beginSheetModal(for:Application.window) { response in
+//            if response == .OK {
+//                self.exportPdf(save.url!)
+//            }
+//        }
     }
     
     func next() {
