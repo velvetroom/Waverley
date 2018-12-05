@@ -54,16 +54,12 @@ class Presenter {
     }
     
     func share() {
-        Application.window.beginSheet(PreviewView(selected.note))
-//        saveIfNeeded()
-//        let save = NSSavePanel()
-//        save.nameFieldStringValue = "Waverley"
-//        save.allowedFileTypes = ["pdf"]
-//        save.beginSheetModal(for:Application.window) { response in
-//            if response == .OK {
-//                self.exportPdf(save.url!)
-//            }
-//        }
+        saveIfNeeded()
+        Application.window.beginSheet(PreviewView(selected.note)) { response in
+            if response == .continue {
+                self.exportPdf()
+            }
+        }
     }
     
     func next() {
@@ -100,6 +96,17 @@ class Presenter {
         timer = Timer.scheduledTimer(withTimeInterval:5, repeats:false) { timer in
             if timer.isValid {
                 self.repository.update(note, content:content)
+            }
+        }
+    }
+    
+    private func exportPdf() {
+        let save = NSSavePanel()
+        save.nameFieldStringValue = "Waverley"
+        save.allowedFileTypes = ["pdf"]
+        save.beginSheetModal(for:Application.window) { response in
+            if response == .OK {
+                self.exportPdf(save.url!)
             }
         }
     }

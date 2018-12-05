@@ -7,7 +7,7 @@ class PreviewView:NSWindow {
     
     init(_ note:Note) {
         self.note = note
-        super.init(contentRect:NSRect(x:0, y:0, width:612, height:500), styleMask:
+        super.init(contentRect:NSRect(x:0, y:0, width:550, height:400), styleMask:
             [.fullSizeContentView], backing:.buffered, defer:false)
         
         let cancel = NSButton(title:.local("PreviewView.cancel"), target:self, action:#selector(self.cancel))
@@ -22,7 +22,7 @@ class PreviewView:NSWindow {
         pdf.translatesAutoresizingMaskIntoConstraints = false
         pdf.imageScaling = .scaleNone
         pdf.keyEquivalent = "\r"
-        pdf.attributedTitle = NSAttributedString(string:.local("DeleteView.delete"), attributes:
+        pdf.attributedTitle = NSAttributedString(string:.local("PreviewView.pdf"), attributes:
             [.font:NSFont.systemFont(ofSize:14, weight:.medium), .foregroundColor:NSColor.black])
         contentView!.addSubview(pdf)
         
@@ -37,17 +37,18 @@ class PreviewView:NSWindow {
         text.drawsBackground = false
         text.isEditable = false
         text.isRichText = false
+        text.isSelectable = false
         text.textStorage!.append(Markdown().parse(string:note.content))
         text.textColor = .textColor
         scroll.documentView = text
         
         scroll.topAnchor.constraint(equalTo:contentView!.topAnchor, constant:30).isActive = true
         scroll.bottomAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-90).isActive = true
-        scroll.leftAnchor.constraint(equalTo:contentView!.leftAnchor, constant:71).isActive = true
-        scroll.rightAnchor.constraint(equalTo:contentView!.rightAnchor, constant:-71).isActive = true
+        scroll.leftAnchor.constraint(equalTo:contentView!.leftAnchor, constant:40).isActive = true
+        scroll.rightAnchor.constraint(equalTo:contentView!.rightAnchor, constant:-40).isActive = true
         
-        cancel.leftAnchor.constraint(equalTo:contentView!.leftAnchor, constant:40).isActive = true
-        cancel.bottomAnchor.constraint(equalTo:contentView!.bottomAnchor).isActive = true
+        cancel.rightAnchor.constraint(equalTo:pdf.leftAnchor, constant:-40).isActive = true
+        cancel.centerYAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-40).isActive = true
         
         pdf.rightAnchor.constraint(equalTo:contentView!.rightAnchor, constant:-30).isActive = true
         pdf.centerYAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-40).isActive = true
@@ -58,5 +59,6 @@ class PreviewView:NSWindow {
     }
     
     @objc private func pdf() {
+        Application.window.endSheet(Application.window.attachedSheet!, returnCode:.continue)
     }
 }
