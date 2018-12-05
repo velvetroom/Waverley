@@ -23,10 +23,10 @@ public class Markdown {
     
     private func header(_ string:String, current:Trait.Mode) -> [Trait] {
         let begin = string.firstIndex(of:"#")!
-        var addSize = 5.0
+        var addSize = 10.0
         var after = string.index(after:begin)
         if string[after] == "#" {
-            addSize = 2
+            addSize = 4
             after = string.index(after:after)
         }
         if string[after] == " " {
@@ -34,7 +34,7 @@ public class Markdown {
         }
         var result = parsing(String(string[..<begin]), current:current)
         if let end = string[after...].firstIndex(of:"\n") {
-            result += [Trait(mode:.bold, string:String(string[after..<end]), addSize:addSize)] +
+            result += [Trait(mode:.bold, string:String(string[after...end]), addSize:addSize)] +
                 parsing(String(string[string.index(after:end)...]), current:current)
         } else {
             result += [Trait(
