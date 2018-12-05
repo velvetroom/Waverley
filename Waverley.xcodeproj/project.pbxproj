@@ -32,19 +32,6 @@
 		DA9727C621ABE0CD00911162 /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C521ABE0CD00911162 /* DeleteView.swift */; };
 		DA9727C921ABE1AD00911162 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C821ABE1AD00911162 /* String.swift */; };
 		DA9727CA21ABE1AD00911162 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C821ABE1AD00911162 /* String.swift */; };
-		DA9727E021AC333900911162 /* ItalicsInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727D321AC333800911162 /* ItalicsInterpreter.swift */; };
-		DA9727E121AC333900911162 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727D421AC333800911162 /* Header.swift */; };
-		DA9727E221AC333900911162 /* Markdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727D521AC333800911162 /* Markdown.swift */; };
-		DA9727E321AC333900911162 /* Position.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727D621AC333800911162 /* Position.swift */; };
-		DA9727E421AC333900911162 /* PlainInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727D721AC333800911162 /* PlainInterpreter.swift */; };
-		DA9727E521AC333900911162 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727D821AC333800911162 /* Stack.swift */; };
-		DA9727E621AC333900911162 /* StackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727D921AC333800911162 /* StackItem.swift */; };
-		DA9727E721AC333900911162 /* HeaderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727DA21AC333800911162 /* HeaderItem.swift */; };
-		DA9727E821AC333900911162 /* BoldInterpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727DB21AC333800911162 /* BoldInterpreter.swift */; };
-		DA9727E921AC333900911162 /* Interpreter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727DC21AC333800911162 /* Interpreter.swift */; };
-		DA9727EA21AC333900911162 /* CleanerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727DD21AC333800911162 /* CleanerItem.swift */; };
-		DA9727EB21AC333900911162 /* Cleaner.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727DE21AC333800911162 /* Cleaner.swift */; };
-		DA9727EC21AC333900911162 /* Escaping.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727DF21AC333800911162 /* Escaping.swift */; };
 		DAA6A98521AE83A2009D13B9 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A98421AE83A2009D13B9 /* TextView.swift */; };
 		DAA7914921B72D670003C45B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7914821B72D670003C45B /* PreviewView.swift */; };
 		DABB090D21A8780E00A7DD41 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB090C21A8780E00A7DD41 /* Storage.swift */; };
@@ -135,19 +122,6 @@
 		DA9727CF21AC227500911162 /* Desktop.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Desktop.plist; sourceTree = "<group>"; };
 		DA9727D021AC227500911162 /* Tests.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Tests.plist; sourceTree = "<group>"; };
 		DA9727D121AC227500911162 /* Desktop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Desktop.entitlements; sourceTree = "<group>"; };
-		DA9727D321AC333800911162 /* ItalicsInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItalicsInterpreter.swift; sourceTree = "<group>"; };
-		DA9727D421AC333800911162 /* Header.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
-		DA9727D521AC333800911162 /* Markdown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
-		DA9727D621AC333800911162 /* Position.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Position.swift; sourceTree = "<group>"; };
-		DA9727D721AC333800911162 /* PlainInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlainInterpreter.swift; sourceTree = "<group>"; };
-		DA9727D821AC333800911162 /* Stack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
-		DA9727D921AC333800911162 /* StackItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackItem.swift; sourceTree = "<group>"; };
-		DA9727DA21AC333800911162 /* HeaderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderItem.swift; sourceTree = "<group>"; };
-		DA9727DB21AC333800911162 /* BoldInterpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoldInterpreter.swift; sourceTree = "<group>"; };
-		DA9727DC21AC333800911162 /* Interpreter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interpreter.swift; sourceTree = "<group>"; };
-		DA9727DD21AC333800911162 /* CleanerItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CleanerItem.swift; sourceTree = "<group>"; };
-		DA9727DE21AC333800911162 /* Cleaner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cleaner.swift; sourceTree = "<group>"; };
-		DA9727DF21AC333800911162 /* Escaping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Escaping.swift; sourceTree = "<group>"; };
 		DAA6A98421AE83A2009D13B9 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		DAA7914821B72D670003C45B /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
 		DABB090C21A8780E00A7DD41 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
@@ -303,33 +277,12 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		DA9727D221AC331400911162 /* DesktopMarkdown */ = {
-			isa = PBXGroup;
-			children = (
-				DA9727D521AC333800911162 /* Markdown.swift */,
-				DA9727DB21AC333800911162 /* BoldInterpreter.swift */,
-				DA9727DE21AC333800911162 /* Cleaner.swift */,
-				DA9727DD21AC333800911162 /* CleanerItem.swift */,
-				DA9727DF21AC333800911162 /* Escaping.swift */,
-				DA9727D421AC333800911162 /* Header.swift */,
-				DA9727DA21AC333800911162 /* HeaderItem.swift */,
-				DA9727DC21AC333800911162 /* Interpreter.swift */,
-				DA9727D321AC333800911162 /* ItalicsInterpreter.swift */,
-				DA9727D721AC333800911162 /* PlainInterpreter.swift */,
-				DA9727D621AC333800911162 /* Position.swift */,
-				DA9727D821AC333800911162 /* Stack.swift */,
-				DA9727D921AC333800911162 /* StackItem.swift */,
-			);
-			path = DesktopMarkdown;
-			sourceTree = "<group>";
-		};
 		DABA30CF21A695FC0026BAB2 = {
 			isa = PBXGroup;
 			children = (
 				DACE75A521A837A500B704C3 /* Library */,
 				DACE75CF21A866AE00B704C3 /* Tests */,
 				DA76266921A6A1D0009EBF8F /* DesktopUI */,
-				DA9727D221AC331400911162 /* DesktopMarkdown */,
 				DA76265F21A6A195009EBF8F /* MobileUI */,
 				DA9727C721ABE19F00911162 /* SharedUI */,
 				DA76266221A6A1A8009EBF8F /* Resources */,
@@ -610,32 +563,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA9727EB21AC333900911162 /* Cleaner.swift in Sources */,
-				DA9727E321AC333900911162 /* Position.swift in Sources */,
 				DA8CDE0921B00ABB00CE4BE4 /* TextLayout.swift in Sources */,
-				DA9727E821AC333900911162 /* BoldInterpreter.swift in Sources */,
 				DA9727C621ABE0CD00911162 /* DeleteView.swift in Sources */,
 				DA1E532821A6B0A200A5A680 /* View.swift in Sources */,
-				DA9727EC21AC333900911162 /* Escaping.swift in Sources */,
-				DA9727E921AC333900911162 /* Interpreter.swift in Sources */,
-				DA9727E721AC333900911162 /* HeaderItem.swift in Sources */,
 				DA9727CA21ABE1AD00911162 /* String.swift in Sources */,
 				DAA6A98521AE83A2009D13B9 /* TextView.swift in Sources */,
 				DAA7914921B72D670003C45B /* PreviewView.swift in Sources */,
-				DA9727EA21AC333900911162 /* CleanerItem.swift in Sources */,
 				DACE75A421A8351C00B704C3 /* Presenter.swift in Sources */,
-				DA9727E121AC333900911162 /* Header.swift in Sources */,
 				DA76266B21A6A1D0009EBF8F /* Application.swift in Sources */,
 				DA43810E21AAAE4600BE7895 /* NSColor.swift in Sources */,
-				DA9727E021AC333900911162 /* ItalicsInterpreter.swift in Sources */,
-				DA9727E621AC333900911162 /* StackItem.swift in Sources */,
 				DACE75A221A82EE800B704C3 /* ItemView.swift in Sources */,
 				DABB090D21A8780E00A7DD41 /* Storage.swift in Sources */,
 				DA1E532E21A704BD00A5A680 /* Window.swift in Sources */,
-				DA9727E521AC333900911162 /* Stack.swift in Sources */,
-				DA9727E221AC333900911162 /* Markdown.swift in Sources */,
 				DACE75A021A7EA9D00B704C3 /* DocumentView.swift in Sources */,
-				DA9727E421AC333900911162 /* PlainInterpreter.swift in Sources */,
 				DA06AFB521B347E100F4F6E9 /* NSFont.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

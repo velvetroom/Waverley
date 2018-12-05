@@ -55,11 +55,7 @@ class Presenter {
     
     func share() {
         saveIfNeeded()
-        Application.window.beginSheet(PreviewView(selected.note)) { response in
-            if response == .continue {
-                self.exportPdf()
-            }
-        }
+        Application.window.beginSheet(PreviewView(selected.note))
     }
     
     func next() {
@@ -98,37 +94,5 @@ class Presenter {
                 self.repository.update(note, content:content)
             }
         }
-    }
-    
-    private func exportPdf() {
-        let save = NSSavePanel()
-        save.nameFieldStringValue = "Waverley"
-        save.allowedFileTypes = ["pdf"]
-        save.beginSheetModal(for:Application.window) { response in
-            if response == .OK {
-                self.exportPdf(save.url!)
-            }
-        }
-    }
-    
-    private func exportPdf(_ url:URL) {
-        let text = NSTextView(frame:NSRect(x:0, y:0, width:470, height:0))
-        text.isVerticallyResizable = true
-        text.isHorizontallyResizable = false
-        text.textStorage!.append(Markdown().parse(string:selected.note.content))
-        
-        let printInfo = NSPrintInfo(dictionary:[.jobSavingURL:url])
-        let printOp = NSPrintOperation(view:text, printInfo:printInfo)
-        printOp.printInfo.paperSize = NSMakeSize(612, 792)
-        printOp.printInfo.jobDisposition = .save
-        printOp.printInfo.topMargin = 71
-        printOp.printInfo.leftMargin = 71
-        printOp.printInfo.rightMargin = 71
-        printOp.printInfo.bottomMargin = 71
-        printOp.printInfo.isVerticallyCentered = false
-        printOp.printInfo.isHorizontallyCentered = false
-        printOp.showsPrintPanel = false
-        printOp.showsProgressPanel = false
-        printOp.run()
     }
 }

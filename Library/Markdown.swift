@@ -4,6 +4,8 @@ public class Markdown {
     private let options:[(Character, ((Markdown) -> (String, Trait.Mode) -> [Trait]))] = [
         ("*", bold), ("_", italic), ("#", header)]
     
+    public init() { } 
+    
     public func parse(_ string:String) -> [Trait] {
         return parsing(string, current:.regular)
     }

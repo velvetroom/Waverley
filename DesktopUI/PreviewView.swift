@@ -2,11 +2,10 @@ import AppKit
 import Desktop
 
 class PreviewView:NSWindow {
-    private weak var note:Note!
+    private weak var text:NSTextView!
     override var canBecomeKey:Bool { return true }
     
     init(_ note:Note) {
-        self.note = note
         super.init(contentRect:NSRect(x:0, y:0, width:550, height:400), styleMask:
             [.fullSizeContentView], backing:.buffered, defer:false)
         
@@ -38,9 +37,9 @@ class PreviewView:NSWindow {
         text.isEditable = false
         text.isRichText = false
         text.isSelectable = false
-        text.textStorage!.append(Markdown().parse(string:note.content))
-        text.textColor = .textColor
+        
         scroll.documentView = text
+        self.text = text
         
         scroll.topAnchor.constraint(equalTo:contentView!.topAnchor, constant:30).isActive = true
         scroll.bottomAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-90).isActive = true
@@ -52,13 +51,51 @@ class PreviewView:NSWindow {
         
         pdf.rightAnchor.constraint(equalTo:contentView!.rightAnchor, constant:-30).isActive = true
         pdf.centerYAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-40).isActive = true
+        
+        Markdown().parse(note.content).forEach { trait in
+            var font:NSFont
+            let size:CGFloat = 12.0 + CGFloat(trait.addSize)
+            switch trait.mode {
+            case .bold: font = .printBold(size)
+            case .boldItalic: font = .printBoldItalic(size)
+            case .italic: font = .printLightItalic(size)
+            default: font = .printLight(size)
+            }
+            text.textStorage!.append(NSAttributedString(string:trait.string, attributes:[.font:font]))
+        }
+        text.textColor = .textColor
     }
     
     @objc private func cancel() {
-        Application.window.endSheet(Application.window.attachedSheet!, returnCode:.cancel)
+        Application.window.endSheet(Application.window.attachedSheet!)
     }
     
     @objc private func pdf() {
-        Application.window.endSheet(Application.window.attachedSheet!, returnCode:.continue)
+        cancel()
+        let save = NSSavePanel()
+        save.nameFieldStringValue = "Waverley"
+        save.allowedFileTypes = ["pdf"]
+        save.beginSheetModal(for:Application.window) { response in
+            if response == .OK {
+                self.exportPdf(save.url!)
+            }
+        }
+    }
+    
+    private func exportPdf(_ url:URL) {
+        text.textColor = .black
+        let printInfo = NSPrintInfo(dictionary:[.jobSavingURL:url])
+        let printOp = NSPrintOperation(view:text, printInfo:printInfo)
+        printOp.printInfo.paperSize = NSMakeSize(612, 792)
+        printOp.printInfo.jobDisposition = .save
+        printOp.printInfo.topMargin = 71
+        printOp.printInfo.leftMargin = 71
+        printOp.printInfo.rightMargin = 71
+        printOp.printInfo.bottomMargin = 71
+        printOp.printInfo.isVerticallyCentered = false
+        printOp.printInfo.isHorizontallyCentered = false
+        printOp.showsPrintPanel = false
+        printOp.showsProgressPanel = false
+        printOp.run()
     }
 }
