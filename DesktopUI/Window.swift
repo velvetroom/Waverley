@@ -48,4 +48,8 @@ class Window:NSWindow {
     @IBAction private func goToNextPage(_ sender:Any) {
         view.presenter.next()
     }
+    
+    @IBAction private func orderFrontStandardAboutPanel(_ sender:Any) {
+        NSApp.orderFrontStandardAboutPanel(options: [NSApplication.AboutPanelOptionKey.credits : "shite"])
+    }
 }
