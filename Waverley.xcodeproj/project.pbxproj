@@ -31,6 +31,7 @@
 		DA89B51621B994EC00F16F31 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51521B994EC00F16F31 /* HelpView.swift */; };
 		DA89B51821B9A98800F16F31 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51721B9A98800F16F31 /* Printer.swift */; };
 		DA89B51A21B9B24F00F16F31 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51921B9B24F00F16F31 /* View.swift */; };
+		DA89B51C21B9BF0D00F16F31 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA89B51B21B9BF0D00F16F31 /* Brand.xcassets */; };
 		DA8CDE0921B00ABB00CE4BE4 /* TextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CDE0821B00ABB00CE4BE4 /* TextLayout.swift */; };
 		DA9727C621ABE0CD00911162 /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C521ABE0CD00911162 /* DeleteView.swift */; };
 		DA9727C921ABE1AD00911162 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C821ABE1AD00911162 /* String.swift */; };
@@ -122,6 +123,7 @@
 		DA89B51521B994EC00F16F31 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		DA89B51721B9A98800F16F31 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		DA89B51921B9B24F00F16F31 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		DA89B51B21B9BF0D00F16F31 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DA8CDE0821B00ABB00CE4BE4 /* TextLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLayout.swift; sourceTree = "<group>"; };
 		DA9727C521ABE0CD00911162 /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
 		DA9727C821ABE1AD00911162 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -237,6 +239,7 @@
 			children = (
 				DA76267821A6A234009EBF8F /* Localizable.strings */,
 				DA76266621A6A1A8009EBF8F /* LaunchScreen.storyboard */,
+				DA89B51B21B9BF0D00F16F31 /* Brand.xcassets */,
 			);
 			path = Mobile;
 			sourceTree = "<group>";
@@ -506,6 +509,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA5A584C21AD385700093B38 /* SourceCodeVariable-Roman.ttf in Resources */,
+				DA89B51C21B9BF0D00F16F31 /* Brand.xcassets in Resources */,
 				DA76266821A6A1B9009EBF8F /* LaunchScreen.storyboard in Resources */,
 				DA76267A21A6A234009EBF8F /* Localizable.strings in Resources */,
 			);
@@ -919,6 +923,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -987,6 +992,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
