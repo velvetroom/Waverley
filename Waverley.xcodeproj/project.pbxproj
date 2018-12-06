@@ -32,6 +32,8 @@
 		DA89B51821B9A98800F16F31 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51721B9A98800F16F31 /* Printer.swift */; };
 		DA89B51A21B9B24F00F16F31 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51921B9B24F00F16F31 /* View.swift */; };
 		DA89B51C21B9BF0D00F16F31 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA89B51B21B9BF0D00F16F31 /* Brand.xcassets */; };
+		DA89B51E21B9C6F500F16F31 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51D21B9C6F500F16F31 /* UIColor.swift */; };
+		DA89B52021B9C89600F16F31 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51F21B9C89600F16F31 /* UIFont.swift */; };
 		DA8CDE0921B00ABB00CE4BE4 /* TextLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA8CDE0821B00ABB00CE4BE4 /* TextLayout.swift */; };
 		DA9727C621ABE0CD00911162 /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C521ABE0CD00911162 /* DeleteView.swift */; };
 		DA9727C921ABE1AD00911162 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C821ABE1AD00911162 /* String.swift */; };
@@ -124,6 +126,8 @@
 		DA89B51721B9A98800F16F31 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		DA89B51921B9B24F00F16F31 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DA89B51B21B9BF0D00F16F31 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
+		DA89B51D21B9C6F500F16F31 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		DA89B51F21B9C89600F16F31 /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		DA8CDE0821B00ABB00CE4BE4 /* TextLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextLayout.swift; sourceTree = "<group>"; };
 		DA9727C521ABE0CD00911162 /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
 		DA9727C821ABE1AD00911162 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
@@ -209,6 +213,8 @@
 			children = (
 				DA76266021A6A195009EBF8F /* Application.swift */,
 				DA89B51921B9B24F00F16F31 /* View.swift */,
+				DA89B51D21B9C6F500F16F31 /* UIColor.swift */,
+				DA89B51F21B9C89600F16F31 /* UIFont.swift */,
 			);
 			path = MobileUI;
 			sourceTree = "<group>";
@@ -572,7 +578,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA9727C921ABE1AD00911162 /* String.swift in Sources */,
+				DA89B51E21B9C6F500F16F31 /* UIColor.swift in Sources */,
 				DA76266121A6A195009EBF8F /* Application.swift in Sources */,
+				DA89B52021B9C89600F16F31 /* UIFont.swift in Sources */,
 				DA89B51A21B9B24F00F16F31 /* View.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
