@@ -49,7 +49,7 @@ class Window:NSWindow {
         view.presenter.next()
     }
     
-    @IBAction private func orderFrontStandardAboutPanel(_ sender:Any) {
-        NSApp.orderFrontStandardAboutPanel(options: [NSApplication.AboutPanelOptionKey.credits : "shite"])
+    @IBAction private func showHelp(_ sender:Any?) {
+        NSApp.runModal(for:HelpView())
     }
 }

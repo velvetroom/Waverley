@@ -59,7 +59,7 @@ class TextView:NSTextView, NSTextStorageDelegate {
             }
         }
         lights.append(NSRange(start..., in:storage.string))
-        lights.forEach { storage.addAttribute(.font, value:NSFont.light(18), range:$0) }
-        bolds.forEach { storage.addAttribute(.font, value:NSFont.bold(18), range:$0) }
+        lights.forEach { storage.addAttribute(.font, value:NSFont.editorLight(18), range:$0) }
+        bolds.forEach { storage.addAttribute(.font, value:NSFont.editorBold(18), range:$0) }
     }
 }

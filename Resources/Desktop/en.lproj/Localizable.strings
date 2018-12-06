@@ -4,3 +4,5 @@ DeleteView.cancel="Cancel";
 DeleteView.delete="Delete";
 PreviewView.cancel="Cancel";
 PreviewView.pdf="PDF";
+HelpView.text="# Header\n## Subheader\nRegular text\n*Bold text*\n_Italic text_";
+HelpView.close="Close";

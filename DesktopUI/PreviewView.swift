@@ -37,7 +37,6 @@ class PreviewView:NSWindow {
         text.isEditable = false
         text.isRichText = false
         text.isSelectable = false
-        
         scroll.documentView = text
         self.text = text
         
@@ -52,17 +51,7 @@ class PreviewView:NSWindow {
         pdf.rightAnchor.constraint(equalTo:contentView!.rightAnchor, constant:-30).isActive = true
         pdf.centerYAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-40).isActive = true
         
-        Markdown().parse(note.content).forEach { trait in
-            var font:NSFont
-            let size:CGFloat = 12.0 + CGFloat(trait.addSize)
-            switch trait.mode {
-            case .bold: font = .printBold(size)
-            case .boldItalic: font = .printBoldItalic(size)
-            case .italic: font = .printLightItalic(size)
-            default: font = .printLight(size)
-            }
-            text.textStorage!.append(NSAttributedString(string:trait.string, attributes:[.font:font]))
-        }
+        text.textStorage!.append(Printer.print(note.content, size:12))
         text.textColor = .textColor
     }
     
