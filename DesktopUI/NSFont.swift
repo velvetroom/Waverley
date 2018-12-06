@@ -1,8 +1,8 @@
 import AppKit
 
 extension NSFont {
-    class func light(_ size:CGFloat) -> NSFont { return NSFont(name:"SourceCodeRoman-Light", size:size)! }
-    class func bold(_ size:CGFloat) -> NSFont { return NSFont(name:"SourceCodeRoman-Bold", size:size)! }
+    class func editorLight(_ size:CGFloat) -> NSFont { return NSFont(name:"SourceCodeRoman-Light", size:size)! }
+    class func editorBold(_ size:CGFloat) -> NSFont { return NSFont(name:"SourceCodeRoman-Bold", size:size)! }
     class func printLight(_ size:CGFloat) -> NSFont { return .systemFont(ofSize:size, weight:.light) }
     class func printBold(_ size:CGFloat) -> NSFont { return .systemFont(ofSize:size, weight:.bold) }
     class func printLightItalic(_ size:CGFloat) -> NSFont {
