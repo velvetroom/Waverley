@@ -34,6 +34,7 @@
 		DA9727CA21ABE1AD00911162 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9727C821ABE1AD00911162 /* String.swift */; };
 		DAA6A98521AE83A2009D13B9 /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA6A98421AE83A2009D13B9 /* TextView.swift */; };
 		DAA7914921B72D670003C45B /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA7914821B72D670003C45B /* PreviewView.swift */; };
+		DAB9F05621B98974002B0E48 /* Brand.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DAB9F05521B98974002B0E48 /* Brand.xcassets */; };
 		DABB090D21A8780E00A7DD41 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB090C21A8780E00A7DD41 /* Storage.swift */; };
 		DACE75A021A7EA9D00B704C3 /* DocumentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE759F21A7EA9D00B704C3 /* DocumentView.swift */; };
 		DACE75A221A82EE800B704C3 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75A121A82EE800B704C3 /* ItemView.swift */; };
@@ -124,6 +125,7 @@
 		DA9727D121AC227500911162 /* Desktop.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Desktop.entitlements; sourceTree = "<group>"; };
 		DAA6A98421AE83A2009D13B9 /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		DAA7914821B72D670003C45B /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		DAB9F05521B98974002B0E48 /* Brand.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Brand.xcassets; sourceTree = "<group>"; };
 		DABB090C21A8780E00A7DD41 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DACE759F21A7EA9D00B704C3 /* DocumentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentView.swift; sourceTree = "<group>"; };
 		DACE75A121A82EE800B704C3 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				DA76267521A6A228009EBF8F /* Localizable.strings */,
 				DA76266421A6A1A8009EBF8F /* Main.storyboard */,
 				DA1E532B21A6FDE800A5A680 /* Assets.xcassets */,
+				DAB9F05521B98974002B0E48 /* Brand.xcassets */,
 			);
 			path = Desktop;
 			sourceTree = "<group>";
@@ -504,6 +507,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA76266721A6A1B4009EBF8F /* Main.storyboard in Resources */,
+				DAB9F05621B98974002B0E48 /* Brand.xcassets in Resources */,
 				DA5A584D21AD385700093B38 /* SourceCodeVariable-Roman.ttf in Resources */,
 				DA1E532C21A6FDE800A5A680 /* Assets.xcassets in Resources */,
 				DA76267721A6A228009EBF8F /* Localizable.strings in Resources */,
@@ -1033,6 +1037,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -1103,6 +1108,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
