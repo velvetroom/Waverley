@@ -50,6 +50,6 @@ class Window:NSWindow {
     }
     
     @IBAction private func showHelp(_ sender:Any?) {
-        NSApp.runModal(for:HelpView())
+        HelpView().makeKeyAndOrderFront(nil)
     }
 }

@@ -6,6 +6,7 @@ class HelpView:NSWindow {
     init() {
         super.init(contentRect:NSRect(x:0, y:0, width:440, height:280), styleMask:
             [.unifiedTitleAndToolbar, .fullSizeContentView, .titled, .closable], backing:.buffered, defer:false)
+        isReleasedWhenClosed = false
         
         let left = NSTextField()
         left.translatesAutoresizingMaskIntoConstraints = false
@@ -51,6 +52,7 @@ class HelpView:NSWindow {
         
         close.centerXAnchor.constraint(equalTo:contentView!.centerXAnchor).isActive = true
         close.bottomAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-30).isActive = true
+        center()
     }
     
     @IBAction private func showHelp(_ sender:Any?) { }
