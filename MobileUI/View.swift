@@ -5,8 +5,7 @@ class View:UIViewController, UITextViewDelegate {
     private weak var keyList:UIButton!
     private weak var accessoryBottom:NSLayoutConstraint!
     private weak var accessoryHeight:NSLayoutConstraint!
-    
-    deinit { NotificationCenter.default.removeObserver(self) }
+    private let presenter = Presenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
