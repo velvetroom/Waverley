@@ -1,10 +1,12 @@
 import UIKit
 
 class TextView:UITextView, NSTextStorageDelegate {
+    static let lineHeight:CGFloat = 46
+    
     init() {
         let container = NSTextContainer()
         let storage = NSTextStorage()
-        let layout = NSLayoutManager()
+        let layout = TextLayout()
         storage.addLayoutManager(layout)
         layout.addTextContainer(container)
         super.init(frame:.zero, textContainer:container)

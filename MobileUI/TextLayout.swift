@@ -1,4 +1,4 @@
-import AppKit
+import UIKit
 
 class TextLayout:NSLayoutManager, NSLayoutManagerDelegate {
     override init() {
@@ -8,8 +8,8 @@ class TextLayout:NSLayoutManager, NSLayoutManagerDelegate {
     
     required init?(coder:NSCoder) { return nil }
     
-    func layoutManager(_:NSLayoutManager, shouldSetLineFragmentRect rect:UnsafeMutablePointer<NSRect>,
-                       lineFragmentUsedRect:UnsafeMutablePointer<NSRect>, baselineOffset
+    func layoutManager(_:NSLayoutManager, shouldSetLineFragmentRect rect:UnsafeMutablePointer<CGRect>,
+                       lineFragmentUsedRect:UnsafeMutablePointer<CGRect>, baselineOffset
         base:UnsafeMutablePointer<CGFloat>, in:NSTextContainer, forGlyphRange:NSRange) -> Bool {
         base.pointee = base.pointee + ((TextView.lineHeight - rect.pointee.size.height) / 2)
         rect.pointee.size.height = TextView.lineHeight
@@ -17,7 +17,7 @@ class TextLayout:NSLayoutManager, NSLayoutManagerDelegate {
         return true
     }
     
-    override func setExtraLineFragmentRect(_ rect:NSRect, usedRect:NSRect, textContainer container:NSTextContainer) {
+    override func setExtraLineFragmentRect(_ rect:CGRect, usedRect:CGRect, textContainer container:NSTextContainer) {
         var rect = rect
         var used = usedRect
         rect.size.height = TextView.lineHeight
