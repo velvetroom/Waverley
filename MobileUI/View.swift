@@ -16,7 +16,7 @@ class View:UIViewController, UITextViewDelegate {
     
     override func viewDidAppear(_ animated:Bool) {
         super.viewDidAppear(animated)
-//        text.becomeFirstResponder()
+        text.becomeFirstResponder()
     }
     
     func textViewShouldBeginEditing(_:UITextView) -> Bool {
@@ -93,10 +93,6 @@ class View:UIViewController, UITextViewDelegate {
         }
     }
     
-    private func updateAccessory() {
-        
-    }
-    
     @objc private func list() {
         keyList.isSelected.toggle()
         if keyList.isSelected {
@@ -104,15 +100,10 @@ class View:UIViewController, UITextViewDelegate {
             accessoryHeight.constant = 300
         } else {
             accessoryHeight.constant = 54
+            text.becomeFirstResponder()
         }
-        UIView.animate(withDuration:0.3, animations: {
+        UIView.animate(withDuration:0.3) {
             self.view.layoutIfNeeded()
-        }) { _ in
-            if self.keyList.isSelected {
-                self.text.scrollRangeToVisible(self.text.selectedRange)
-            } else {
-                self.text.becomeFirstResponder()
-            }
         }
     }
 }
