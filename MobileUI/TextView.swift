@@ -15,7 +15,7 @@ class TextView:UITextView, NSTextStorageDelegate {
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
         indicatorStyle = .white
-        tintColor = .scotBlue
+        tintColor = .scottBlue
         alwaysBounceVertical = true
         textColor = .white
         returnKeyType = .default
@@ -30,7 +30,7 @@ class TextView:UITextView, NSTextStorageDelegate {
         
         let caret = UIView()
         caret.translatesAutoresizingMaskIntoConstraints = false
-        caret.backgroundColor = .scotBlue
+        caret.backgroundColor = .scottBlue
         addSubview(caret)
         
         caret.widthAnchor.constraint(equalToConstant:5).isActive = true

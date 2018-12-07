@@ -90,13 +90,13 @@ class View:NSView, NSTextViewDelegate {
         let indicatorBorder = NSView()
         indicatorBorder.translatesAutoresizingMaskIntoConstraints = false
         indicatorBorder.wantsLayer = true
-        indicatorBorder.layer!.backgroundColor = NSColor.scotBlue.cgColor
+        indicatorBorder.layer!.backgroundColor = NSColor.scottBlue.cgColor
         text.addSubview(indicatorBorder)
         
         let indicator = NSView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.wantsLayer = true
-        indicator.layer!.backgroundColor = NSColor.scotBlue.withAlphaComponent(0.5).cgColor
+        indicator.layer!.backgroundColor = NSColor.scottBlue.withAlphaComponent(0.5).cgColor
         text.addSubview(indicator)
         
         scroll.topAnchor.constraint(equalTo:topAnchor, constant:38).isActive = true

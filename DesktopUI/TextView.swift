@@ -24,7 +24,7 @@ class TextView:NSTextView, NSTextStorageDelegate {
         let caret = NSView()
         caret.translatesAutoresizingMaskIntoConstraints = false
         caret.wantsLayer = true
-        caret.layer!.backgroundColor = NSColor.scotBlue.cgColor
+        caret.layer!.backgroundColor = NSColor.scottBlue.cgColor
         addSubview(caret)
         
         caret.widthAnchor.constraint(equalToConstant:5).isActive = true

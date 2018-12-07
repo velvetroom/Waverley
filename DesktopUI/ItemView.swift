@@ -26,7 +26,7 @@ class ItemView:NSControl {
         let selector = NSView()
         selector.translatesAutoresizingMaskIntoConstraints = false
         selector.wantsLayer = true
-        selector.layer!.backgroundColor = NSColor.scotBlue.cgColor
+        selector.layer!.backgroundColor = NSColor.scottBlue.cgColor
         selector.layer!.cornerRadius = 2
         addSubview(selector)
         self.selector = selector

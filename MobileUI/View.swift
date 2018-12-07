@@ -18,6 +18,10 @@ class View:UIViewController {
         view.addSubview(text)
         self.text = text
         
+        let accessory = UIView()
+        accessory.translatesAutoresizingMaskIntoConstraints = false
+        accessory.backgroundColor = .scottShade
+        
         if #available(iOS 11.0, *) {
             text.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
             text.leftAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leftAnchor).isActive = true
