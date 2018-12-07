@@ -1,7 +1,7 @@
 import UIKit
 
 class TextView:UITextView, NSTextStorageDelegate {
-    static let lineHeight:CGFloat = 46
+    static let lineHeight:CGFloat = 36
     private weak var caretX:NSLayoutConstraint!
     private weak var caretY:NSLayoutConstraint!
     
@@ -25,7 +25,7 @@ class TextView:UITextView, NSTextStorageDelegate {
         autocapitalizationType = .sentences
         keyboardType = .alphabet
         contentInset = .zero
-        textContainerInset = UIEdgeInsets(top:30, left:15, bottom:30, right:15)
+        textContainerInset = UIEdgeInsets(top:20, left:10, bottom:20, right:10)
         textStorage.delegate = self
         
         let caret = UIView()
@@ -35,7 +35,7 @@ class TextView:UITextView, NSTextStorageDelegate {
         
         caret.widthAnchor.constraint(equalToConstant:5).isActive = true
         caret.heightAnchor.constraint(equalToConstant:TextView.lineHeight).isActive = true
-        caretX = caret.centerXAnchor.constraint(equalTo:leftAnchor, constant:-5)
+        caretX = caret.centerXAnchor.constraint(equalTo:leftAnchor, constant:-3)
         caretY = caret.centerYAnchor.constraint(equalTo:topAnchor)
         caretX.isActive = true
         caretY.isActive = true
@@ -60,13 +60,13 @@ class TextView:UITextView, NSTextStorageDelegate {
             }
         }
         lights.append(NSRange(start..., in:storage.string))
-        lights.forEach { storage.addAttribute(.font, value:UIFont.editorLight(28), range:$0) }
-        bolds.forEach { storage.addAttribute(.font, value:UIFont.editorBold(28), range:$0) }
+        lights.forEach { storage.addAttribute(.font, value:UIFont.editorLight(20), range:$0) }
+        bolds.forEach { storage.addAttribute(.font, value:UIFont.editorBold(20), range:$0) }
     }
     
     override func caretRect(for position:UITextPosition) -> CGRect {
         let rect = super.caretRect(for:position)
-        caretX.constant = rect.midX + 2
+        caretX.constant = rect.midX + 1
         caretY.constant = rect.midY
         return .zero
     }
