@@ -37,7 +37,7 @@ class TextView:NSTextView, NSTextStorageDelegate {
     
     required init?(coder:NSCoder) { return nil }
     
-    override func drawInsertionPoint(in rect:NSRect, color:NSColor, turnedOn flag:Bool) {
+    override func drawInsertionPoint(in rect:NSRect, color:NSColor, turnedOn:Bool) {
         caretX.constant = rect.midX + 2
         caretY.constant = rect.midY
     }
