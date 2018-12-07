@@ -10,12 +10,12 @@ class View:NSView, NSTextViewDelegate {
     private weak var indicatorTop:NSLayoutConstraint!
     
     func new() {
-        indicatorTop.constant = text.bounds.height + 11
+        indicatorTop.constant = bounds.height + 11
         NSAnimationContext.runAnimationGroup( { context in
-            context.duration = 0.4
+            context.duration = 0.5
             context.allowsImplicitAnimation = true
             self.text.alphaValue = 0
-            self.text.layoutSubtreeIfNeeded()
+            self.layoutSubtreeIfNeeded()
         }) {
             self.indicatorTop.constant = -1
             self.presenter.new()
@@ -91,13 +91,13 @@ class View:NSView, NSTextViewDelegate {
         indicatorBorder.translatesAutoresizingMaskIntoConstraints = false
         indicatorBorder.wantsLayer = true
         indicatorBorder.layer!.backgroundColor = NSColor.scottBlue.cgColor
-        text.addSubview(indicatorBorder)
+        addSubview(indicatorBorder)
         
         let indicator = NSView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.wantsLayer = true
-        indicator.layer!.backgroundColor = NSColor.scottBlue.withAlphaComponent(0.5).cgColor
-        text.addSubview(indicator)
+        indicator.layer!.backgroundColor = NSColor.scottBlue.withAlphaComponent(0.3).cgColor
+        addSubview(indicator)
         
         scroll.topAnchor.constraint(equalTo:topAnchor, constant:38).isActive = true
         scroll.leftAnchor.constraint(equalTo:list.rightAnchor).isActive = true
@@ -111,13 +111,13 @@ class View:NSView, NSTextViewDelegate {
         listWidth.isActive = true
         
         indicatorBorder.heightAnchor.constraint(equalToConstant:1).isActive = true
-        indicatorBorder.leftAnchor.constraint(equalTo:text.leftAnchor).isActive = true
+        indicatorBorder.leftAnchor.constraint(equalTo:list.rightAnchor).isActive = true
         indicatorBorder.rightAnchor.constraint(equalTo:rightAnchor).isActive = true
-        indicatorTop = indicatorBorder.topAnchor.constraint(equalTo:text.topAnchor, constant:-1)
+        indicatorTop = indicatorBorder.topAnchor.constraint(equalTo:topAnchor, constant:-1)
         indicatorTop.isActive = true
         
         indicator.heightAnchor.constraint(equalToConstant:10).isActive = true
-        indicator.leftAnchor.constraint(equalTo:text.leftAnchor).isActive = true
+        indicator.leftAnchor.constraint(equalTo:list.rightAnchor).isActive = true
         indicator.rightAnchor.constraint(equalTo:rightAnchor).isActive = true
         indicator.bottomAnchor.constraint(equalTo:indicatorBorder.topAnchor).isActive = true
     }
