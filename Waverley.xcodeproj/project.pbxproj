@@ -19,6 +19,7 @@
 		DA43810E21AAAE4600BE7895 /* NSColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA43810D21AAAE4600BE7895 /* NSColor.swift */; };
 		DA5A584C21AD385700093B38 /* SourceCodeVariable-Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A584621AD385700093B38 /* SourceCodeVariable-Roman.ttf */; };
 		DA5A584D21AD385700093B38 /* SourceCodeVariable-Roman.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DA5A584621AD385700093B38 /* SourceCodeVariable-Roman.ttf */; };
+		DA6D01C921BA664100F0CCDD /* TextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6D01C821BA664100F0CCDD /* TextView.swift */; };
 		DA738C5321A9B06D00E51D93 /* TestEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA738C5221A9B06D00E51D93 /* TestEditing.swift */; };
 		DA76266121A6A195009EBF8F /* Application.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA76266021A6A195009EBF8F /* Application.swift */; };
 		DA76266721A6A1B4009EBF8F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA76266421A6A1A8009EBF8F /* Main.storyboard */; };
@@ -111,6 +112,7 @@
 		DA1E532D21A704BD00A5A680 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
 		DA43810D21AAAE4600BE7895 /* NSColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSColor.swift; sourceTree = "<group>"; };
 		DA5A584621AD385700093B38 /* SourceCodeVariable-Roman.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SourceCodeVariable-Roman.ttf"; sourceTree = "<group>"; };
+		DA6D01C821BA664100F0CCDD /* TextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextView.swift; sourceTree = "<group>"; };
 		DA738C5221A9B06D00E51D93 /* TestEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestEditing.swift; sourceTree = "<group>"; };
 		DA76265A21A69D94009EBF8F /* libMobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMobile.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA76265B21A69D94009EBF8F /* libDesktop.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDesktop.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -213,6 +215,7 @@
 			children = (
 				DA76266021A6A195009EBF8F /* Application.swift */,
 				DA89B51921B9B24F00F16F31 /* View.swift */,
+				DA6D01C821BA664100F0CCDD /* TextView.swift */,
 				DA89B51D21B9C6F500F16F31 /* UIColor.swift */,
 				DA89B51F21B9C89600F16F31 /* UIFont.swift */,
 			);
@@ -580,6 +583,7 @@
 				DA9727C921ABE1AD00911162 /* String.swift in Sources */,
 				DA89B51E21B9C6F500F16F31 /* UIColor.swift in Sources */,
 				DA76266121A6A195009EBF8F /* Application.swift in Sources */,
+				DA6D01C921BA664100F0CCDD /* TextView.swift in Sources */,
 				DA89B52021B9C89600F16F31 /* UIFont.swift in Sources */,
 				DA89B51A21B9B24F00F16F31 /* View.swift in Sources */,
 			);
