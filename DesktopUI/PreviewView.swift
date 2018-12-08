@@ -72,18 +72,17 @@ class PreviewView:NSWindow {
     
     private func exportPdf(_ url:URL) {
         text.textColor = .black
-        let printInfo = NSPrintInfo(dictionary:[.jobSavingURL:url])
-        let printOp = NSPrintOperation(view:text, printInfo:printInfo)
-        printOp.printInfo.paperSize = NSMakeSize(612, 792)
-        printOp.printInfo.jobDisposition = .save
-        printOp.printInfo.topMargin = 71
-        printOp.printInfo.leftMargin = 71
-        printOp.printInfo.rightMargin = 71
-        printOp.printInfo.bottomMargin = 71
-        printOp.printInfo.isVerticallyCentered = false
-        printOp.printInfo.isHorizontallyCentered = false
-        printOp.showsPrintPanel = false
-        printOp.showsProgressPanel = false
-        printOp.run()
+        let print = NSPrintOperation(view:text, printInfo:NSPrintInfo(dictionary:[.jobSavingURL:url]))
+        print.printInfo.paperSize = NSMakeSize(612, 792)
+        print.printInfo.jobDisposition = .save
+        print.printInfo.topMargin = 71
+        print.printInfo.leftMargin = 71
+        print.printInfo.rightMargin = 71
+        print.printInfo.bottomMargin = 71
+        print.printInfo.isVerticallyCentered = false
+        print.printInfo.isHorizontallyCentered = false
+        print.showsPrintPanel = false
+        print.showsProgressPanel = false
+        print.run()
     }
 }
