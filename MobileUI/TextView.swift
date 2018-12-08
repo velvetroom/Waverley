@@ -2,8 +2,6 @@ import UIKit
 
 class TextView:UITextView, NSTextStorageDelegate {
     static let lineHeight:CGFloat = 36
-    private weak var caretX:NSLayoutConstraint!
-    private weak var caretY:NSLayoutConstraint!
     
     init() {
         let container = NSTextContainer()
@@ -27,18 +25,6 @@ class TextView:UITextView, NSTextStorageDelegate {
         contentInset = .zero
         textContainerInset = UIEdgeInsets(top:12, left:10, bottom:26, right:10)
         textStorage.delegate = self
-        
-        let caret = UIView()
-        caret.translatesAutoresizingMaskIntoConstraints = false
-        caret.backgroundColor = .scottBlue
-        addSubview(caret)
-        
-        caret.widthAnchor.constraint(equalToConstant:5).isActive = true
-        caret.heightAnchor.constraint(equalToConstant:TextView.lineHeight).isActive = true
-        caretX = caret.centerXAnchor.constraint(equalTo:leftAnchor, constant:-3)
-        caretY = caret.centerYAnchor.constraint(equalTo:topAnchor)
-        caretX.isActive = true
-        caretY.isActive = true
     }
     
     required init?(coder:NSCoder) { return nil }
@@ -65,9 +51,8 @@ class TextView:UITextView, NSTextStorageDelegate {
     }
     
     override func caretRect(for position:UITextPosition) -> CGRect {
-        let rect = super.caretRect(for:position)
-        caretX.constant = rect.midX + 1
-        caretY.constant = rect.midY
-        return .zero
+        var rect = super.caretRect(for:position)
+        rect.size.width = 4
+        return rect
     }
 }

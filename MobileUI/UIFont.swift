@@ -11,6 +11,6 @@ extension UIFont {
     }
     class func printBoldItalic(_ size:CGFloat) -> UIFont {
         return UIFont(descriptor:UIFontDescriptor(name:UIFont.systemFont(ofSize:size, weight:.bold).familyName,
-                                                  size:size).withSymbolicTraits(.traitItalic)!, size:size)
+                                                  size:size).withSymbolicTraits([.traitItalic, .traitBold])!, size:size)
     }
 }

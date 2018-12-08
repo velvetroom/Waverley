@@ -296,7 +296,7 @@ class View:UIViewController, UITextViewDelegate {
     
     @objc private func share() {
         presenter.saveIfNeeded()
-        present(PreviewView(presenter), animated:true)
+        present(PreviewView(presenter.selected.note), animated:true)
     }
     
     @objc private func remove() { present(DeleteView(presenter), animated:true) }

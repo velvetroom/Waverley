@@ -1,11 +1,11 @@
 import UIKit
+import Mobile
 
 class PreviewView:UIViewController {
-    private weak var presenter:Presenter!
-    private weak var text:UITextView!
+    private weak var note:Note!
     
-    init(_ presenter:Presenter) {
-        self.presenter = presenter
+    init(_ note:Note) {
+        self.note = note
         super.init(nibName:nil, bundle:nil)
         modalPresentationStyle = .overCurrentContext
         modalTransitionStyle = .crossDissolve
@@ -33,16 +33,14 @@ class PreviewView:UIViewController {
         let text = UITextView()
         text.translatesAutoresizingMaskIntoConstraints = false
         text.backgroundColor = .scottShade
-        text.text = presenter.selected.note.content
         text.isEditable = false
         text.alwaysBounceVertical = true
         text.indicatorStyle = .white
         text.contentInset = .zero
         text.textContainerInset = UIEdgeInsets(top:40, left:20, bottom:40, right:20)
-        text.attributedText = Printer.print(presenter.selected.note.content, size:16)
+        text.attributedText = Printer.print(note.content, size:18)
         text.textColor = .white
         view.addSubview(text)
-        self.text = text
         
         let border = UIView()
         border.isUserInteractionEnabled = false
@@ -106,7 +104,7 @@ class PreviewView:UIViewController {
     }
     
     private func save() -> URL {
-        let formatter = UISimpleTextPrintFormatter(attributedText:text.attributedText)
+        let formatter = UISimpleTextPrintFormatter(attributedText:Printer.print(note.content, size:12))
         formatter.color = .black
         let renderer = UIPrintPageRenderer()
         renderer.addPrintFormatter(formatter, startingAtPageAt:0)
