@@ -81,6 +81,22 @@ class View:UIViewController, UITextViewDelegate {
         keyNew.imageView!.contentMode = .center
         accessory.addSubview(keyNew)
         
+        let keyShare = UIButton()
+        keyShare.addTarget(presenter, action:#selector(presenter.share), for:.touchUpInside)
+        keyShare.translatesAutoresizingMaskIntoConstraints = false
+        keyShare.setImage(#imageLiteral(resourceName: "share.pdf"), for:.normal)
+        keyShare.imageView!.clipsToBounds = true
+        keyShare.imageView!.contentMode = .center
+        accessory.addSubview(keyShare)
+        
+        let keyDelete = UIButton()
+        keyDelete.addTarget(presenter, action:#selector(presenter.delete), for:.touchUpInside)
+        keyDelete.translatesAutoresizingMaskIntoConstraints = false
+        keyDelete.setImage(#imageLiteral(resourceName: "delete.pdf"), for:.normal)
+        keyDelete.imageView!.clipsToBounds = true
+        keyDelete.imageView!.contentMode = .center
+        accessory.addSubview(keyDelete)
+        
         let indicator = UIView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.isUserInteractionEnabled = false
@@ -94,14 +110,24 @@ class View:UIViewController, UITextViewDelegate {
         accessoryHeight = accessory.heightAnchor.constraint(equalToConstant:54)
         
         keyList.topAnchor.constraint(equalTo:accessory.topAnchor).isActive = true
-        keyList.leftAnchor.constraint(equalTo:accessory.leftAnchor).isActive = true
-        keyList.widthAnchor.constraint(equalToConstant:62).isActive = true
+        keyList.centerXAnchor.constraint(equalTo:accessory.centerXAnchor).isActive = true
+        keyList.widthAnchor.constraint(equalTo:accessory.widthAnchor, multiplier:0.14).isActive = true
         keyList.heightAnchor.constraint(equalToConstant:54).isActive = true
         
+        keyShare.topAnchor.constraint(equalTo:accessory.topAnchor).isActive = true
+        keyShare.rightAnchor.constraint(equalTo:keyNew.leftAnchor).isActive = true
+        keyShare.widthAnchor.constraint(equalTo:accessory.widthAnchor, multiplier:0.14).isActive = true
+        keyShare.heightAnchor.constraint(equalToConstant:54).isActive = true
+        
         keyNew.topAnchor.constraint(equalTo:accessory.topAnchor).isActive = true
-        keyNew.leftAnchor.constraint(equalTo:keyList.rightAnchor).isActive = true
-        keyNew.widthAnchor.constraint(equalToConstant:62).isActive = true
+        keyNew.rightAnchor.constraint(equalTo:keyList.leftAnchor).isActive = true
+        keyNew.widthAnchor.constraint(equalTo:accessory.widthAnchor, multiplier:0.14).isActive = true
         keyNew.heightAnchor.constraint(equalToConstant:54).isActive = true
+        
+        keyDelete.topAnchor.constraint(equalTo:accessory.topAnchor).isActive = true
+        keyDelete.rightAnchor.constraint(equalTo:keyShare.leftAnchor).isActive = true
+        keyDelete.widthAnchor.constraint(equalTo:accessory.widthAnchor, multiplier:0.14).isActive = true
+        keyDelete.heightAnchor.constraint(equalToConstant:54).isActive = true
         
         scroll.topAnchor.constraint(equalTo:accessory.topAnchor, constant:54).isActive = true
         scroll.bottomAnchor.constraint(equalTo:accessory.bottomAnchor).isActive = true
@@ -168,7 +194,7 @@ class View:UIViewController, UITextViewDelegate {
         }
         items.bottomAnchor.constraint(equalTo:top).isActive = true
         (items.superview as! UIScrollView).contentSize.width = view.bounds.width
-        (items.superview as! UIScrollView).contentSize.height = (CGFloat(items.subviews.count) * 60) + 20
+        (items.superview as! UIScrollView).contentSize.height = (CGFloat(items.subviews.count) * 54) + 20
     }
     
     private func select(_ note:Note) {
@@ -195,6 +221,7 @@ class View:UIViewController, UITextViewDelegate {
         text.text = item.note.content
         text.scrollRangeToVisible(NSRange())
         text.selectedRange = NSRange()
+        (items.superview as! UIScrollView).scrollRectToVisible(item.frame, animated:true)
     }
     
     @objc private func new() {

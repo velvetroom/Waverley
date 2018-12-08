@@ -44,7 +44,7 @@ class Presenter {
         updateAndSelect()
     }
     
-    func delete() {
+    @objc func delete() {
         /*Application.window.beginSheet(DeleteView()) { response in
             if response == .continue {
                 self.repository.delete(self.selected.note)
@@ -53,29 +53,9 @@ class Presenter {
         }*/
     }
     
-    func share() {
+    @objc func share() {
         saveIfNeeded()
 //        Application.window.beginSheet(PreviewView(selected.note))
-    }
-    
-    func next() {
-        let notes = notesSorted
-        let index = notes.firstIndex { $0 === selected.note }!
-        if index < notes.count - 1 {
-            select(notes[index + 1])
-        } else {
-            select(notes[0])
-        }
-    }
-    
-    func previous() {
-        let notes = notesSorted
-        let index = notes.firstIndex { $0 === selected.note }!
-        if index > 0 {
-            select(notes[index - 1])
-        } else {
-            select(notes.last!)
-        }
     }
     
     private func saveIfNeeded() {
