@@ -90,4 +90,20 @@ class TestMarkdown:XCTestCase {
         XCTAssertEqual("lorem ipsum", traits[1].string)
         XCTAssertEqual(0, traits[1].addSize)
     }
+    
+    func testStar() {
+        let traits = mark.parse("*hello world")
+        XCTAssertEqual(1, traits.count)
+        XCTAssertEqual(Trait.Mode.regular, traits[0].mode)
+        XCTAssertEqual("*hello world", traits[0].string)
+        XCTAssertEqual(0, traits[0].addSize)
+    }
+    
+    func testUnderscore() {
+        let traits = mark.parse("_hello world")
+        XCTAssertEqual(1, traits.count)
+        XCTAssertEqual(Trait.Mode.regular, traits[0].mode)
+        XCTAssertEqual("_hello world", traits[0].string)
+        XCTAssertEqual(0, traits[0].addSize)
+    }
 }

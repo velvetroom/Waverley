@@ -1,8 +1,8 @@
 import Foundation
 
 public class Markdown {
-    private let options:[(Character, ((Markdown) -> (String, Trait.Mode) -> [Trait]))] = [
-        ("*", bold), ("_", italic), ("#", header)]
+    private let options:[((Markdown) -> (String) -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))?)]
+        = [validateBold, validateItalic, validateHeader]
     
     public init() { } 
     
@@ -11,14 +11,31 @@ public class Markdown {
     }
     
     private func parsing(_ string:String, current:Trait.Mode) -> [Trait] {
-        if let detected = options.compactMap(
-            { character, function -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))? in
-            guard let index = string.firstIndex(of:character) else { return nil }
-            return (index, function)
-        } ).sorted(by: { $0.0 < $1.0 } ).first?.1 {
+        if let detected = options.compactMap( { return $0(self)(string) } ).sorted(by: { $0.0 < $1.0 } ).first?.1 {
             return detected(self)(string, current)
         }
         return build(string, current:current)
+    }
+    
+    private func validateBold(string:String) -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))? {
+        guard
+            let begin = string.firstIndex(of:"*"),
+            let _ = string[string.index(after:begin)...].firstIndex(of:"*")
+        else { return nil }
+        return (begin, Markdown.bold)
+    }
+    
+    private func validateItalic(string:String) -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))? {
+        guard
+            let begin = string.firstIndex(of:"_"),
+            let _ = string[string.index(after:begin)...].firstIndex(of:"_")
+        else { return nil }
+        return (begin, Markdown.italic)
+    }
+    
+    private func validateHeader(string:String) -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))? {
+        guard let begin = string.firstIndex(of:"#") else { return nil }
+        return (begin, Markdown.header)
     }
     
     private func header(_ string:String, current:Trait.Mode) -> [Trait] {
