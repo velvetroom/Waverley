@@ -97,6 +97,30 @@ class View:UIViewController, UITextViewDelegate {
         keyDelete.imageView!.contentMode = .center
         accessory.addSubview(keyDelete)
         
+        let keyHeader = UIButton()
+        keyHeader.addTarget(presenter, action:#selector(presenter.delete), for:.touchUpInside)
+        keyHeader.translatesAutoresizingMaskIntoConstraints = false
+        keyHeader.setImage(#imageLiteral(resourceName: "header.pdf"), for:.normal)
+        keyHeader.imageView!.clipsToBounds = true
+        keyHeader.imageView!.contentMode = .center
+        accessory.addSubview(keyHeader)
+        
+        let keyBold = UIButton()
+        keyBold.addTarget(presenter, action:#selector(presenter.delete), for:.touchUpInside)
+        keyBold.translatesAutoresizingMaskIntoConstraints = false
+        keyBold.setImage(#imageLiteral(resourceName: "bold.pdf"), for:.normal)
+        keyBold.imageView!.clipsToBounds = true
+        keyBold.imageView!.contentMode = .center
+        accessory.addSubview(keyBold)
+        
+        let keyItalic = UIButton()
+        keyItalic.addTarget(presenter, action:#selector(presenter.delete), for:.touchUpInside)
+        keyItalic.translatesAutoresizingMaskIntoConstraints = false
+        keyItalic.setImage(#imageLiteral(resourceName: "italic.pdf"), for:.normal)
+        keyItalic.imageView!.clipsToBounds = true
+        keyItalic.imageView!.contentMode = .center
+        accessory.addSubview(keyItalic)
+        
         let indicator = UIView()
         indicator.translatesAutoresizingMaskIntoConstraints = false
         indicator.isUserInteractionEnabled = false
@@ -128,6 +152,21 @@ class View:UIViewController, UITextViewDelegate {
         keyDelete.rightAnchor.constraint(equalTo:keyShare.leftAnchor).isActive = true
         keyDelete.widthAnchor.constraint(equalTo:accessory.widthAnchor, multiplier:0.14).isActive = true
         keyDelete.heightAnchor.constraint(equalToConstant:54).isActive = true
+        
+        keyHeader.topAnchor.constraint(equalTo:accessory.topAnchor).isActive = true
+        keyHeader.leftAnchor.constraint(equalTo:keyList.rightAnchor).isActive = true
+        keyHeader.widthAnchor.constraint(equalTo:accessory.widthAnchor, multiplier:0.14).isActive = true
+        keyHeader.heightAnchor.constraint(equalToConstant:54).isActive = true
+        
+        keyBold.topAnchor.constraint(equalTo:accessory.topAnchor).isActive = true
+        keyBold.leftAnchor.constraint(equalTo:keyHeader.rightAnchor).isActive = true
+        keyBold.widthAnchor.constraint(equalTo:accessory.widthAnchor, multiplier:0.14).isActive = true
+        keyBold.heightAnchor.constraint(equalToConstant:54).isActive = true
+        
+        keyItalic.topAnchor.constraint(equalTo:accessory.topAnchor).isActive = true
+        keyItalic.leftAnchor.constraint(equalTo:keyBold.rightAnchor).isActive = true
+        keyItalic.widthAnchor.constraint(equalTo:accessory.widthAnchor, multiplier:0.14).isActive = true
+        keyItalic.heightAnchor.constraint(equalToConstant:54).isActive = true
         
         scroll.topAnchor.constraint(equalTo:accessory.topAnchor, constant:54).isActive = true
         scroll.bottomAnchor.constraint(equalTo:accessory.bottomAnchor).isActive = true
