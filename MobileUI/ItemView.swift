@@ -54,7 +54,7 @@ class ItemView:UIControl {
             label.alpha = 0.8
             selector.alpha = 1
         } else {
-            label.alpha = 0.25
+            label.alpha = 0.35
             selector.alpha = 0
         }
     }

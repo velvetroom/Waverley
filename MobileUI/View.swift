@@ -90,7 +90,7 @@ class View:UIViewController, UITextViewDelegate {
         accessory.addSubview(keyShare)
         
         let keyDelete = UIButton()
-        keyDelete.addTarget(presenter, action:#selector(presenter.delete), for:.touchUpInside)
+        keyDelete.addTarget(self, action:#selector(remove), for:.touchUpInside)
         keyDelete.translatesAutoresizingMaskIntoConstraints = false
         keyDelete.setImage(#imageLiteral(resourceName: "delete.pdf"), for:.normal)
         keyDelete.imageView!.clipsToBounds = true
@@ -98,27 +98,27 @@ class View:UIViewController, UITextViewDelegate {
         accessory.addSubview(keyDelete)
         
         let keyHeader = UIButton()
-        keyHeader.addTarget(presenter, action:#selector(presenter.delete), for:.touchUpInside)
         keyHeader.translatesAutoresizingMaskIntoConstraints = false
         keyHeader.setImage(#imageLiteral(resourceName: "header.pdf"), for:.normal)
         keyHeader.imageView!.clipsToBounds = true
         keyHeader.imageView!.contentMode = .center
+        keyHeader.addTarget(self, action:#selector(header), for:.touchUpInside)
         accessory.addSubview(keyHeader)
         
         let keyBold = UIButton()
-        keyBold.addTarget(presenter, action:#selector(presenter.delete), for:.touchUpInside)
         keyBold.translatesAutoresizingMaskIntoConstraints = false
         keyBold.setImage(#imageLiteral(resourceName: "bold.pdf"), for:.normal)
         keyBold.imageView!.clipsToBounds = true
         keyBold.imageView!.contentMode = .center
+        keyBold.addTarget(self, action:#selector(bold), for:.touchUpInside)
         accessory.addSubview(keyBold)
         
         let keyItalic = UIButton()
-        keyItalic.addTarget(presenter, action:#selector(presenter.delete), for:.touchUpInside)
         keyItalic.translatesAutoresizingMaskIntoConstraints = false
         keyItalic.setImage(#imageLiteral(resourceName: "italic.pdf"), for:.normal)
         keyItalic.imageView!.clipsToBounds = true
         keyItalic.imageView!.contentMode = .center
+        keyItalic.addTarget(self, action:#selector(italic), for:.touchUpInside)
         accessory.addSubview(keyItalic)
         
         let indicator = UIView()
@@ -277,4 +277,9 @@ class View:UIViewController, UITextViewDelegate {
             }
         }
     }
+    
+    @objc private func remove() { present(DeleteView(presenter), animated:true) }
+    @objc private func header() { text.insertText("#") }
+    @objc private func bold() { text.insertText("*") }
+    @objc private func italic() { text.insertText("_") }
 }

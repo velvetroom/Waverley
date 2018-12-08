@@ -25,7 +25,7 @@ class TextView:UITextView, NSTextStorageDelegate {
         autocapitalizationType = .sentences
         keyboardType = .alphabet
         contentInset = .zero
-        textContainerInset = UIEdgeInsets(top:20, left:10, bottom:20, right:10)
+        textContainerInset = UIEdgeInsets(top:12, left:10, bottom:26, right:10)
         textStorage.delegate = self
         
         let caret = UIView()

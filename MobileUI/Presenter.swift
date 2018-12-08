@@ -44,13 +44,9 @@ class Presenter {
         updateAndSelect()
     }
     
-    @objc func delete() {
-        /*Application.window.beginSheet(DeleteView()) { response in
-            if response == .continue {
-                self.repository.delete(self.selected.note)
-                self.updateAndSelect()
-            }
-        }*/
+    func delete() {
+        repository.delete(selected.note)
+        updateAndSelect()
     }
     
     @objc func share() {

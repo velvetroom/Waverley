@@ -1,1 +1,2 @@
-
+DeleteView.delete="Delete";
+DeleteView.cancel="Cancel";
