@@ -505,8 +505,14 @@
 					DABA311721A696D00026BAB2 = {
 						CreatedOnToolsVersion = 10.1;
 						SystemCapabilities = {
+							com.apple.ApplicationGroups.Mac = {
+								enabled = 0;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 0;
 							};
 						};
 					};
@@ -1152,7 +1158,7 @@
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = iturbide.Waverley;
+				PRODUCT_BUNDLE_IDENTIFIER = velvetRoom.Waverley;
 				PRODUCT_NAME = Waverley;
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
@@ -1216,7 +1222,7 @@
 				MACOSX_DEPLOYMENT_TARGET = 10.14;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = iturbide.Waverley;
+				PRODUCT_BUNDLE_IDENTIFIER = velvetRoom.Waverley;
 				PRODUCT_NAME = Waverley;
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
