@@ -22,7 +22,6 @@ class DeleteView:UIViewController {
         let blur = UIVisualEffectView(effect:UIBlurEffect(style:.dark))
         blur.translatesAutoresizingMaskIntoConstraints = false
         blur.isUserInteractionEnabled = false
-        blur.alpha = 0.9
         view.addSubview(blur)
         
         let back = UIControl()
@@ -37,8 +36,8 @@ class DeleteView:UIViewController {
         delete.setTitle(.local("DeleteView.delete"), for:.normal)
         delete.setTitleColor(.black, for:.normal)
         delete.setTitleColor(UIColor(white:0, alpha:0.3), for:.highlighted)
-        delete.titleLabel!.font = .systemFont(ofSize:15, weight:.bold)
-        delete.layer.cornerRadius = 4
+        delete.titleLabel!.font = .systemFont(ofSize:13, weight:.bold)
+        delete.layer.cornerRadius = 35
         view.addSubview(delete)
         
         let cancel = UIButton()
@@ -62,13 +61,13 @@ class DeleteView:UIViewController {
         
         delete.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
         delete.centerYAnchor.constraint(equalTo:view.centerYAnchor).isActive = true
-        delete.widthAnchor.constraint(equalToConstant:100).isActive = true
-        delete.heightAnchor.constraint(equalToConstant:40).isActive = true
+        delete.widthAnchor.constraint(equalToConstant:70).isActive = true
+        delete.heightAnchor.constraint(equalToConstant:70).isActive = true
         
         cancel.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
-        cancel.topAnchor.constraint(equalTo:delete.bottomAnchor, constant:10).isActive = true
-        cancel.widthAnchor.constraint(equalTo:delete.widthAnchor).isActive = true
-        cancel.heightAnchor.constraint(equalTo:delete.heightAnchor).isActive = true
+        cancel.topAnchor.constraint(equalTo:delete.bottomAnchor).isActive = true
+        cancel.widthAnchor.constraint(equalToConstant:100).isActive = true
+        cancel.heightAnchor.constraint(equalToConstant:60).isActive = true
     }
     
     @objc private func close() {

@@ -134,7 +134,6 @@ class PreviewView:UIViewController {
     }
     
     @objc private func close() {
-        view.isUserInteractionEnabled = false
         presentingViewController!.dismiss(animated:true)
     }
     

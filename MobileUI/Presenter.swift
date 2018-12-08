@@ -16,6 +16,7 @@ class Presenter {
     
     var notes:(([Note]) -> Void)!
     var select:((Note) -> Void)!
+    var scrollToTop:(() -> Void)!
     private weak var timer:Timer?
     private var notesSorted:[Note] { return repository.notes.values.sorted(by: { $0.created > $1.created }) }
     private let repository = Factory.makeRepository()
@@ -47,6 +48,7 @@ class Presenter {
     func delete() {
         repository.delete(selected.note)
         updateAndSelect()
+        scrollToTop()
     }
     
     func saveIfNeeded() {

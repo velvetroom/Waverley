@@ -16,6 +16,7 @@ class View:UIViewController, UITextViewDelegate {
         listenKeyboard()
         presenter.notes = { self.update($0) }
         presenter.select = { self.select($0) }
+        presenter.scrollToTop = { self.scrollToTop() }
         presenter.load()
     }
     
@@ -241,6 +242,21 @@ class View:UIViewController, UITextViewDelegate {
         select(item:item)
     }
     
+    private func scrollToTop() {
+        scrollTo(CGRect(x:0, y:0, width:1, height:1))
+    }
+    
+    private func scrollTo(_ frame:CGRect) {
+        (items.superview as! UIScrollView).scrollRectToVisible(frame, animated:true)
+    }
+    
+    private func insert(_ string:String) {
+        if !text.isFirstResponder {
+            text.becomeFirstResponder()
+        }
+        text.insertText(string)
+    }
+    
     @objc private func list() {
         keyList.isSelected.toggle()
         if keyList.isSelected {
@@ -260,13 +276,13 @@ class View:UIViewController, UITextViewDelegate {
         text.text = item.note.content
         text.scrollRangeToVisible(NSRange())
         text.selectedRange = NSRange()
-        (items.superview as! UIScrollView).scrollRectToVisible(item.frame, animated:true)
+        scrollTo(item.frame)
     }
     
     @objc private func new() {
         presenter.new()
         indicatorTop.constant = view.bounds.height
-        (items.superview as! UIScrollView).scrollRectToVisible(CGRect(x:0, y:0, width:1, height:1), animated:true)
+        scrollToTop()
         UIView.animate(withDuration:0.4, animations: {
             self.text.alpha = 0
             self.text.layoutIfNeeded()
@@ -284,7 +300,7 @@ class View:UIViewController, UITextViewDelegate {
     }
     
     @objc private func remove() { present(DeleteView(presenter), animated:true) }
-    @objc private func header() { text.insertText("#") }
-    @objc private func bold() { text.insertText("*") }
-    @objc private func italic() { text.insertText("_") }
+    @objc private func header() { insert("#") }
+    @objc private func bold() { insert("*") }
+    @objc private func italic() { insert("_") }
 }
