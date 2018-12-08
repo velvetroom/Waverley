@@ -66,7 +66,7 @@ class DeleteView:UIViewController {
         delete.heightAnchor.constraint(equalToConstant:40).isActive = true
         
         cancel.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
-        cancel.topAnchor.constraint(equalTo:delete.bottomAnchor, constant:20).isActive = true
+        cancel.topAnchor.constraint(equalTo:delete.bottomAnchor, constant:10).isActive = true
         cancel.widthAnchor.constraint(equalTo:delete.widthAnchor).isActive = true
         cancel.heightAnchor.constraint(equalTo:delete.heightAnchor).isActive = true
     }

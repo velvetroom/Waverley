@@ -70,6 +70,8 @@
 		DAFAA0C821BAA0BC0056D883 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA0C721BAA0BC0056D883 /* Storage.swift */; };
 		DAFAA0CA21BAA0EE0056D883 /* ItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFAA0C921BAA0EE0056D883 /* ItemView.swift */; };
 		DAFFE2CA21BBBF9D00031F26 /* DeleteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFE2C921BBBF9D00031F26 /* DeleteView.swift */; };
+		DAFFE2CC21BBCF3600031F26 /* PreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFE2CB21BBCF3600031F26 /* PreviewView.swift */; };
+		DAFFE2CE21BBD52800031F26 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFFE2CD21BBD52800031F26 /* Printer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -170,6 +172,8 @@
 		DAFAA0C721BAA0BC0056D883 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DAFAA0C921BAA0EE0056D883 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		DAFFE2C921BBBF9D00031F26 /* DeleteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleteView.swift; sourceTree = "<group>"; };
+		DAFFE2CB21BBCF3600031F26 /* PreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewView.swift; sourceTree = "<group>"; };
+		DAFFE2CD21BBD52800031F26 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,10 +234,12 @@
 				DA89B51921B9B24F00F16F31 /* View.swift */,
 				DA6D01C821BA664100F0CCDD /* TextView.swift */,
 				DAFFE2C921BBBF9D00031F26 /* DeleteView.swift */,
+				DAFFE2CB21BBCF3600031F26 /* PreviewView.swift */,
 				DA6D01CA21BA684500F0CCDD /* TextLayout.swift */,
 				DAFAA0C921BAA0EE0056D883 /* ItemView.swift */,
 				DA89B51D21B9C6F500F16F31 /* UIColor.swift */,
 				DA89B51F21B9C89600F16F31 /* UIFont.swift */,
+				DAFFE2CD21BBD52800031F26 /* Printer.swift */,
 				DAFAA0C721BAA0BC0056D883 /* Storage.swift */,
 			);
 			path = MobileUI;
@@ -604,6 +610,8 @@
 				DAFAA0C621BA9D7C0056D883 /* Presenter.swift in Sources */,
 				DAFAA0CA21BAA0EE0056D883 /* ItemView.swift in Sources */,
 				DA76266121A6A195009EBF8F /* Application.swift in Sources */,
+				DAFFE2CE21BBD52800031F26 /* Printer.swift in Sources */,
+				DAFFE2CC21BBCF3600031F26 /* PreviewView.swift in Sources */,
 				DA6D01CB21BA684500F0CCDD /* TextLayout.swift in Sources */,
 				DAFAA0C821BAA0BC0056D883 /* Storage.swift in Sources */,
 				DA6D01C921BA664100F0CCDD /* TextView.swift in Sources */,

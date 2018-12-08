@@ -82,7 +82,7 @@ class View:UIViewController, UITextViewDelegate {
         accessory.addSubview(keyNew)
         
         let keyShare = UIButton()
-        keyShare.addTarget(presenter, action:#selector(presenter.share), for:.touchUpInside)
+        keyShare.addTarget(self, action:#selector(share), for:.touchUpInside)
         keyShare.translatesAutoresizingMaskIntoConstraints = false
         keyShare.setImage(#imageLiteral(resourceName: "share.pdf"), for:.normal)
         keyShare.imageView!.clipsToBounds = true
@@ -276,6 +276,11 @@ class View:UIViewController, UITextViewDelegate {
                 self.text.alpha = 1
             }
         }
+    }
+    
+    @objc private func share() {
+        presenter.saveIfNeeded()
+        present(PreviewView(presenter), animated:true)
     }
     
     @objc private func remove() { present(DeleteView(presenter), animated:true) }

@@ -49,12 +49,7 @@ class Presenter {
         updateAndSelect()
     }
     
-    @objc func share() {
-        saveIfNeeded()
-//        Application.window.beginSheet(PreviewView(selected.note))
-    }
-    
-    private func saveIfNeeded() {
+    func saveIfNeeded() {
         timer?.fire()
     }
     

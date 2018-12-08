@@ -37,6 +37,8 @@ class PreviewView:NSWindow {
         text.isEditable = false
         text.isRichText = false
         text.isSelectable = false
+        text.textStorage!.append(Printer.print(note.content, size:12))
+        text.textColor = .textColor
         scroll.documentView = text
         self.text = text
         
@@ -50,9 +52,6 @@ class PreviewView:NSWindow {
         
         pdf.rightAnchor.constraint(equalTo:contentView!.rightAnchor, constant:-30).isActive = true
         pdf.centerYAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-40).isActive = true
-        
-        text.textStorage!.append(Printer.print(note.content, size:12))
-        text.textColor = .textColor
     }
     
     @objc private func cancel() {

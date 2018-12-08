@@ -1,2 +1,4 @@
 DeleteView.delete="Delete";
 DeleteView.cancel="Cancel";
+PreviewView.pdf="PDF";
+PreviewView.close="Close";
