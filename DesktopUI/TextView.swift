@@ -2,8 +2,6 @@ import AppKit
 
 class TextView:NSTextView, NSTextStorageDelegate {
     static let lineHeight:CGFloat = 36
-    private weak var caretX:NSLayoutConstraint!
-    private weak var caretY:NSLayoutConstraint!
 
     init() {
         let container = NSTextContainer()
@@ -19,27 +17,16 @@ class TextView:NSTextView, NSTextStorageDelegate {
         isIncrementalSearchingEnabled = true
         textContainerInset.height = 50
         isRichText = false
+        insertionPointColor = .scottBlue
         storage.delegate = self
-        
-        let caret = NSView()
-        caret.translatesAutoresizingMaskIntoConstraints = false
-        caret.wantsLayer = true
-        caret.layer!.backgroundColor = NSColor.scottBlue.cgColor
-        addSubview(caret)
-        
-        caret.widthAnchor.constraint(equalToConstant:5).isActive = true
-        caret.heightAnchor.constraint(equalToConstant:TextView.lineHeight).isActive = true
-        caretX = caret.centerXAnchor.constraint(equalTo:leftAnchor)
-        caretY = caret.centerYAnchor.constraint(equalTo:topAnchor)
-        caretX.isActive = true
-        caretY.isActive = true
     }
     
     required init?(coder:NSCoder) { return nil }
     
     override func drawInsertionPoint(in rect:NSRect, color:NSColor, turnedOn:Bool) {
-        caretX.constant = rect.midX + 2
-        caretY.constant = rect.midY
+        var rect = rect
+        rect.size.width = 4
+        super.drawInsertionPoint(in:rect, color:color, turnedOn:turnedOn)
     }
     
     func textStorage(_ storage:NSTextStorage, didProcessEditing:NSTextStorageEditActions, range:NSRange,
