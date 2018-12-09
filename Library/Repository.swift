@@ -1,35 +1,35 @@
 import Foundation
 
 public class Repository {
-    public private(set) var notes = [String:Note]()
-    private(set) var account = Account()
-    private var newest:Note? { return notes.values.sorted(by: { $0.created > $1.created } ).first }
-    
-    public func load() {
-        do {
-            account = try Factory.storage.account()
-        } catch {
-            Factory.storage.save(account)
+    public var update:(([Note]) -> Void)!
+    public var select:((Note) -> Void)!
+    var notes = [Note]()
+    var editing:Note {
+        if notes.first?.content.isEmpty != true {
+            newNote()
         }
-        loadNotes()
+        return notes.first!
     }
     
-    public func editing() -> Note {
-        if newest?.content.isEmpty == true {
-            return newest!
-        } else {
-            newNote()
-            return newest!
+    private(set) var account = Account()
+    
+    public func load() {
+        if let account = try? Factory.storage.account() {
+            self.account = account
         }
+        loadNotes()
+        let editing = self.editing
+        update(notes)
+        select(editing)
     }
     
     public func newNote() {
-        if newest?.content.isEmpty != true {
+        if notes.first?.content.isEmpty != true {
             let note = Note()
             note.id = UUID().uuidString
             note.created = Date().timeIntervalSince1970
             account.notes.append(note.id)
-            notes[note.id] = note
+            notes.insert(note, at:0)
             Factory.storage.save(account)
             Factory.storage.save(note)
         }
@@ -41,15 +41,35 @@ public class Repository {
     }
     
     public func delete(_ note:Note) {
-        notes.removeValue(forKey:note.id)
+        notes.remove(at:notes.firstIndex { $0 === note }!)
         account.notes.removeAll { $0 == note.id }
         Factory.storage.save(account)
         Factory.storage.delete(note)
     }
     
-    private func loadNotes() {
-        account.notes.forEach { id in
-            notes[id] = Factory.storage.note(id)
+    public func next(_ note:Note) {
+        let index = notes.firstIndex { $0 === note }!
+        if index < notes.count - 1 {
+            select(notes[index + 1])
+        } else {
+            select(notes[0])
         }
+    }
+    
+    public func previous(_ note:Note) {
+        let index = notes.firstIndex { $0 === note }!
+        if index > 0 {
+            select(notes[index - 1])
+        } else {
+            select(notes.last!)
+        }
+    }
+    
+    private func loadNotes() {
+        var notes = [Note]()
+        account.notes.forEach { id in
+            notes.append(Factory.storage.note(id))
+        }
+        self.notes = notes.sorted { $0.created > $1.created }
     }
 }

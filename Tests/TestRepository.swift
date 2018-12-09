@@ -7,19 +7,24 @@ class TestRepository:XCTestCase {
     override func setUp() {
         repository = Repository()
         Factory.storage = MockStorage()
+        repository.update = { _ in }
+        repository.select = { _ in }
+    }
+    
+    override func tearDown() {
+        Factory.storage = MockStorage()
     }
     
     func testNewNote() {
         let created = Date().timeIntervalSince1970
         repository.newNote()
         XCTAssertEqual(1, repository.notes.count)
-        XCTAssertFalse(repository.notes.values.first!.id.isEmpty)
-        XCTAssertGreaterThanOrEqual(repository.notes.values.first!.created, created)
-        XCTAssertEqual(repository.notes.values.first!.id, repository.notes.keys.first!)
-        XCTAssertEqual(repository.notes.values.first!.id, repository.account.notes.first!)
+        XCTAssertFalse(repository.notes.first!.id.isEmpty)
+        XCTAssertGreaterThanOrEqual(repository.notes.first!.created, created)
+        XCTAssertEqual(repository.notes.first!.id, repository.account.notes.first!)
     }
     
-    func testNewNoteCreatesIfNewestHasNoContent() {
+    func testNewNoteNotCreatesIfNewestHasNoContent() {
         repository.newNote()
         repository.newNote()
         XCTAssertEqual(1, repository.notes.count)
@@ -27,10 +32,11 @@ class TestRepository:XCTestCase {
     
     func testNewNoteCreatesIfNewestHasContent() {
         repository.newNote()
-        let note = repository.notes.values.first!
+        let note = repository.notes.first!
         note.content = "hello world"
         repository.newNote()
         XCTAssertEqual(2, repository.notes.count)
+        XCTAssertTrue(note === repository.notes[1])
     }
     
     func testUpdateContent() {
@@ -40,16 +46,16 @@ class TestRepository:XCTestCase {
     }
     
     func testDeleteNote() {
-        let note = repository.editing()
+        let note = repository.editing
         repository.delete(note)
         XCTAssertTrue(repository.notes.isEmpty)
         XCTAssertTrue(repository.account.notes.isEmpty)
     }
     
     func testKeepOtherNotesOnDelete() {
-        let first = repository.editing()
+        let first = repository.editing
         first.content = "hello world"
-        let second = repository.editing()
+        let second = repository.editing
         repository.delete(second)
         XCTAssertFalse(repository.notes.isEmpty)
         XCTAssertFalse(repository.account.notes.isEmpty)

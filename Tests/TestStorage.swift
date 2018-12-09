@@ -9,6 +9,12 @@ class TestStorage:XCTestCase {
         repository = Repository()
         storage = MockStorage()
         Factory.storage = storage
+        repository.update = { _ in }
+        repository.select = { _ in }
+    }
+    
+    override func tearDown() {
+        Factory.storage = MockStorage()
     }
     
     func testLoadGetsAccount() {
@@ -61,14 +67,18 @@ class TestStorage:XCTestCase {
     func testDeleteNoteSavesAccount() {
         let expect = expectation(description:String())
         storage.onSaveAccount = { expect.fulfill() }
-        repository.delete(Note())
+        let note = Note()
+        repository.notes.append(note)
+        repository.delete(note)
         waitForExpectations(timeout:1)
     }
     
     func testDeleteNoteRemovesNote() {
         let expect = expectation(description:String())
         storage.onDeleteNote = { expect.fulfill() }
-        repository.delete(Note())
+        let note = Note()
+        repository.notes.append(note)
+        repository.delete(note)
         waitForExpectations(timeout:1)
     }
 }
