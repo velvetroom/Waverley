@@ -9,10 +9,6 @@ class TestRepository:XCTestCase {
         Factory.storage = MockStorage()
     }
     
-    override func tearDown() {
-        Factory.storage = nil
-    }
-    
     func testNewNote() {
         let created = Date().timeIntervalSince1970
         repository.newNote()

@@ -1,7 +1,7 @@
 import Foundation
 
 public class Factory {
-    public static var storage:Storage!
+    static var storage:Storage = Storer()
     private static let repository = Repository()
     
     public class func makeRepository() -> Repository {

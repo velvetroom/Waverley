@@ -21,10 +21,6 @@ class Presenter {
     private var notesSorted:[Note] { return repository.notes.values.sorted(by: { $0.created > $1.created }) }
     private let repository = Factory.makeRepository()
     
-    init() {
-        Factory.storage = Storage()
-    }
-    
     func load() {
         DispatchQueue.global(qos:.background).async {
             self.repository.load()

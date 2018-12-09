@@ -9,10 +9,6 @@ class TestEditing:XCTestCase {
         Factory.storage = MockStorage()
     }
     
-    override func tearDown() {
-        Factory.storage = nil
-    }
-    
     func testCreateNewOne() {
         let editing = repository.editing()
         XCTAssertEqual(1, repository.notes.count)

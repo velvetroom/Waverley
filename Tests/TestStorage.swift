@@ -11,10 +11,6 @@ class TestStorage:XCTestCase {
         Factory.storage = storage
     }
     
-    override func tearDown() {
-        Factory.storage = nil
-    }
-    
     func testLoadGetsAccount() {
         let expect = expectation(description:String())
         storage.onAccount = { expect.fulfill() }
