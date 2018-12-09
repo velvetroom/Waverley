@@ -68,6 +68,7 @@ class TestStorage:XCTestCase {
         let expect = expectation(description:String())
         storage.onSaveAccount = { expect.fulfill() }
         let note = Note()
+        repository.notes.append(Note())
         repository.notes.append(note)
         repository.delete(note)
         waitForExpectations(timeout:1)

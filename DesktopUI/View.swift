@@ -45,7 +45,7 @@ class View:NSView, NSTextViewDelegate {
     override func awakeFromNib() {
         super.awakeFromNib()
         makeOutlets()
-        presenter.notes = { self.update($0) }
+        presenter.update = { self.update($0) }
         presenter.select = { self.select($0) }
         presenter.load()
     }

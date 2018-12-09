@@ -46,16 +46,16 @@ class TestRepository:XCTestCase {
     }
     
     func testDeleteNote() {
-        let note = repository.editing
+        let note = repository.createNote()
         repository.delete(note)
-        XCTAssertTrue(repository.notes.isEmpty)
-        XCTAssertTrue(repository.account.notes.isEmpty)
+        XCTAssertFalse(repository.notes[0] === note)
+        XCTAssertNotEqual(note.id, repository.account.notes[0])
     }
     
     func testKeepOtherNotesOnDelete() {
-        let first = repository.editing
+        let first = repository.createNote()
         first.content = "hello world"
-        let second = repository.editing
+        let second = repository.createNote()
         repository.delete(second)
         XCTAssertFalse(repository.notes.isEmpty)
         XCTAssertFalse(repository.account.notes.isEmpty)

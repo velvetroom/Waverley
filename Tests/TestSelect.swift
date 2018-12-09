@@ -105,4 +105,27 @@ class TestSelect:XCTestCase {
         repository.next(a)
         waitForExpectations(timeout:1)
     }
+    
+    func testNewSelects() {
+        let expect = expectation(description:String())
+        repository.select = { note in
+            XCTAssertTrue(self.repository.notes[0] === note)
+            expect.fulfill()
+        }
+        repository.newNote()
+        waitForExpectations(timeout:1)
+    }
+    
+    func testDeleteSelects() {
+        let expect = expectation(description:String())
+        let oldNote = Note()
+        repository.select = { note in
+            XCTAssertTrue(self.repository.notes[0] === note)
+            XCTAssertFalse(oldNote === note)
+            expect.fulfill()
+        }
+        repository.notes.append(oldNote)
+        repository.delete(oldNote)
+        waitForExpectations(timeout:1)
+    }
 }

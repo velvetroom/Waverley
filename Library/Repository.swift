@@ -4,13 +4,6 @@ public class Repository {
     public var update:(([Note]) -> Void)!
     public var select:((Note) -> Void)!
     var notes = [Note]()
-    var editing:Note {
-        if notes.first?.content.isEmpty != true {
-            newNote()
-        }
-        return notes.first!
-    }
-    
     private(set) var account = Account()
     
     public func load() {
@@ -18,21 +11,7 @@ public class Repository {
             self.account = account
         }
         loadNotes()
-        let editing = self.editing
-        update(notes)
-        select(editing)
-    }
-    
-    public func newNote() {
-        if notes.first?.content.isEmpty != true {
-            let note = Note()
-            note.id = UUID().uuidString
-            note.created = Date().timeIntervalSince1970
-            account.notes.append(note.id)
-            notes.insert(note, at:0)
-            Factory.storage.save(account)
-            Factory.storage.save(note)
-        }
+        newNote()
     }
     
     public func update(_ note:Note, content:String) {
@@ -40,11 +19,18 @@ public class Repository {
         Factory.storage.save(note)
     }
     
+    public func newNote() {
+        let note = createNote()
+        update(notes)
+        select(note)
+    }
+    
     public func delete(_ note:Note) {
         notes.remove(at:notes.firstIndex { $0 === note }!)
         account.notes.removeAll { $0 == note.id }
         Factory.storage.save(account)
         Factory.storage.delete(note)
+        newNote()
     }
     
     public func next(_ note:Note) {
@@ -63,6 +49,19 @@ public class Repository {
         } else {
             select(notes.last!)
         }
+    }
+    
+    func createNote() -> Note {
+        if notes.first?.content.isEmpty != true {
+            let note = Note()
+            note.id = UUID().uuidString
+            note.created = Date().timeIntervalSince1970
+            account.notes.append(note.id)
+            notes.insert(note, at:0)
+            Factory.storage.save(account)
+            Factory.storage.save(note)
+        }
+        return notes.first!
     }
     
     private func loadNotes() {
