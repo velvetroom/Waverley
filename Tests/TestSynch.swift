@@ -98,7 +98,7 @@ class TestSynch:XCTestCase {
             XCTAssertGreaterThan(account.first!.value, 0)
             expect.fulfill()
         }
-        repository.createNote()
+        let _ = repository.createNote()
         waitForExpectations(timeout:1)
     }
     
@@ -109,7 +109,7 @@ class TestSynch:XCTestCase {
             XCTAssertGreaterThan(note.synchstamp, 0)
             expect.fulfill()
         }
-        repository.createNote()
+        let _ = repository.createNote()
         waitForExpectations(timeout:1)
     }
 }
