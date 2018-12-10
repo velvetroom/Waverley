@@ -7,6 +7,7 @@ class TestNote:XCTestCase {
 {
 "id":"lorem ipsum",
 "created": 123.0,
+"synchstamp": 345.0,
 "content": "hello world"
 }
 """
@@ -18,6 +19,7 @@ class TestNote:XCTestCase {
         let note = try! JSONDecoder().decode(Note.self, from:data)
         XCTAssertEqual("lorem ipsum", note.id)
         XCTAssertEqual(123.0, note.created)
+        XCTAssertEqual(345.0, note.synchstamp)
         XCTAssertEqual("hello world", note.content)
     }
 }

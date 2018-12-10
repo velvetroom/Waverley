@@ -16,6 +16,7 @@ public class Repository {
     
     public func update(_ note:Note, content:String) {
         note.content = content
+        note.synchstamp = Date().timeIntervalSince1970
         Factory.storage.save(note)
     }
     
@@ -56,6 +57,7 @@ public class Repository {
             let note = Note()
             note.id = UUID().uuidString
             note.created = Date().timeIntervalSince1970
+            note.synchstamp = note.created
             account.notes.append(note.id)
             notes.insert(note, at:0)
             Factory.storage.save(account)

@@ -11,16 +11,13 @@ class TestRepository:XCTestCase {
         repository.select = { _ in }
     }
     
-    override func tearDown() {
-        Factory.storage = MockStorage()
-    }
-    
     func testNewNote() {
         let created = Date().timeIntervalSince1970
         repository.newNote()
         XCTAssertEqual(1, repository.notes.count)
         XCTAssertFalse(repository.notes.first!.id.isEmpty)
         XCTAssertGreaterThanOrEqual(repository.notes.first!.created, created)
+        XCTAssertGreaterThanOrEqual(repository.notes.first!.synchstamp, created)
         XCTAssertEqual(repository.notes.first!.id, repository.account.notes.first!)
     }
     
@@ -41,8 +38,11 @@ class TestRepository:XCTestCase {
     
     func testUpdateContent() {
         let note = Note()
+        let synchstamp = Date().timeIntervalSince1970
         repository.update(note, content:"hello world")
         XCTAssertEqual("hello world", note.content)
+        XCTAssertGreaterThanOrEqual(synchstamp, note.synchstamp)
+        XCTAssertNotEqual(note.synchstamp, note.created)
     }
     
     func testDeleteNote() {

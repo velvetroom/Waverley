@@ -3,17 +3,11 @@ import XCTest
 
 class TestSelect:XCTestCase {
     private var repository:Repository!
-    private var storage:MockStorage!
     
     override func setUp() {
         repository = Repository()
-        storage = MockStorage()
-        Factory.storage = storage
-        repository.update = { _ in }
-    }
-    
-    override func tearDown() {
         Factory.storage = MockStorage()
+        repository.update = { _ in }
     }
     
     func testLoadSelects() {
