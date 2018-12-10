@@ -8,6 +8,7 @@ class TestStorage:XCTestCase {
     override func setUp() {
         repository = Repository()
         storage = MockStorage()
+        Factory.synch = MockSynch()
         Factory.storage = storage
         repository.update = { _ in }
         repository.select = { _ in }
@@ -68,6 +69,7 @@ class TestStorage:XCTestCase {
         let expect = expectation(description:String())
         storage.onSaveAccount = { expect.fulfill() }
         let note = Note()
+        note.id = "a"
         repository.notes.append(Note())
         repository.notes.append(note)
         repository.delete(note)

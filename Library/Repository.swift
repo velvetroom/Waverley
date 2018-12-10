@@ -14,10 +14,29 @@ public class Repository {
         newNote()
     }
     
+    public func startSynch() {
+        Factory.synch.updates = { items in
+            items.forEach { item in
+                if let current = self.notes.first(where: { $0.id == item.key } ),
+                    current.synchstamp < item.value {
+                    self.remove(item.key)
+                    Factory.synch.load(item.key)
+                } else {
+                    Factory.synch.load(item.key)
+                }
+            }
+        }
+        Factory.synch.loaded = { note in
+            self.add(note)
+            self.update(self.notes)
+        }
+        Factory.synch.start()
+    }
+    
     public func update(_ note:Note, content:String) {
         note.content = content
         note.synchstamp = Date().timeIntervalSince1970
-        Factory.storage.save(note)
+        save(note)
     }
     
     public func newNote() {
@@ -27,9 +46,8 @@ public class Repository {
     }
     
     public func delete(_ note:Note) {
-        notes.remove(at:notes.firstIndex { $0 === note }!)
-        account.notes.removeAll { $0 == note.id }
-        Factory.storage.save(account)
+        remove(note.id)
+        save()
         Factory.storage.delete(note)
         newNote()
     }
@@ -58,10 +76,7 @@ public class Repository {
             note.id = UUID().uuidString
             note.created = Date().timeIntervalSince1970
             note.synchstamp = note.created
-            account.notes.append(note.id)
-            notes.insert(note, at:0)
-            Factory.storage.save(account)
-            Factory.storage.save(note)
+            add(note)
         }
         return notes.first!
     }
@@ -71,6 +86,36 @@ public class Repository {
         account.notes.forEach { id in
             notes.append(Factory.storage.note(id))
         }
-        self.notes = notes.sorted { $0.created > $1.created }
+        self.notes = notes
+        sort()
+    }
+    
+    private func add(_ note:Note) {
+        account.notes.append(note.id)
+        notes.append(note)
+        sort()
+        save()
+        save(note)
+    }
+    
+    private func remove(_ id:String) {
+        notes.removeAll { $0.id == id }
+        account.notes.removeAll { $0 == id }
+    }
+    
+    private func sort() {
+        notes.sort { $0.created > $1.created }
+    }
+    
+    private func save() {
+        Factory.storage.save(account)
+        Factory.synch.save(notes.reduce(into:[:], { result, note in
+          result[note.id] = note.synchstamp
+        } ))
+    }
+    
+    private func save(_ note:Note) {
+        Factory.storage.save(note)
+        Factory.synch.save(note)
     }
 }

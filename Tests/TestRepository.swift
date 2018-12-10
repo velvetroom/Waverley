@@ -7,6 +7,7 @@ class TestRepository:XCTestCase {
     override func setUp() {
         repository = Repository()
         Factory.storage = MockStorage()
+        Factory.synch = MockSynch()
         repository.update = { _ in }
         repository.select = { _ in }
     }
@@ -41,7 +42,7 @@ class TestRepository:XCTestCase {
         let synchstamp = Date().timeIntervalSince1970
         repository.update(note, content:"hello world")
         XCTAssertEqual("hello world", note.content)
-        XCTAssertGreaterThanOrEqual(synchstamp, note.synchstamp)
+        XCTAssertGreaterThanOrEqual(note.synchstamp, synchstamp)
         XCTAssertNotEqual(note.synchstamp, note.created)
     }
     
