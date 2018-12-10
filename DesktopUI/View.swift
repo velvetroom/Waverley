@@ -99,6 +99,12 @@ class View:NSView, NSTextViewDelegate {
         indicator.layer!.backgroundColor = NSColor.scottBlue.withAlphaComponent(0.3).cgColor
         addSubview(indicator)
         
+        let border = NSView()
+        border.translatesAutoresizingMaskIntoConstraints = false
+        border.wantsLayer = true
+        border.layer!.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        addSubview(border)
+        
         scroll.topAnchor.constraint(equalTo:topAnchor, constant:38).isActive = true
         scroll.leftAnchor.constraint(equalTo:list.rightAnchor).isActive = true
         scroll.rightAnchor.constraint(equalTo:rightAnchor).isActive = true
@@ -120,6 +126,11 @@ class View:NSView, NSTextViewDelegate {
         indicator.leftAnchor.constraint(equalTo:list.rightAnchor).isActive = true
         indicator.rightAnchor.constraint(equalTo:rightAnchor).isActive = true
         indicator.bottomAnchor.constraint(equalTo:indicatorBorder.topAnchor).isActive = true
+        
+        border.topAnchor.constraint(equalTo:topAnchor, constant:2).isActive = true
+        border.bottomAnchor.constraint(equalTo:bottomAnchor, constant:-2).isActive = true
+        border.leftAnchor.constraint(equalTo:scroll.leftAnchor).isActive = true
+        border.widthAnchor.constraint(equalToConstant:1).isActive = true
     }
     
     private func update(_ notes:[Note]) {
@@ -150,7 +161,7 @@ class View:NSView, NSTextViewDelegate {
     
     private func animateConstraints() {
         NSAnimationContext.runAnimationGroup { context in
-            context.duration = 0.33
+            context.duration = 0.5
             context.allowsImplicitAnimation = true
             self.layoutSubtreeIfNeeded()
         }

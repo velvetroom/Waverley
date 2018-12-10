@@ -3,7 +3,6 @@ import Desktop
 
 class ItemView:NSControl {
     private(set) weak var note:Note!
-    private weak var selector:NSView!
     private weak var field:NSTextField!
     override var intrinsicContentSize:NSSize { return NSSize(width:250, height:60) }
     var selected = false { didSet { update() } }
@@ -12,6 +11,7 @@ class ItemView:NSControl {
         self.note = note
         super.init(frame:.zero)
         translatesAutoresizingMaskIntoConstraints = false
+        wantsLayer = true
         
         let field = NSTextField()
         field.translatesAutoresizingMaskIntoConstraints = false
@@ -20,26 +20,14 @@ class ItemView:NSControl {
         field.isBezeled = false
         field.isEditable = false
         field.font = .systemFont(ofSize:12, weight:.ultraLight)
+        field.alphaValue = 0.7
         addSubview(field)
         self.field = field
         
-        let selector = NSView()
-        selector.translatesAutoresizingMaskIntoConstraints = false
-        selector.wantsLayer = true
-        selector.layer!.backgroundColor = NSColor.scottBlue.cgColor
-        selector.layer!.cornerRadius = 2
-        addSubview(selector)
-        self.selector = selector
-        
         field.topAnchor.constraint(equalTo:topAnchor, constant:12).isActive = true
-        field.leftAnchor.constraint(equalTo:leftAnchor, constant:26).isActive = true
-        field.widthAnchor.constraint(equalToConstant:210).isActive = true
+        field.leftAnchor.constraint(equalTo:leftAnchor, constant:24).isActive = true
+        field.widthAnchor.constraint(equalToConstant:195).isActive = true
         field.heightAnchor.constraint(equalToConstant:36).isActive = true
-        
-        selector.topAnchor.constraint(equalTo:topAnchor, constant:10).isActive = true
-        selector.bottomAnchor.constraint(equalTo:bottomAnchor, constant:-10).isActive = true
-        selector.leftAnchor.constraint(equalTo:leftAnchor, constant:14).isActive = true
-        selector.widthAnchor.constraint(equalToConstant:4).isActive = true
         
         update(note.content)
         update()
@@ -59,11 +47,9 @@ class ItemView:NSControl {
     
     private func update() {
         if selected {
-            field.alphaValue = 0.7
-            selector.alphaValue = 1
+            layer!.backgroundColor = NSColor.windowBackgroundColor.cgColor
         } else {
-            field.alphaValue = 0.5
-            selector.alphaValue = 0
+            layer!.backgroundColor = NSColor.clear.cgColor
         }
     }
 }
