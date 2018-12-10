@@ -35,6 +35,7 @@
 		DA76267A21A6A234009EBF8F /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DA76267821A6A234009EBF8F /* Localizable.strings */; };
 		DA76267D21A6A3CD009EBF8F /* libMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA76265A21A69D94009EBF8F /* libMobile.a */; };
 		DA76268021A6A416009EBF8F /* libDesktop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA76265B21A69D94009EBF8F /* libDesktop.a */; };
+		DA7DE6E221BF045100304059 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7DE6E121BF045100304059 /* CloudKit.framework */; };
 		DA89B51621B994EC00F16F31 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51521B994EC00F16F31 /* HelpView.swift */; };
 		DA89B51821B9A98800F16F31 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51721B9A98800F16F31 /* Printer.swift */; };
 		DA89B51A21B9B24F00F16F31 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51921B9B24F00F16F31 /* View.swift */; };
@@ -145,6 +146,7 @@
 		DA76266A21A6A1D0009EBF8F /* Application.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Application.swift; sourceTree = "<group>"; };
 		DA76267621A6A228009EBF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA76267921A6A234009EBF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DA7DE6E121BF045100304059 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		DA89B51521B994EC00F16F31 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		DA89B51721B9A98800F16F31 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		DA89B51921B9B24F00F16F31 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA76268021A6A416009EBF8F /* libDesktop.a in Frameworks */,
+				DA7DE6E221BF045100304059 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +316,7 @@
 		DA76267B21A6A37D009EBF8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA7DE6E121BF045100304059 /* CloudKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -526,11 +530,14 @@
 							com.apple.ApplicationGroups.Mac = {
 								enabled = 0;
 							};
+							com.apple.Push = {
+								enabled = 1;
+							};
 							com.apple.Sandbox = {
 								enabled = 1;
 							};
 							com.apple.iCloud = {
-								enabled = 0;
+								enabled = 1;
 							};
 						};
 					};

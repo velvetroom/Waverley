@@ -25,7 +25,10 @@ class Presenter {
     }
     
     func load() {
-        DispatchQueue.global(qos:.background).async { self.repository.load() }
+        DispatchQueue.global(qos:.background).async {
+            self.repository.load()
+            self.repository.startSynch()
+        }
     }
     
     func update(_ content:String) {

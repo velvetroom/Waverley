@@ -17,16 +17,17 @@ public class Repository {
     public func startSynch() {
         Factory.synch.updates = { items in
             items.forEach { item in
-                if let current = self.notes.first(where: { $0.id == item.key } ),
-                    current.synchstamp < item.value {
-                    self.remove(item.key)
-                    Factory.synch.load(item.key)
+                if let current = self.notes.first(where: { $0.id == item.key } ) {
+                    if current.synchstamp < item.value {
+                        Factory.synch.load(item.key)
+                    }
                 } else {
                     Factory.synch.load(item.key)
                 }
             }
         }
         Factory.synch.loaded = { note in
+            self.remove(note.id)
             self.add(note)
             self.update(self.notes)
         }

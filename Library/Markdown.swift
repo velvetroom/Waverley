@@ -20,7 +20,7 @@ public class Markdown {
     private func validateBold(string:String) -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))? {
         guard
             let begin = string.firstIndex(of:"*"),
-            let _ = string[string.index(after:begin)...].firstIndex(of:"*")
+            string[string.index(after:begin)...].firstIndex(of:"*") != nil
         else { return nil }
         return (begin, Markdown.bold)
     }
@@ -28,7 +28,7 @@ public class Markdown {
     private func validateItalic(string:String) -> (String.Index, ((Markdown) -> (String, Trait.Mode) -> [Trait]))? {
         guard
             let begin = string.firstIndex(of:"_"),
-            let _ = string[string.index(after:begin)...].firstIndex(of:"_")
+            string[string.index(after:begin)...].firstIndex(of:"_") != nil
         else { return nil }
         return (begin, Markdown.italic)
     }

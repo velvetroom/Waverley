@@ -70,6 +70,8 @@ class TestSynch:XCTestCase {
         synch.items = [syncA.id:syncA.synchstamp]
         synch.note = syncA
         repository.startSynch()
+        XCTAssertEqual(1, repository.account.notes.count)
+        XCTAssertEqual(1, repository.notes.count)
         XCTAssertEqual("hello world", repository.notes.first!.content)
     }
     
@@ -87,6 +89,28 @@ class TestSynch:XCTestCase {
         synch.items = [syncA.id:syncA.synchstamp]
         synch.note = syncA
         repository.startSynch()
+        XCTAssertEqual(1, repository.account.notes.count)
+        XCTAssertEqual(1, repository.notes.count)
+        XCTAssertEqual("hello world", repository.notes.first!.content)
+    }
+    
+    func testNotRemovingIfIcloudFails() {
+        let syncA = Note()
+        syncA.id = "a"
+        syncA.synchstamp = 5
+        let a = Note()
+        a.content = "hello world"
+        a.id = "a"
+        a.synchstamp = 1
+        repository.account.notes.append(a.id)
+        repository.notes.append(a)
+        synch.items = [syncA.id:syncA.synchstamp]
+        repository.startSynch()
+        XCTAssertEqual(1, repository.account.notes.count)
+        XCTAssertEqual(1, repository.notes.count)
+        XCTAssertEqual("a", repository.account.notes.first!)
+        XCTAssertEqual("a", repository.notes.first!.id)
+        XCTAssertEqual(1, repository.notes.first!.synchstamp)
         XCTAssertEqual("hello world", repository.notes.first!.content)
     }
     
@@ -98,7 +122,7 @@ class TestSynch:XCTestCase {
             XCTAssertGreaterThan(account.first!.value, 0)
             expect.fulfill()
         }
-        let _ = repository.createNote()
+        _ = repository.createNote()
         waitForExpectations(timeout:1)
     }
     
@@ -109,7 +133,7 @@ class TestSynch:XCTestCase {
             XCTAssertGreaterThan(note.synchstamp, 0)
             expect.fulfill()
         }
-        let _ = repository.createNote()
+        _ = repository.createNote()
         waitForExpectations(timeout:1)
     }
 }
