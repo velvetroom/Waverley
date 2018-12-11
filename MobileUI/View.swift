@@ -129,6 +129,8 @@ class View:UIViewController, UITextViewDelegate {
         text.addSubview(indicator)
         
         text.bottomAnchor.constraint(equalTo:accessory.topAnchor).isActive = true
+        text.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
+        text.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
         
         accessory.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
         accessory.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
@@ -187,14 +189,10 @@ class View:UIViewController, UITextViewDelegate {
         if #available(iOS 11.0, *) {
             text.contentInsetAdjustmentBehavior = .never
             text.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor).isActive = true
-            text.leftAnchor.constraint(equalTo:view.safeAreaLayoutGuide.leftAnchor).isActive = true
-            text.rightAnchor.constraint(equalTo:view.safeAreaLayoutGuide.rightAnchor).isActive = true
             
             accessoryBottom = accessory.bottomAnchor.constraint(equalTo:view.safeAreaLayoutGuide.bottomAnchor)
         } else {
             text.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
-            text.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
-            text.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
             
             accessoryBottom = accessory.bottomAnchor.constraint(equalTo:view.bottomAnchor)
         }
@@ -283,12 +281,12 @@ class View:UIViewController, UITextViewDelegate {
         presenter.new()
         indicatorTop.constant = view.bounds.height
         scrollToTop()
-        UIView.animate(withDuration:0.4, animations: {
+        UIView.animate(withDuration:0.5, animations: {
             self.text.alpha = 0
             self.text.layoutIfNeeded()
         }) { _ in
             self.indicatorTop.constant = -10
-            UIView.animate(withDuration:0.3) {
+            UIView.animate(withDuration:0.4) {
                 self.text.alpha = 1
             }
         }

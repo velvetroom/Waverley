@@ -1,7 +1,7 @@
 import UIKit
 
 class TextView:UITextView, NSTextStorageDelegate {
-    static let lineHeight:CGFloat = 36
+    static let lineHeight:CGFloat = 30
     
     init() {
         let container = NSTextContainer()
@@ -23,7 +23,7 @@ class TextView:UITextView, NSTextStorageDelegate {
         autocapitalizationType = .sentences
         keyboardType = .alphabet
         contentInset = .zero
-        textContainerInset = UIEdgeInsets(top:12, left:10, bottom:26, right:10)
+        textContainerInset = UIEdgeInsets(top:16, left:10, bottom:30, right:10)
         textStorage.delegate = self
     }
     
@@ -46,8 +46,8 @@ class TextView:UITextView, NSTextStorageDelegate {
             }
         }
         lights.append(NSRange(start..., in:storage.string))
-        lights.forEach { storage.addAttribute(.font, value:UIFont.editorLight(20), range:$0) }
-        bolds.forEach { storage.addAttribute(.font, value:UIFont.editorBold(20), range:$0) }
+        lights.forEach { storage.addAttribute(.font, value:UIFont.editorLight(16), range:$0) }
+        bolds.forEach { storage.addAttribute(.font, value:UIFont.editorBold(16), range:$0) }
     }
     
     override func caretRect(for position:UITextPosition) -> CGRect {

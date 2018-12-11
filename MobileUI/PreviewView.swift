@@ -32,31 +32,24 @@ class PreviewView:UIViewController {
         
         let text = UITextView()
         text.translatesAutoresizingMaskIntoConstraints = false
-        text.backgroundColor = .scottShade
+        text.backgroundColor = .clear
         text.isEditable = false
         text.alwaysBounceVertical = true
         text.indicatorStyle = .white
         text.contentInset = .zero
-        text.textContainerInset = UIEdgeInsets(top:40, left:20, bottom:40, right:20)
-        text.attributedText = Printer.print(note.content, size:18)
+        text.textContainerInset = UIEdgeInsets(top:20, left:8, bottom:40, right:8)
+        text.attributedText = Printer.print(note.content, size:14)
         text.textColor = .white
         view.addSubview(text)
         
-        let border = UIView()
-        border.isUserInteractionEnabled = false
-        border.translatesAutoresizingMaskIntoConstraints = false
-        border.backgroundColor = .black
-        view.addSubview(border)
-        
         let pdf = UIButton()
-        pdf.backgroundColor = .scottBlue
+        pdf.setBackgroundImage(#imageLiteral(resourceName: "button.pdf"), for:[])
         pdf.translatesAutoresizingMaskIntoConstraints = false
         pdf.addTarget(self, action:#selector(self.pdf), for:.touchUpInside)
         pdf.setTitle(.local("PreviewView.pdf"), for:.normal)
         pdf.setTitleColor(.black, for:.normal)
         pdf.setTitleColor(UIColor(white:0, alpha:0.3), for:.highlighted)
-        pdf.titleLabel!.font = .systemFont(ofSize:13, weight:.bold)
-        pdf.layer.cornerRadius = 25
+        pdf.titleLabel!.font = .systemFont(ofSize:14, weight:.medium)
         view.addSubview(pdf)
         
         let close = UIButton()
@@ -65,7 +58,7 @@ class PreviewView:UIViewController {
         close.setTitle(.local("PreviewView.close"), for:.normal)
         close.setTitleColor(.white, for:.normal)
         close.setTitleColor(UIColor(white:1, alpha:0.3), for:.highlighted)
-        close.titleLabel!.font = .systemFont(ofSize:13, weight:.regular)
+        close.titleLabel!.font = .systemFont(ofSize:13, weight:.medium)
         view.addSubview(close)
         
         blur.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
@@ -78,20 +71,14 @@ class PreviewView:UIViewController {
         back.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
         back.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
         
-        text.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
+        text.topAnchor.constraint(equalTo:pdf.bottomAnchor, constant:5).isActive = true
         text.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
         text.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
-        text.bottomAnchor.constraint(equalTo:pdf.topAnchor, constant:-30).isActive = true
+        text.bottomAnchor.constraint(equalTo:view.bottomAnchor).isActive = true
         
-        border.topAnchor.constraint(equalTo:text.bottomAnchor).isActive = true
-        border.leftAnchor.constraint(equalTo:view.leftAnchor).isActive = true
-        border.rightAnchor.constraint(equalTo:view.rightAnchor).isActive = true
-        border.heightAnchor.constraint(equalToConstant:1).isActive = true
-        
-        pdf.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
-        pdf.bottomAnchor.constraint(equalTo:view.bottomAnchor, constant:-30).isActive = true
-        pdf.widthAnchor.constraint(equalToConstant:50).isActive = true
-        pdf.heightAnchor.constraint(equalToConstant:50).isActive = true
+        pdf.rightAnchor.constraint(equalTo:view.rightAnchor, constant:-10).isActive = true
+        pdf.widthAnchor.constraint(equalToConstant:92).isActive = true
+        pdf.heightAnchor.constraint(equalToConstant:34).isActive = true
         
         close.rightAnchor.constraint(equalTo:pdf.leftAnchor).isActive = true
         close.centerYAnchor.constraint(equalTo:pdf.centerYAnchor).isActive = true
@@ -100,6 +87,9 @@ class PreviewView:UIViewController {
         
         if #available(iOS 11.0, *) {
             text.contentInsetAdjustmentBehavior = .never
+            pdf.topAnchor.constraint(equalTo:view.safeAreaLayoutGuide.topAnchor, constant:5).isActive = true
+        } else {
+            pdf.topAnchor.constraint(equalTo:view.topAnchor, constant:5).isActive = true
         }
     }
     

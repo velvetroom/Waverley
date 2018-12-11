@@ -30,14 +30,13 @@ class DeleteView:UIViewController {
         view.addSubview(back)
         
         let delete = UIButton()
-        delete.backgroundColor = .scottBlue
+        delete.setBackgroundImage(#imageLiteral(resourceName: "button.pdf"), for:[])
         delete.translatesAutoresizingMaskIntoConstraints = false
         delete.addTarget(self, action:#selector(remove), for:.touchUpInside)
         delete.setTitle(.local("DeleteView.delete"), for:.normal)
         delete.setTitleColor(.black, for:.normal)
         delete.setTitleColor(UIColor(white:0, alpha:0.3), for:.highlighted)
-        delete.titleLabel!.font = .systemFont(ofSize:13, weight:.bold)
-        delete.layer.cornerRadius = 35
+        delete.titleLabel!.font = .systemFont(ofSize:14, weight:.medium)
         view.addSubview(delete)
         
         let cancel = UIButton()
@@ -46,7 +45,7 @@ class DeleteView:UIViewController {
         cancel.setTitle(.local("DeleteView.cancel"), for:.normal)
         cancel.setTitleColor(.white, for:.normal)
         cancel.setTitleColor(UIColor(white:1, alpha:0.3), for:.highlighted)
-        cancel.titleLabel!.font = .systemFont(ofSize:13, weight:.regular)
+        cancel.titleLabel!.font = .systemFont(ofSize:13, weight:.medium)
         view.addSubview(cancel)
         
         blur.topAnchor.constraint(equalTo:view.topAnchor).isActive = true
@@ -61,8 +60,8 @@ class DeleteView:UIViewController {
         
         delete.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
         delete.centerYAnchor.constraint(equalTo:view.centerYAnchor).isActive = true
-        delete.widthAnchor.constraint(equalToConstant:70).isActive = true
-        delete.heightAnchor.constraint(equalToConstant:70).isActive = true
+        delete.widthAnchor.constraint(equalToConstant:92).isActive = true
+        delete.heightAnchor.constraint(equalToConstant:34).isActive = true
         
         cancel.centerXAnchor.constraint(equalTo:view.centerXAnchor).isActive = true
         cancel.topAnchor.constraint(equalTo:delete.bottomAnchor).isActive = true
