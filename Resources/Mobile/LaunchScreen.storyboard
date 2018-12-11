@@ -18,28 +18,51 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="dio-aD-mBg">
-                                <rect key="frame" x="97.5" y="202" width="180" height="263"/>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Rg-M4-lTZ" userLabel="Caret">
+                                <rect key="frame" x="14" y="36" width="4" height="30"/>
+                                <color key="backgroundColor" red="0.23137254901960785" green="0.72156862745098038" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="180" id="Yma-pg-eu7"/>
-                                    <constraint firstAttribute="height" constant="263" id="lYY-8Q-gkd"/>
+                                    <constraint firstAttribute="height" constant="30" id="THF-aS-qfN"/>
+                                    <constraint firstAttribute="width" constant="4" id="cr9-f0-GfS"/>
                                 </constraints>
-                            </imageView>
+                            </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1F5-fE-QcY" userLabel="Accessory">
+                                <rect key="frame" x="0.0" y="613" width="375" height="54"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="listOff" translatesAutoresizingMaskIntoConstraints="NO" id="jjB-ra-Yd7">
+                                        <rect key="frame" x="161.5" y="0.0" width="52" height="54"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="54" id="H7h-z9-nlm"/>
+                                            <constraint firstAttribute="width" constant="52" id="ti6-tD-9WN"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.11764705882352941" green="0.13725490196078433" blue="0.15686274509803921" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="jjB-ra-Yd7" firstAttribute="centerY" secondItem="1F5-fE-QcY" secondAttribute="centerY" id="HXf-QQ-7ZA"/>
+                                    <constraint firstAttribute="width" constant="375" id="e0n-Bo-B3Z"/>
+                                    <constraint firstAttribute="height" constant="54" id="vvB-pw-Vo9"/>
+                                    <constraint firstItem="jjB-ra-Yd7" firstAttribute="centerX" secondItem="1F5-fE-QcY" secondAttribute="centerX" id="za1-Mf-gUb"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="dio-aD-mBg" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="Hf0-wP-omL"/>
-                            <constraint firstItem="dio-aD-mBg" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="aT8-JB-oZJ"/>
+                            <constraint firstAttribute="trailing" secondItem="1F5-fE-QcY" secondAttribute="trailing" id="Pyj-Jc-da6"/>
+                            <constraint firstItem="1F5-fE-QcY" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" id="TEU-HA-7Up"/>
+                            <constraint firstAttribute="bottom" secondItem="1F5-fE-QcY" secondAttribute="bottom" id="UeQ-UE-bot"/>
+                            <constraint firstItem="1Rg-M4-lTZ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="hql-2S-69q"/>
+                            <constraint firstItem="1Rg-M4-lTZ" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leading" constant="14" id="kR4-BO-QpJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
     <resources>
-        <image name="logo" width="180" height="263"/>
+        <image name="listOff" width="34" height="19"/>
     </resources>
 </document>
