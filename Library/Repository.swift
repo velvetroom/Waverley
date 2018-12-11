@@ -37,6 +37,7 @@ public class Repository {
     public func update(_ note:Note, content:String) {
         note.content = content
         note.synchstamp = Date().timeIntervalSince1970
+        save()
         save(note)
     }
     

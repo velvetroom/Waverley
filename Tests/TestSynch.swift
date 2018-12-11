@@ -136,4 +136,23 @@ class TestSynch:XCTestCase {
         _ = repository.createNote()
         waitForExpectations(timeout:1)
     }
+    
+    func testUpdateContentSavesNote() {
+        let expect = expectation(description:String())
+        synch.onSaveNote = { note in
+            XCTAssertEqual("hello world", note.content)
+            expect.fulfill()
+        }
+        repository.update(Note(), content:"hello world")
+        waitForExpectations(timeout:1)
+    }
+    
+    func testUpdateContentSavesAccount() {
+        let expect = expectation(description:String())
+        synch.onSaveAccount = { account in
+            expect.fulfill()
+        }
+        repository.update(Note(), content:"hello world")
+        waitForExpectations(timeout:1)
+    }
 }
