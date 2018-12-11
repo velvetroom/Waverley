@@ -94,7 +94,7 @@ class TestSynch:XCTestCase {
         XCTAssertEqual("hello world", repository.notes.first!.content)
     }
     
-    func testNotRemovingIfIcloudFails() {
+    func testNotRemovingIfCloudFails() {
         let syncA = Note()
         syncA.id = "a"
         syncA.synchstamp = 5
@@ -114,29 +114,6 @@ class TestSynch:XCTestCase {
         XCTAssertEqual("hello world", repository.notes.first!.content)
     }
     
-    func testCreateNoteSavesAccount() {
-        let expect = expectation(description:String())
-        synch.onSaveAccount = { account in
-            XCTAssertEqual(1, account.count)
-            XCTAssertFalse(account.first!.key.isEmpty)
-            XCTAssertGreaterThan(account.first!.value, 0)
-            expect.fulfill()
-        }
-        _ = repository.createNote()
-        waitForExpectations(timeout:1)
-    }
-    
-    func testCreateNoteSavesNote() {
-        let expect = expectation(description:String())
-        synch.onSaveNote = { note in
-            XCTAssertFalse(note.id.isEmpty)
-            XCTAssertGreaterThan(note.synchstamp, 0)
-            expect.fulfill()
-        }
-        _ = repository.createNote()
-        waitForExpectations(timeout:1)
-    }
-    
     func testUpdateContentSavesNote() {
         let expect = expectation(description:String())
         synch.onSaveNote = { note in
@@ -154,5 +131,25 @@ class TestSynch:XCTestCase {
         }
         repository.update(Note(), content:"hello world")
         waitForExpectations(timeout:1)
+    }
+    
+    func testNotSavingIfContentEmpty() {
+        synch.onSaveNote = { _ in XCTFail() }
+        _ = repository.createNote()
+    }
+    
+    func testUpdateContentNotSavingIfEmpty() {
+        synch.onSaveNote = { _ in XCTFail() }
+        repository.update(Note(), content:"")
+    }
+    
+    func testCreateNoteNotSavesAccount() {
+        synch.onSaveAccount = { _ in XCTFail() }
+        _ = repository.createNote()
+    }
+    
+    func testNotAddingToAccountIfEmpty() {
+        synch.onSaveAccount = { _ in XCTFail() }
+        repository.update(Note(), content:"")
     }
 }

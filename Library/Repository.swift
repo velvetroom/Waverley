@@ -30,6 +30,7 @@ public class Repository {
             self.remove(note.id)
             self.add(note)
             self.update(self.notes)
+            self.select(note)
         }
         Factory.synch.start()
     }
@@ -37,7 +38,9 @@ public class Repository {
     public func update(_ note:Note, content:String) {
         note.content = content
         note.synchstamp = Date().timeIntervalSince1970
-        save()
+        if !content.isEmpty {
+            saveRemote()
+        }
         save(note)
     }
     
@@ -49,7 +52,8 @@ public class Repository {
     
     public func delete(_ note:Note) {
         remove(note.id)
-        save()
+        saveLocally()
+        saveRemote()
         Factory.storage.delete(note)
         newNote()
     }
@@ -96,7 +100,7 @@ public class Repository {
         account.notes.append(note.id)
         notes.append(note)
         sort()
-        save()
+        saveLocally()
         save(note)
     }
     
@@ -109,15 +113,20 @@ public class Repository {
         notes.sort { $0.created > $1.created }
     }
     
-    private func save() {
+    private func saveLocally() {
         Factory.storage.save(account)
+    }
+    
+    private func saveRemote() {
         Factory.synch.save(notes.reduce(into:[:], { result, note in
-          result[note.id] = note.synchstamp
+            result[note.id] = note.synchstamp
         } ))
     }
     
     private func save(_ note:Note) {
         Factory.storage.save(note)
-        Factory.synch.save(note)
+        if !note.content.isEmpty {
+            Factory.synch.save(note)
+        }
     }
 }
