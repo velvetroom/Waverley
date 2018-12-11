@@ -14,7 +14,7 @@ class View:UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         makeOutlets()
         listenKeyboard()
-        presenter.notes = { self.update($0) }
+        presenter.update = { self.update($0) }
         presenter.select = { self.select($0) }
         presenter.scrollToTop = { self.scrollToTop() }
         presenter.load()

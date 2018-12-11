@@ -14,19 +14,21 @@ class Presenter {
         }
     }
     
-    var notes:(([Note]) -> Void)!
+    var update:(([Note]) -> Void)!
     var select:((Note) -> Void)!
     var scrollToTop:(() -> Void)!
     private weak var timer:Timer?
-    private var notesSorted:[Note] { return repository.notes.values.sorted(by: { $0.created > $1.created }) }
     private let repository = Factory.makeRepository()
+    
+    init() {
+        repository.update = { notes in DispatchQueue.main.async { self.update(notes) } }
+        repository.select = { note in DispatchQueue.main.async { self.select(note) } }
+    }
     
     func load() {
         DispatchQueue.global(qos:.background).async {
             self.repository.load()
-            DispatchQueue.main.async {
-                self.updateAndSelect()
-            }
+            self.repository.startSynch()
         }
     }
     
@@ -38,23 +40,16 @@ class Presenter {
     
     func new() {
         saveIfNeeded()
-        updateAndSelect()
+        repository.newNote()
     }
     
     func delete() {
         repository.delete(selected.note)
-        updateAndSelect()
         scrollToTop()
     }
     
     func saveIfNeeded() {
         timer?.fire()
-    }
-    
-    private func updateAndSelect() {
-        let note = repository.editing()
-        notes(notesSorted)
-        select(note)
     }
     
     private func update(_ note:Note, content:String) {

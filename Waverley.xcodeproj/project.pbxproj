@@ -36,6 +36,7 @@
 		DA76267D21A6A3CD009EBF8F /* libMobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA76265A21A69D94009EBF8F /* libMobile.a */; };
 		DA76268021A6A416009EBF8F /* libDesktop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA76265B21A69D94009EBF8F /* libDesktop.a */; };
 		DA7DE6E221BF045100304059 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7DE6E121BF045100304059 /* CloudKit.framework */; };
+		DA7DE6E821BF3D2100304059 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA7DE6E721BF3D2100304059 /* CloudKit.framework */; };
 		DA89B51621B994EC00F16F31 /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51521B994EC00F16F31 /* HelpView.swift */; };
 		DA89B51821B9A98800F16F31 /* Printer.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51721B9A98800F16F31 /* Printer.swift */; };
 		DA89B51A21B9B24F00F16F31 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA89B51921B9B24F00F16F31 /* View.swift */; };
@@ -147,6 +148,8 @@
 		DA76267621A6A228009EBF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA76267921A6A234009EBF8F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DA7DE6E121BF045100304059 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
+		DA7DE6E621BF3CDB00304059 /* Mobile.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Mobile.entitlements; sourceTree = "<group>"; };
+		DA7DE6E721BF3D2100304059 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.1.sdk/System/Library/Frameworks/CloudKit.framework; sourceTree = DEVELOPER_DIR; };
 		DA89B51521B994EC00F16F31 /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
 		DA89B51721B9A98800F16F31 /* Printer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Printer.swift; sourceTree = "<group>"; };
 		DA89B51921B9B24F00F16F31 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
@@ -211,6 +214,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DA76267D21A6A3CD009EBF8F /* libMobile.a in Frameworks */,
+				DA7DE6E821BF3D2100304059 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +320,7 @@
 		DA76267B21A6A37D009EBF8F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DA7DE6E721BF3D2100304059 /* CloudKit.framework */,
 				DA7DE6E121BF045100304059 /* CloudKit.framework */,
 			);
 			name = Frameworks;
@@ -335,6 +340,7 @@
 				DA9727CE21AC227500911162 /* Mobile.plist */,
 				DA9727CF21AC227500911162 /* Desktop.plist */,
 				DA9727D021AC227500911162 /* Tests.plist */,
+				DA7DE6E621BF3CDB00304059 /* Mobile.entitlements */,
 				DA9727D121AC227500911162 /* Desktop.entitlements */,
 			);
 			path = Configuration;
@@ -523,6 +529,14 @@
 					};
 					DABA310121A696B40026BAB2 = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.iCloud = {
+								enabled = 1;
+							};
+						};
 					};
 					DABA311721A696D00026BAB2 = {
 						CreatedOnToolsVersion = 10.1;
@@ -1028,6 +1042,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Configuration/Mobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;
@@ -1097,6 +1112,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_ENTITLEMENTS = Configuration/Mobile.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				COPY_PHASE_STRIP = NO;

@@ -53,6 +53,7 @@ class Syncher:Synch {
         print("fetching in main \(Thread.main == Thread.current)")
         if let account = NSUbiquitousKeyValueStore.default.dictionary(
             forKey:"waverley.notes") as? [String:TimeInterval] {
+            print(account)
             updates(account)
         }
     }
