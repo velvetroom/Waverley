@@ -14,6 +14,16 @@ class Syncher:Synch {
     
     func load(_ id:String) {
         print("load \(id)")
+        DispatchQueue.global(qos:.background).async {
+            CKContainer(identifier:"iCloud.Waverley").publicCloudDatabase.fetch(withRecordID:.init(recordName:id))
+            { record, _ in
+                if let json = record?["json"] as? CKAsset,
+                    let data = try? Data(contentsOf:json.fileURL),
+                    let note = try? JSONDecoder().decode(Note.self, from:data) {
+                    self.loaded(note)
+                }
+            }
+        }
     }
     
     func save(_ account:[String:TimeInterval]) {
@@ -25,7 +35,7 @@ class Syncher:Synch {
     
     func save(_ note:Note) {
         DispatchQueue.global(qos:.background).async {
-            let record = CKRecord(recordType:"Note", recordID:CKRecord.ID(recordName:note.id))
+            let record = CKRecord(recordType:"Note", recordID:.init(recordName:note.id))
             record["json"] = CKAsset(fileURL:Storer.note(note))
             let operation = CKModifyRecordsOperation(recordsToSave:[record])
             operation.savePolicy = .allKeys
