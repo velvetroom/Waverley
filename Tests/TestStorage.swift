@@ -84,4 +84,19 @@ class TestStorage:XCTestCase {
         repository.delete(note)
         waitForExpectations(timeout:1)
     }
+    
+    func testRateSavesAccount() {
+        let expect = expectation(description:String())
+        storage.onSaveAccount = { expect.fulfill() }
+        repository.account.created = 3
+        _ = repository.rate()
+        waitForExpectations(timeout:1)
+    }
+    
+    func testNotRateSavesAccount() {
+        let expect = expectation(description:String())
+        storage.onSaveAccount = { expect.fulfill() }
+        _ = repository.rate()
+        waitForExpectations(timeout:1)
+    }
 }

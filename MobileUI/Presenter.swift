@@ -1,5 +1,6 @@
 import Foundation
 import Mobile
+import StoreKit
 
 class Presenter {
     weak var selected:ItemView! {
@@ -41,6 +42,7 @@ class Presenter {
     func new() {
         saveIfNeeded()
         repository.newNote()
+        if repository.rate() { if #available(iOS 10.3, *) { SKStoreReviewController.requestReview() } }
     }
     
     func delete() {

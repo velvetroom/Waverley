@@ -76,6 +76,24 @@ public class Repository {
         }
     }
     
+    public func rate() -> Bool {
+        var rating = false
+        account.created += 1
+        if (account.created % 4) == 0 {
+            if let last = account.rates.last,
+                let months = Calendar.current.dateComponents([.month], from:last, to:Date()).month {
+                rating = months < -1
+            } else {
+                rating = true
+            }
+        }
+        if rating {
+            account.rates.append(Date())
+        }
+        saveLocally()
+        return rating
+    }
+    
     func createNote() -> Note {
         if notes.first?.content.isEmpty != true {
             let note = Note()
