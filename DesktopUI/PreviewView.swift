@@ -6,8 +6,19 @@ class PreviewView:NSWindow {
     override var canBecomeKey:Bool { return true }
     
     init(_ note:Note) {
-        super.init(contentRect:NSRect(x:0, y:0, width:550, height:400), styleMask:
-            [.fullSizeContentView], backing:.buffered, defer:false)
+        super.init(contentRect:NSRect(x:0, y:0, width:550, height:Application.window!.frame.height),
+                   styleMask:[], backing:.buffered, defer:false)
+        isOpaque = false
+        backgroundColor = .clear
+        contentView!.wantsLayer = true
+        contentView!.layer!.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        contentView!.layer!.cornerRadius = 4
+        
+        let background = NSView()
+        background.translatesAutoresizingMaskIntoConstraints = false
+        background.wantsLayer = true
+        background.layer!.backgroundColor = NSColor.textBackgroundColor.withAlphaComponent(0.5).cgColor
+        contentView!.addSubview(background)
         
         let cancel = NSButton(title:.local("PreviewView.cancel"), target:self, action:#selector(self.cancel))
         cancel.translatesAutoresizingMaskIntoConstraints = false
@@ -42,8 +53,13 @@ class PreviewView:NSWindow {
         scroll.documentView = text
         self.text = text
         
+        background.topAnchor.constraint(equalTo:contentView!.topAnchor).isActive = true
+        background.bottomAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-80).isActive = true
+        background.leftAnchor.constraint(equalTo:contentView!.leftAnchor).isActive = true
+        background.rightAnchor.constraint(equalTo:contentView!.rightAnchor).isActive = true
+        
         scroll.topAnchor.constraint(equalTo:contentView!.topAnchor, constant:30).isActive = true
-        scroll.bottomAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-90).isActive = true
+        scroll.bottomAnchor.constraint(equalTo:contentView!.bottomAnchor, constant:-80).isActive = true
         scroll.leftAnchor.constraint(equalTo:contentView!.leftAnchor, constant:40).isActive = true
         scroll.rightAnchor.constraint(equalTo:contentView!.rightAnchor, constant:-40).isActive = true
         
