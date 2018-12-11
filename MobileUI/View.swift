@@ -2,13 +2,13 @@ import UIKit
 import Mobile
 
 class View:UIViewController, UITextViewDelegate {
+    let presenter = Presenter()
     private weak var text:TextView!
     private weak var items:UIView!
     private weak var keyList:UIButton!
     private weak var indicatorTop:NSLayoutConstraint!
     private weak var accessoryBottom:NSLayoutConstraint!
     private weak var accessoryHeight:NSLayoutConstraint!
-    private let presenter = Presenter()
     
     override func viewDidLoad() {
         super.viewDidLoad()

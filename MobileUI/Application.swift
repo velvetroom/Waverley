@@ -10,4 +10,8 @@ import UIKit
         window!.rootViewController = View()
         return true
     }
+    
+    func applicationWillResignActive(_:UIApplication) {
+        (window?.rootViewController as! View).presenter.saveIfNeeded()
+    }
 }

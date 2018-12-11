@@ -14,7 +14,6 @@ class Syncher:Synch {
     }
     
     func load(_ id:String) {
-        print("load \(id)")
         DispatchQueue.global(qos:.background).async {
             CKContainer(identifier:"iCloud.Waverley").publicCloudDatabase.fetch(withRecordID:.init(recordName:id))
             { record, _ in
@@ -55,10 +54,8 @@ class Syncher:Synch {
     }
     
     private func fetch() {
-        print("fetching in main \(Thread.main == Thread.current)")
         if let account = NSUbiquitousKeyValueStore.default.dictionary(
             forKey:"waverley.notes") as? [String:TimeInterval] {
-            print(account)
             updates(account)
         }
     }

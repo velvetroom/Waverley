@@ -119,7 +119,9 @@ public class Repository {
     
     private func saveRemote() {
         Factory.synch.save(notes.reduce(into:[:], { result, note in
-            result[note.id] = note.synchstamp
+            if !note.content.isEmpty {
+                result[note.id] = note.synchstamp
+            }
         } ))
     }
     

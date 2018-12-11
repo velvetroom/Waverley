@@ -53,7 +53,7 @@ class Presenter {
     }
     
     private func update(_ note:Note, content:String) {
-        timer = Timer.scheduledTimer(timeInterval:0.9, target:self, selector:#selector(timeout(timer:)), userInfo:
+        timer = Timer.scheduledTimer(timeInterval:5, target:self, selector:#selector(timeout(timer:)), userInfo:
             ["note":note, "content":content], repeats:false)
     }
     

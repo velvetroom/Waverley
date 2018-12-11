@@ -133,6 +133,22 @@ class TestSynch:XCTestCase {
         waitForExpectations(timeout:1)
     }
     
+    func testUpdateContentSavesAccountOnlyNonEmpty() {
+        let expect = expectation(description:String())
+        synch.onSaveAccount = { account in
+            XCTAssertEqual(1, account.count)
+            XCTAssertEqual("b", account.keys.first!)
+            expect.fulfill()
+        }
+        let noteA = Note()
+        noteA.id = "a"
+        let noteB = Note()
+        noteB.id = "b"
+        repository.notes = [noteA, noteB]
+        repository.update(noteB, content:"hello world")
+        waitForExpectations(timeout:1)
+    }
+    
     func testNotSavingIfContentEmpty() {
         synch.onSaveNote = { _ in XCTFail() }
         _ = repository.createNote()
