@@ -259,7 +259,7 @@ class View:UIViewController, UITextViewDelegate {
         keyList.isSelected.toggle()
         if keyList.isSelected {
             text.resignFirstResponder()
-            accessoryHeight.constant = 300
+            accessoryHeight.constant = min(view.frame.width, view.frame.height)
         } else {
             accessoryHeight.constant = 54
             text.becomeFirstResponder()
