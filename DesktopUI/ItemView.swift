@@ -5,7 +5,13 @@ class ItemView:NSControl {
     private(set) weak var note:Note!
     private weak var field:NSTextField!
     override var intrinsicContentSize:NSSize { return NSSize(width:250, height:60) }
-    var selected = false { didSet { update() } }
+    var selected = false { didSet {
+        if selected {
+            layer!.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        } else {
+            layer!.backgroundColor = NSColor.clear.cgColor
+        }
+    } }
     
     init(_ note:Note) {
         self.note = note
@@ -30,7 +36,6 @@ class ItemView:NSControl {
         field.heightAnchor.constraint(equalToConstant:36).isActive = true
         
         update(note.content)
-        update()
     }
     
     required init?(coder:NSCoder) { return nil }
@@ -39,17 +44,29 @@ class ItemView:NSControl {
         field.stringValue = String(content.prefix(120))
     }
     
-    override func mouseDown(with:NSEvent) {
-        if !selected {
-            sendAction(action, to:target)
+    func search(_ term:String) {
+        if let range = note.content.range(of:term, options:.caseInsensitive) {
+            if range.lowerBound != note.content.startIndex {
+                field.stringValue = "..."
+            } else {
+                field.stringValue = ""
+            }
+            field.stringValue += String(note.content[range.lowerBound...].prefix(100))
+            field.alphaValue = 1
+        } else {
+            update(note.content)
+            field.alphaValue = 0.2
         }
     }
     
-    private func update() {
-        if selected {
-            layer!.backgroundColor = NSColor.windowBackgroundColor.cgColor
-        } else {
-            layer!.backgroundColor = NSColor.clear.cgColor
+    func clearSearch() {
+        update(note.content)
+        field.alphaValue = 0.7
+    }
+    
+    override func mouseDown(with:NSEvent) {
+        if !selected {
+            sendAction(action, to:target)
         }
     }
 }

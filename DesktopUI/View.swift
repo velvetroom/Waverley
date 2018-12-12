@@ -105,12 +105,24 @@ class View:NSView, NSTextViewDelegate {
         border.layer!.backgroundColor = NSColor.windowBackgroundColor.cgColor
         addSubview(border)
         
+        let search = NSSearchField()
+        search.translatesAutoresizingMaskIntoConstraints = false
+        search.refusesFirstResponder = true
+        search.focusRingType = .none
+        search.target = self
+        search.action = #selector(search(_:))
+        addSubview(search)
+        
         scroll.topAnchor.constraint(equalTo:topAnchor, constant:38).isActive = true
         scroll.leftAnchor.constraint(equalTo:list.rightAnchor).isActive = true
         scroll.rightAnchor.constraint(equalTo:rightAnchor).isActive = true
         scroll.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
         
-        list.topAnchor.constraint(equalTo:scroll.topAnchor).isActive = true
+        search.topAnchor.constraint(equalTo:scroll.topAnchor).isActive = true
+        search.widthAnchor.constraint(equalToConstant:230).isActive = true
+        search.rightAnchor.constraint(equalTo:list.rightAnchor, constant:-10).isActive = true
+        
+        list.topAnchor.constraint(equalTo:search.bottomAnchor, constant:20).isActive = true
         list.leftAnchor.constraint(equalTo:leftAnchor).isActive = true
         list.bottomAnchor.constraint(equalTo:bottomAnchor).isActive = true
         listWidth = list.widthAnchor.constraint(equalToConstant:0)
@@ -185,5 +197,13 @@ class View:NSView, NSTextViewDelegate {
         updateTextHeight()
         text.scrollRangeToVisible(NSRange())
         text.setSelectedRange(NSRange())
+    }
+    
+    @objc private func search(_ field:NSSearchField) {
+        if field.stringValue.isEmpty {
+            list.documentView!.subviews.forEach { ($0 as! ItemView).clearSearch() }
+        } else {
+            list.documentView!.subviews.forEach { ($0 as! ItemView).search(field.stringValue) }
+        }
     }
 }
