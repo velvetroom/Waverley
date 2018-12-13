@@ -1,6 +1,7 @@
 import UIKit
 
 class TextStorage:NSTextStorage {
+    weak var view:TextView!
     override var string:String { return storage.string }
     private var process = 0
     private let queue = DispatchQueue(label:String(), qos:.background, target:.global(qos:.background))
@@ -12,7 +13,7 @@ class TextStorage:NSTextStorage {
     
     override func replaceCharacters(in range:NSRange, with str:String) {
         storage.replaceCharacters(in:range, with:str)
-        super.edited(.editedCharacters, range:range, changeInLength:(str as NSString).length - range.length)
+        edited(.editedCharacters, range:range, changeInLength:(str as NSString).length - range.length)
     }
     
     override func setAttributes(_ attrs:[NSAttributedString.Key:Any]?, range:NSRange) {
@@ -22,6 +23,8 @@ class TextStorage:NSTextStorage {
     override func processEditing() {
         queue.suspend()
         process += 1
+        super.processEditing()
+        
         let current = process
         queue.async {
             let ranges = self.ranges(self.storage.string, process:current)
@@ -32,7 +35,6 @@ class TextStorage:NSTextStorage {
             }
         }
         queue.resume()
-        super.processEditing()
     }
     
     private func ranges(_ string:String, process:Int) -> ([NSRange], [NSRange]) {
@@ -56,11 +58,12 @@ class TextStorage:NSTextStorage {
     
     private func updates(_ ranges:([NSRange], [NSRange]), process:Int) {
         if process == self.process {
-            self.storage.removeAttribute(.font, range:NSMakeRange(0, self.storage.length))
+            storage.removeAttribute(.font, range:NSMakeRange(0, storage.length))
             if process == self.process {
-                ranges.0.forEach { self.storage.addAttribute(.font, value:UIFont.editorLight(16), range:$0) }
+                ranges.0.forEach { storage.addAttribute(.font, value:UIFont.editorLight(16), range:$0) }
                 if process == self.process {
-                    ranges.1.forEach { self.storage.addAttribute(.font, value:UIFont.editorBold(18), range:$0) }
+                    ranges.1.forEach { storage.addAttribute(.font, value:UIFont.editorBold(16), range:$0) }
+                    view.setNeedsDisplay()
                 }
             }
         }

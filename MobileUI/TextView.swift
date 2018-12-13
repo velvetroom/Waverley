@@ -10,6 +10,7 @@ class TextView:UITextView {
         storage.addLayoutManager(layout)
         layout.addTextContainer(container)
         super.init(frame:.zero, textContainer:container)
+        storage.view = self
         translatesAutoresizingMaskIntoConstraints = false
         backgroundColor = .clear
         indicatorStyle = .white

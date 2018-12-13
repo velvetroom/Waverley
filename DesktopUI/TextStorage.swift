@@ -22,6 +22,8 @@ class TextStorage:NSTextStorage {
     override func processEditing() {
         queue.suspend()
         process += 1
+        super.processEditing()
+        
         let current = process
         queue.async {
             let ranges = self.ranges(self.storage.string, process:current)
@@ -32,7 +34,6 @@ class TextStorage:NSTextStorage {
             }
         }
         queue.resume()
-        super.processEditing()
     }
     
     private func ranges(_ string:String, process:Int) -> ([NSRange], [NSRange]) {
@@ -56,11 +57,11 @@ class TextStorage:NSTextStorage {
     
     private func updates(_ ranges:([NSRange], [NSRange]), process:Int) {
         if process == self.process {
-            self.storage.removeAttribute(.font, range:NSMakeRange(0, self.storage.length))
+            storage.removeAttribute(.font, range:NSMakeRange(0, storage.length))
             if process == self.process {
-                ranges.0.forEach { self.storage.addAttribute(.font, value:NSFont.editorLight(18), range:$0) }
+                ranges.0.forEach { storage.addAttribute(.font, value:NSFont.editorLight(14), range:$0) }
                 if process == self.process {
-                    ranges.1.forEach { self.storage.addAttribute(.font, value:NSFont.editorBold(18), range:$0) }
+                    ranges.1.forEach { storage.addAttribute(.font, value:NSFont.editorBold(14), range:$0) }
                 }
             }
         }
