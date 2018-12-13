@@ -1,11 +1,11 @@
 import AppKit
 
-class TextView:NSTextView, NSTextStorageDelegate {
+class TextView:NSTextView {
     static let lineHeight:CGFloat = 36
 
     init() {
         let container = NSTextContainer()
-        let storage = NSTextStorage()
+        let storage = TextStorage()
         let layout = TextLayout()
         storage.addLayoutManager(layout)
         layout.addTextContainer(container)
@@ -18,7 +18,7 @@ class TextView:NSTextView, NSTextStorageDelegate {
         textContainerInset.height = 50
         isRichText = false
         insertionPointColor = .scottBlue
-        storage.delegate = self
+        font = .editorLight(18)
     }
     
     required init?(coder:NSCoder) { return nil }
@@ -28,25 +28,56 @@ class TextView:NSTextView, NSTextStorageDelegate {
         rect.size.width = 4
         super.drawInsertionPoint(in:rect, color:color, turnedOn:turnedOn)
     }
+
     
-    func textStorage(_ storage:NSTextStorage, didProcessEditing:NSTextStorageEditActions, range:NSRange,
+    func a(_ notification: Notification) {
+        let storage = notification.object as! NSTextStorage
+        storage.removeAttribute(.font, range:NSMakeRange(0, storage.length))
+        let ranges = self.makeRanges(storage.string)
+        
+        ranges.0.forEach { storage.addAttribute(.font, value:NSFont.editorLight(18), range:$0) }
+        ranges.1.forEach { storage.addAttribute(.font, value:NSFont.editorBold(18), range:$0) }
+
+    }
+    
+    /*
+    
+    func textStorage(_ storage:NSTextStorage, didProcessEditing actions:NSTextStorageEditActions, range:NSRange,
                      changeInLength:Int) {
         storage.removeAttribute(.font, range:NSMakeRange(0, storage.length))
+        let ranges = self.makeRanges(storage.string)
+        
+        ranges.0.forEach { storage.addAttribute(.font, value:NSFont.editorLight(18), range:$0) }
+        ranges.1.forEach { storage.addAttribute(.font, value:NSFont.editorBold(18), range:$0) }
+        if actions == .editedCharacters {
+            
+            DispatchQueue.global(qos:.background).async {
+                
+                DispatchQueue.main.async {
+                    
+                }
+            }
+            print("char")
+        } else {
+            print("attributes")
+        }
+    }*/
+    
+    private func makeRanges(_ string:String) -> ([NSRange], [NSRange]) {
         var lights = [NSRange]()
         var bolds = [NSRange]()
-        var start = storage.string.startIndex
-        while let index = storage.string[start...].firstIndex(of:"#") {
-            lights.append(NSRange(start..<index, in:storage.string))
-            if let endHeading = storage.string[index...].firstIndex(of:"\n") {
-                bolds.append(NSRange(index...endHeading, in:storage.string))
+        var start = string.startIndex
+        while let index = string[start...].firstIndex(of:"#") {
+            lights.append(NSRange(start..<index, in:string))
+            if let endHeading = string[index...].firstIndex(of:"\n") {
+                bolds.append(NSRange(index...endHeading, in:string))
                 start = endHeading
             } else {
-                bolds.append(NSRange(index..., in:storage.string))
-                start = storage.string.endIndex
+                bolds.append(NSRange(index..., in:string))
+                start = string.endIndex
             }
         }
-        lights.append(NSRange(start..., in:storage.string))
-        lights.forEach { storage.addAttribute(.font, value:NSFont.editorLight(18), range:$0) }
-        bolds.forEach { storage.addAttribute(.font, value:NSFont.editorBold(18), range:$0) }
+        lights.append(NSRange(start..., in:string))
+        return (lights, bolds)
     }
 }

@@ -13,6 +13,7 @@
 		DA06AFBA21B44C0800F4F6E9 /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06AFB921B44C0800F4F6E9 /* Trait.swift */; };
 		DA06AFBB21B44C0800F4F6E9 /* Trait.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06AFB921B44C0800F4F6E9 /* Trait.swift */; };
 		DA06AFBD21B44EFE00F4F6E9 /* TestMarkdown.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA06AFBC21B44EFE00F4F6E9 /* TestMarkdown.swift */; };
+		DA1762E021C26C4E00B1A9EF /* TextStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1762DF21C26C4E00B1A9EF /* TextStorage.swift */; };
 		DA1E532821A6B0A200A5A680 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532721A6B0A200A5A680 /* View.swift */; };
 		DA1E532C21A6FDE800A5A680 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA1E532B21A6FDE800A5A680 /* Assets.xcassets */; };
 		DA1E532E21A704BD00A5A680 /* Window.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1E532D21A704BD00A5A680 /* Window.swift */; };
@@ -126,6 +127,7 @@
 		DA06AFB621B44A5000F4F6E9 /* Markdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Markdown.swift; sourceTree = "<group>"; };
 		DA06AFB921B44C0800F4F6E9 /* Trait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trait.swift; sourceTree = "<group>"; };
 		DA06AFBC21B44EFE00F4F6E9 /* TestMarkdown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMarkdown.swift; sourceTree = "<group>"; };
+		DA1762DF21C26C4E00B1A9EF /* TextStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStorage.swift; sourceTree = "<group>"; };
 		DA1E532721A6B0A200A5A680 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
 		DA1E532B21A6FDE800A5A680 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA1E532D21A704BD00A5A680 /* Window.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Window.swift; sourceTree = "<group>"; };
@@ -307,6 +309,7 @@
 				DA1E532721A6B0A200A5A680 /* View.swift */,
 				DAA6A98421AE83A2009D13B9 /* TextView.swift */,
 				DA8CDE0821B00ABB00CE4BE4 /* TextLayout.swift */,
+				DA1762DF21C26C4E00B1A9EF /* TextStorage.swift */,
 				DA9727C521ABE0CD00911162 /* DeleteView.swift */,
 				DA89B51521B994EC00F16F31 /* HelpView.swift */,
 				DACE759F21A7EA9D00B704C3 /* DocumentView.swift */,
@@ -684,6 +687,7 @@
 				DA9727CA21ABE1AD00911162 /* String.swift in Sources */,
 				DAA6A98521AE83A2009D13B9 /* TextView.swift in Sources */,
 				DAA7914921B72D670003C45B /* PreviewView.swift in Sources */,
+				DA1762E021C26C4E00B1A9EF /* TextStorage.swift in Sources */,
 				DACE75A421A8351C00B704C3 /* Presenter.swift in Sources */,
 				DA76266B21A6A1D0009EBF8F /* Application.swift in Sources */,
 				DA43810E21AAAE4600BE7895 /* NSColor.swift in Sources */,

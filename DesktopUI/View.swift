@@ -197,6 +197,9 @@ class View:NSView, NSTextViewDelegate {
         updateTextHeight()
         text.scrollRangeToVisible(NSRange())
         text.setSelectedRange(NSRange())
+        if Application.window!.firstResponder !== text {
+            Application.window!.makeFirstResponder(text)
+        }
     }
     
     @objc private func search(_ field:NSSearchField) {
