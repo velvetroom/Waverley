@@ -264,8 +264,10 @@ class View:UIViewController, UITextViewDelegate {
             accessoryHeight.constant = 54
             text.becomeFirstResponder()
         }
-        UIView.animate(withDuration:0.3) {
+        UIView.animate(withDuration:0.3, animations: {
             self.view.layoutIfNeeded()
+        } ) { _ in
+            self.text.setNeedsDisplay()
         }
     }
     

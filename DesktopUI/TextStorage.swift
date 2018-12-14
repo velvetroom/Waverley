@@ -59,9 +59,9 @@ class TextStorage:NSTextStorage {
         if process == self.process {
             storage.removeAttribute(.font, range:NSMakeRange(0, storage.length))
             if process == self.process {
-                ranges.0.forEach { storage.addAttribute(.font, value:NSFont.editorLight(14), range:$0) }
+                ranges.0.forEach { storage.addAttribute(.font, value:NSFont.editorLight(18), range:$0) }
                 if process == self.process {
-                    ranges.1.forEach { storage.addAttribute(.font, value:NSFont.editorBold(14), range:$0) }
+                    ranges.1.forEach { storage.addAttribute(.font, value:NSFont.editorBold(18), range:$0) }
                 }
             }
         }
