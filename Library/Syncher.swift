@@ -39,7 +39,7 @@ class Syncher:Synch {
         if registered {
             DispatchQueue.global(qos:.background).async {
                 let record = CKRecord(recordType:"Note", recordID:.init(recordName:note.id))
-                record["json"] = CKAsset(fileURL:Storer.note(note))
+                record["json"] = CKAsset(fileURL:Storer.note(note.id))
                 let operation = CKModifyRecordsOperation(recordsToSave:[record])
                 operation.savePolicy = .allKeys
                 CKContainer(identifier:"iCloud.Waverley").publicCloudDatabase.add(operation)
