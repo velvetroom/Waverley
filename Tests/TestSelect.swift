@@ -6,8 +6,8 @@ class TestSelect:XCTestCase {
     
     override func setUp() {
         repository = Repository()
-        Factory.storage = MockStorage()
-        Factory.synch = MockSynch()
+        repository.storage = MockStorage()
+        repository.synch = MockSynch()
         repository.update = { _ in }
     }
     

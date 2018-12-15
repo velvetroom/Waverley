@@ -8,14 +8,10 @@ class TestStorage:XCTestCase {
     override func setUp() {
         repository = Repository()
         storage = MockStorage()
-        Factory.synch = MockSynch()
-        Factory.storage = storage
+        repository.synch = MockSynch()
+        repository.storage = storage
         repository.update = { _ in }
         repository.select = { _ in }
-    }
-    
-    override func tearDown() {
-        Factory.storage = MockStorage()
     }
     
     func testLoadGetsAccount() {

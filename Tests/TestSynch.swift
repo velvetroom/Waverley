@@ -10,15 +10,10 @@ class TestSynch:XCTestCase {
         repository = Repository()
         synch = MockSynch()
         storage = MockStorage()
-        Factory.storage = storage
-        Factory.synch = synch
+        repository.storage = storage
+        repository.synch = synch
         repository.select = { _ in }
         repository.update = { _ in }
-    }
-    
-    override func tearDown() {
-        Factory.synch = MockSynch()
-        Factory.storage = MockStorage()
     }
     
     func testUpdateItems() {

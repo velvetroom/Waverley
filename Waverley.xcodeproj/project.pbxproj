@@ -63,8 +63,6 @@
 		DACE75A421A8351C00B704C3 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75A321A8351C00B704C3 /* Presenter.swift */; };
 		DACE75A721A83CD700B704C3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75A621A83CD700B704C3 /* Repository.swift */; };
 		DACE75A821A83CD700B704C3 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75A621A83CD700B704C3 /* Repository.swift */; };
-		DACE75AC21A83D3700B704C3 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75AB21A83D3700B704C3 /* Factory.swift */; };
-		DACE75AD21A83D3700B704C3 /* Factory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75AB21A83D3700B704C3 /* Factory.swift */; };
 		DACE75B121A83EEE00B704C3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B021A83EEE00B704C3 /* Storage.swift */; };
 		DACE75B221A83EEE00B704C3 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B021A83EEE00B704C3 /* Storage.swift */; };
 		DACE75B621A852C100B704C3 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75B521A852C100B704C3 /* Account.swift */; };
@@ -74,7 +72,6 @@
 		DACE75BC21A85B6D00B704C3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75BB21A85B6D00B704C3 /* Note.swift */; };
 		DACE75BD21A85B6D00B704C3 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75BB21A85B6D00B704C3 /* Note.swift */; };
 		DACE75C921A8666200B704C3 /* libDesktop.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DA76265B21A69D94009EBF8F /* libDesktop.a */; };
-		DACE75D521A866AE00B704C3 /* TestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75D021A866AE00B704C3 /* TestFactory.swift */; };
 		DACE75D621A866AE00B704C3 /* MockStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75D121A866AE00B704C3 /* MockStorage.swift */; };
 		DACE75D721A866AE00B704C3 /* TestStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75D221A866AE00B704C3 /* TestStorage.swift */; };
 		DACE75D821A866AE00B704C3 /* TestNote.swift in Sources */ = {isa = PBXBuildFile; fileRef = DACE75D321A866AE00B704C3 /* TestNote.swift */; };
@@ -179,7 +176,6 @@
 		DACE75A121A82EE800B704C3 /* ItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemView.swift; sourceTree = "<group>"; };
 		DACE75A321A8351C00B704C3 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		DACE75A621A83CD700B704C3 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
-		DACE75AB21A83D3700B704C3 /* Factory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Factory.swift; sourceTree = "<group>"; };
 		DACE75B021A83EEE00B704C3 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		DACE75B521A852C100B704C3 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
 		DACE75B821A856AB00B704C3 /* Exception.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Exception.swift; sourceTree = "<group>"; };
@@ -187,7 +183,6 @@
 		DACE75C421A8666200B704C3 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DACE75C621A8666200B704C3 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		DACE75C821A8666200B704C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DACE75D021A866AE00B704C3 /* TestFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFactory.swift; sourceTree = "<group>"; };
 		DACE75D121A866AE00B704C3 /* MockStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockStorage.swift; sourceTree = "<group>"; };
 		DACE75D221A866AE00B704C3 /* TestStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestStorage.swift; sourceTree = "<group>"; };
 		DACE75D321A866AE00B704C3 /* TestNote.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestNote.swift; sourceTree = "<group>"; };
@@ -378,7 +373,6 @@
 			isa = PBXGroup;
 			children = (
 				DACE75A621A83CD700B704C3 /* Repository.swift */,
-				DACE75AB21A83D3700B704C3 /* Factory.swift */,
 				DACE75B021A83EEE00B704C3 /* Storage.swift */,
 				DA6D7E9E21BD27E30056969A /* Storer.swift */,
 				DABA710E21BE8A13000AEC28 /* Synch.swift */,
@@ -404,7 +398,6 @@
 		DACE75CF21A866AE00B704C3 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				DACE75D021A866AE00B704C3 /* TestFactory.swift */,
 				DACE75D221A866AE00B704C3 /* TestStorage.swift */,
 				DA6D7EA121BD2F890056969A /* TestSynch.swift */,
 				DA4DA2E121BFF2A9005A49E6 /* TestRate.swift */,
@@ -629,7 +622,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DACE75AC21A83D3700B704C3 /* Factory.swift in Sources */,
 				DACE75B921A856AB00B704C3 /* Exception.swift in Sources */,
 				DA06AFBA21B44C0800F4F6E9 /* Trait.swift in Sources */,
 				DABA711621BE8A71000AEC28 /* Syncher.swift in Sources */,
@@ -647,7 +639,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DACE75AD21A83D3700B704C3 /* Factory.swift in Sources */,
 				DACE75BA21A856AB00B704C3 /* Exception.swift in Sources */,
 				DA06AFBB21B44C0800F4F6E9 /* Trait.swift in Sources */,
 				DABA711521BE8A70000AEC28 /* Syncher.swift in Sources */,
@@ -711,7 +702,6 @@
 				DA738C5321A9B06D00E51D93 /* TestEditing.swift in Sources */,
 				DACE75D621A866AE00B704C3 /* MockStorage.swift in Sources */,
 				DACE75D721A866AE00B704C3 /* TestStorage.swift in Sources */,
-				DACE75D521A866AE00B704C3 /* TestFactory.swift in Sources */,
 				DABA711221BE8A39000AEC28 /* MockSynch.swift in Sources */,
 				DACE75D821A866AE00B704C3 /* TestNote.swift in Sources */,
 				DA6D7EA421BD32960056969A /* TestUpdate.swift in Sources */,

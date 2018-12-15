@@ -18,7 +18,7 @@ class Presenter {
     var update:(([Note]) -> Void)!
     var select:((Note) -> Void)!
     private weak var timer:Timer?
-    private let repository = Factory.makeRepository()
+    private let repository = Repository()
     
     init() {
         repository.update = { notes in DispatchQueue.main.async { self.update(notes) } }

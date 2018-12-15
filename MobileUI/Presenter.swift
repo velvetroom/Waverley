@@ -19,7 +19,7 @@ class Presenter {
     var select:((Note) -> Void)!
     var scrollToTop:(() -> Void)!
     private weak var timer:Timer?
-    private let repository = Factory.makeRepository()
+    private let repository = Repository()
     
     init() {
         repository.update = { notes in DispatchQueue.main.async { self.update(notes) } }
