@@ -6,7 +6,7 @@ public class Repository {
     var storage:Storage = Storer()
     var synch:Synch = Syncher()
     var notes = [Note]()
-    private(set) var account = Account()
+    var account = Account()
     
     public init() { }
     
