@@ -99,14 +99,15 @@ public class Repository {
     }
     
     func createNote() -> Note {
-        if notes.first?.content.isEmpty != true {
-            let note = Note()
-            note.id = UUID().uuidString
-            note.created = Date().timeIntervalSince1970
-            note.synchstamp = note.created
-            add(note)
+        if let empty = notes.first(where: { $0.content.isEmpty } ) {
+            return empty
         }
-        return notes.first!
+        let note = Note()
+        note.id = UUID().uuidString
+        note.created = Date().timeIntervalSince1970
+        note.synchstamp = note.created
+        add(note)
+        return note
     }
     
     private func loadNotes() {
