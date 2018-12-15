@@ -8,8 +8,7 @@ class Storer:Storage {
     
     func account() throws -> Account {
         avoidBackup()
-        return try JSONDecoder().decode(Account.self, from:try Data(contentsOf:
-            Storer.url.appendingPathComponent("Account.waverley")))
+        return try JSONDecoder().decode(Account.self, from:try Data(contentsOf:Storer.account))
     }
     
     func note(_ id:String) -> Note {
