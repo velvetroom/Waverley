@@ -38,7 +38,7 @@ class PreviewView:UIViewController {
         text.indicatorStyle = .white
         text.contentInset = .zero
         text.textContainerInset = UIEdgeInsets(top:20, left:8, bottom:40, right:8)
-        text.attributedText = Printer.print(note.content, size:14)
+        text.attributedText = Printer.print(note.content, size:16)
         text.textColor = .white
         view.addSubview(text)
         
