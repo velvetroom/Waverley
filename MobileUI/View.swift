@@ -272,11 +272,13 @@ class View:UIViewController, UITextViewDelegate {
     }
     
     @objc private func select(item:ItemView) {
-        presenter.selected = item
-        text.text = item.note.content
-        text.scrollRangeToVisible(NSRange())
-        text.selectedRange = NSRange()
-        scrollTo(item.frame)
+        if presenter.selected !== item {
+            presenter.selected = item
+            text.text = item.note.content
+            text.scrollRangeToVisible(NSRange())
+            text.selectedRange = NSRange()
+            scrollTo(item.frame)
+        }
     }
     
     @objc private func new() {
