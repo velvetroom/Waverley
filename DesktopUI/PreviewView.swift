@@ -6,8 +6,13 @@ class PreviewView:NSWindow {
     override var canBecomeKey:Bool { return true }
     
     init(_ note:Note) {
-        super.init(contentRect:NSRect(x:0, y:0, width:550, height:Application.window!.frame.height),
+        super.init(contentRect:NSRect(x:0, y:0, width:550, height:Application.window!.frame.height - 2),
                    styleMask:[], backing:.buffered, defer:false)
+        isOpaque = false
+        backgroundColor = .clear
+        contentView!.wantsLayer = true
+        contentView!.layer!.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        contentView!.layer!.cornerRadius = 4
         
         let background = NSView()
         background.translatesAutoresizingMaskIntoConstraints = false

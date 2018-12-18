@@ -4,8 +4,13 @@ class DeleteView:NSWindow {
     override var canBecomeKey:Bool { return true }
 
     init() {
-        super.init(contentRect:NSRect(x:0, y:0, width:180, height:Application.window!.frame.height),
+        super.init(contentRect:NSRect(x:0, y:0, width:180, height:Application.window!.frame.height - 2),
                    styleMask:[], backing:.buffered, defer:false)
+        isOpaque = false
+        backgroundColor = .clear
+        contentView!.wantsLayer = true
+        contentView!.layer!.backgroundColor = NSColor.windowBackgroundColor.cgColor
+        contentView!.layer!.cornerRadius = 4
         
         let cancel = NSButton(title:.local("DeleteView.cancel"), target:self, action:#selector(self.cancel))
         cancel.translatesAutoresizingMaskIntoConstraints = false
