@@ -68,7 +68,7 @@ class PreviewView:NSWindow {
     }
     
     @objc private func cancel() {
-        Application.window.endSheet(Application.window.attachedSheet!)
+        Application.window.endSheet(self)
     }
     
     @objc private func pdf() {

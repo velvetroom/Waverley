@@ -33,10 +33,10 @@ class DeleteView:NSWindow {
     }
     
     @objc private func cancel() {
-        Application.window.endSheet(Application.window.attachedSheet!, returnCode:.cancel)
+        Application.window.endSheet(self, returnCode:.cancel)
     }
     
     @objc private func delete() {
-        Application.window.endSheet(Application.window.attachedSheet!, returnCode:.continue)
+        Application.window.endSheet(self, returnCode:.continue)
     }
 }
