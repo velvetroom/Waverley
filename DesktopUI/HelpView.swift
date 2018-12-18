@@ -1,7 +1,7 @@
 import AppKit
 
 class HelpView:NSWindow {
-    override var canBecomeKey: Bool { return true }
+    override var canBecomeKey:Bool { return true }
     
     init() {
         super.init(contentRect:NSRect(x:0, y:0, width:440, height:280), styleMask:

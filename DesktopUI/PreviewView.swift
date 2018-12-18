@@ -8,8 +8,6 @@ class PreviewView:NSWindow {
     init(_ note:Note) {
         super.init(contentRect:NSRect(x:0, y:0, width:550, height:Application.window!.frame.height),
                    styleMask:[], backing:.buffered, defer:false)
-        isOpaque = false
-        backgroundColor = .windowBackgroundColor
         
         let background = NSView()
         background.translatesAutoresizingMaskIntoConstraints = false
